@@ -8,7 +8,7 @@ import {
   BarChart3,
   Bell,
   Settings,
-  Sparkles,
+  ScanEye,
   ChevronRight,
   ShieldCheck,
   Radio,
@@ -86,7 +86,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex items-center justify-between h-16 px-5 border-b border-charcoal-800">
           <div className="flex items-center space-x-3">
             <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-forest-700 to-forest-900 border border-forest-600/40 shadow-inner">
-              <Sparkles className="w-5 h-5 text-forest-200" />
+              <ScanEye className="w-5 h-5 text-forest-200" />
               <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
