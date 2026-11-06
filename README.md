@@ -49,15 +49,3 @@ src/
 ├── App.tsx                # Central router configuration
 └── main.tsx               # Entrypoint
 ```
-
-## 🚀 Getting Started
-```bash
-# Navigate to the project directory
-cd C:\Users\Abid\.gemini\antigravity\scratch\dinesight-ai
-
-# Start local development server
-npm run dev
-
-# Run production build & verify TypeScript
-npm run build
-```
