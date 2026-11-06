@@ -35,51 +35,74 @@ export const LiveActivityFeed: React.FC<LiveActivityFeedProps> = ({
 
   return (
     <Card className="flex flex-col">
-      <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
+      <CardHeader className="flex flex-col gap-3 pb-3 mb-4 border-b border-warm-100">
+        <div className="min-w-0">
           <div className="flex items-center space-x-2">
-            <span className="relative flex h-2.5 w-2.5">
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
             </span>
-            <CardTitle>Restaurant Live Activity & Vision Events</CardTitle>
+            <CardTitle className="text-sm font-bold tracking-tight text-charcoal-900">
+              Restaurant Live Activity & Vision Events
+            </CardTitle>
           </div>
-          <CardDescription>
+          <CardDescription className="text-xs text-charcoal-500 mt-1">
             Simulated automated detections, customer gestures, and server dispatch queue
           </CardDescription>
         </div>
 
         {/* Filter buttons */}
-        <div className="flex items-center space-x-1.5">
+        <div className="flex items-center gap-1.5 flex-wrap pt-0.5">
           <button
             onClick={() => setFilter('all')}
-            className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+            className={`h-7 px-3 rounded-lg text-xs font-semibold transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
               filter === 'all'
                 ? 'bg-forest-700 text-white shadow-xs'
                 : 'bg-warm-100 text-charcoal-600 hover:bg-warm-200'
             }`}
           >
-            All ({events.length})
+            <span>All</span>
+            <span
+              className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
+                filter === 'all' ? 'bg-forest-800/80 text-white' : 'bg-warm-200 text-charcoal-700'
+              }`}
+            >
+              {events.length}
+            </span>
           </button>
           <button
             onClick={() => setFilter('actionable')}
-            className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+            className={`h-7 px-3 rounded-lg text-xs font-semibold transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
               filter === 'actionable'
                 ? 'bg-amber-600 text-white shadow-xs'
                 : 'bg-warm-100 text-charcoal-600 hover:bg-warm-200'
             }`}
           >
-            Actionable ({events.filter((e) => e.status !== 'resolved').length})
+            <span>Actionable</span>
+            <span
+              className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
+                filter === 'actionable' ? 'bg-amber-700/80 text-white' : 'bg-warm-200 text-charcoal-700'
+              }`}
+            >
+              {events.filter((e) => e.status !== 'resolved').length}
+            </span>
           </button>
           <button
             onClick={() => setFilter('resolved')}
-            className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+            className={`h-7 px-3 rounded-lg text-xs font-semibold transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
               filter === 'resolved'
                 ? 'bg-forest-700 text-white shadow-xs'
                 : 'bg-warm-100 text-charcoal-600 hover:bg-warm-200'
             }`}
           >
-            Resolved
+            <span>Resolved</span>
+            <span
+              className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
+                filter === 'resolved' ? 'bg-forest-800/80 text-white' : 'bg-warm-200 text-charcoal-700'
+              }`}
+            >
+              {events.filter((e) => e.status === 'resolved').length}
+            </span>
           </button>
         </div>
       </CardHeader>
