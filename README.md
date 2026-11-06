@@ -2,7 +2,7 @@
 
 ### Enterprise AI Restaurant Operations & Intelligent Waiter Management System
 
-![Project Banner](https://placehold.co/1200x400/111827/FFFFFF?text=DineSight+AI+Restaurant+Operations)
+![DineSight AI - Executive Operations Dashboard](docs/screenshots/01-overview-dashboard.jpg)
 
 **DineSight AI** is a modern, high-performance restaurant operations management system designed for executive restaurant managers and floor supervisors. It combines multi-angle CCTV surveillance intelligence, computer vision table occupancy tracking, automated 5-minute waiter dispatch timers, and service analytics into a single centralized SaaS dashboard.
 
@@ -11,6 +11,7 @@
 ## 📌 Table of Contents
 
 - [Overview](#-overview)
+- [Interface Preview & Screenshots](#-interface-preview--screenshots)
 - [Key Features](#-key-features)
 - [System Architecture](#-system-architecture)
 - [Project Structure](#-project-structure)
@@ -34,6 +35,36 @@ Modern high-volume dining establishments face critical operational bottlenecks:
 - **SLA Countdown Engine:** Starts an automatic 5-minute countdown upon guest seating to ensure timely table-side attendance.
 - **Smart Staff Dispatch:** Automatically assigns the most available waiter based on active table load.
 - **Floor Telemetry:** Delivers real-time status updates across all 12 floor plan tables and dining zones.
+
+---
+
+## 📸 Interface Preview & Screenshots
+
+### 🖥️ 1. Executive Operations Console
+Real-time restaurant operations dashboard with instant KPI cards, customer wait-time distribution curves, dining zone occupancy breakdown, and live simulated vision incident streams.
+
+![Executive Operations Console](docs/screenshots/01-overview-dashboard.jpg)
+
+---
+
+### 📹 2. Multi-Angle CCTV Vision Matrix Wall
+4-camera synchronized live surveillance grid monitoring the Main Dining Room, Window Seating, Private VIP Suite, and Terrace Entrance with real-time neural bounding boxes, customer gesture indicators, and millisecond OSD telemetry.
+
+![Multi-Angle CCTV Vision Matrix Wall](docs/screenshots/02-cctv-quad-matrix.jpg)
+
+---
+
+### 🚨 3. Incident & Alert Dispatch Log
+Chronological event dispatch hub classifying computer-vision alerts (*Empty Glassware*, *Refill Needed*, *Check Requested*, *Dwell Time Escalation*) with direct one-click waiter dispatches and SLA resolution statuses.
+
+![Incident & Alert Dispatch Log](docs/screenshots/03-incidents-dispatch.jpg)
+
+---
+
+### 📈 4. Service Velocity & Operational Analytics
+Executive reporting suite tracking hourly diner volume vs. revenue velocity, turnover acceleration (-16m faster table turns), and waiter table-side response SLA compliance.
+
+![Service Velocity & Operational Analytics](docs/screenshots/04-service-analytics.jpg)
 
 ---
 
@@ -114,6 +145,13 @@ flowchart TD
 
 ```text
 dinesight-ai/
+├── docs/
+│   └── screenshots/               # Production UI screenshots & live system previews
+│       ├── 01-overview-dashboard.jpg
+│       ├── 02-cctv-quad-matrix.jpg
+│       ├── 03-incidents-dispatch.jpg
+│       └── 04-service-analytics.jpg
+│
 ├── public/
 │   ├── cctv-cam01.jpg             # Camera 01 — Main Dining Area CCTV
 │   ├── cctv-cam02.jpg             # Camera 02 — Window Seating CCTV
@@ -188,8 +226,8 @@ dinesight-ai/
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/dinesight-ai.git
-   cd dinesight-ai
+   git clone https://github.com/CodewithShahriar/DineSight-Ai.git
+   cd DineSight-Ai
    ```
 
 2. **Install Dependencies:**
