@@ -37,7 +37,7 @@ export const LiveMonitoring: React.FC = () => {
         subtitle="Real-time multi-angle restaurant surveillance synchronized with simulated computer vision object tracking, gesture flags, and customer dwell time monitoring."
         badge={
           <Badge variant="amber" dot>
-            4 Feeds Active • 1080p/4K
+            {cameras.length} Feeds Active • 1080p/4K
           </Badge>
         }
         actions={
@@ -76,7 +76,7 @@ export const LiveMonitoring: React.FC = () => {
                   : 'bg-warm-100 text-charcoal-700 hover:bg-warm-200'
               }`}
             >
-              Quad Grid View (All 4)
+              All Feeds Matrix ({cameras.length})
             </button>
 
             {cameras.map((c) => (
@@ -148,7 +148,7 @@ export const LiveMonitoring: React.FC = () => {
             </h3>
           </div>
           <span className="text-xs text-charcoal-500 font-mono">
-            4 Nodes Active • H.265 Hardware Acceleration
+            {cameras.length} Nodes Active • H.265 Hardware Acceleration
           </span>
         </div>
 

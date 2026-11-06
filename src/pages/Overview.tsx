@@ -203,7 +203,7 @@ export const Overview: React.FC = () => {
             <div>
               <CardTitle>Surveillance Telemetry & Hardware Nodes</CardTitle>
               <CardDescription>
-                Edge AI Vision inference running across 4 synchronous video feeds
+                Edge AI Vision inference running across {cameras.length} synchronous video feeds
               </CardDescription>
             </div>
           </div>

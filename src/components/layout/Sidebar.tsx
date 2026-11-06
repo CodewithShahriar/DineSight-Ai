@@ -172,7 +172,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           </div>
           <div className="text-[11px] text-charcoal-400 leading-tight">
-            4 Cameras Streaming
+            8 Cameras Streaming
           </div>
           <div className="mt-2 w-full bg-charcoal-800 rounded-full h-1.5 overflow-hidden">
             <div

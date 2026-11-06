@@ -71,11 +71,15 @@ Executive reporting suite tracking hourly diner volume vs. revenue velocity, tur
 ## ✨ Key Features
 
 ### 📹 1. Multi-Angle CCTV Vision Matrix
-- **4 Dedicated Camera Feeds:**
+- **8 Synchronized Commercial Restaurant Camera Feeds:**
   - `Camera 01` — Main Dining Area (Sector N-1)
   - `Camera 02` — Window Seating & Terrace Facade
   - `Camera 03` — Private Dining & VIP Banquette Suite
   - `Camera 04` — Entrance, Host Reception & Foyer Pass
+  - `Camera 05` — Kitchen Expediter & Hot Food Pickup Pass
+  - `Camera 06` — Bar Counter & Cocktail Lounge Station
+  - `Camera 07` — Front Desk, Reception & Cashier POS
+  - `Camera 08` — Outdoor Garden Terrace & Al-Fresco Dining
 - **Computer Vision Overlays:** Real-time bounding boxes with class tags, guest dwell duration, and gesture flags (`Hand Wave`, `Check Requested`, `Empty Glassware`).
 - **Surveillance Controls:**
   - High-frequency millisecond OSD timestamp clock (`YYYY-MM-DD HH:MM:SS.mmm`).
@@ -162,7 +166,11 @@ dinesight-ai/
 │   ├── cctv-cam01.jpg             # Camera 01 — Main Dining Area CCTV
 │   ├── cctv-cam02.jpg             # Camera 02 — Window Seating CCTV
 │   ├── cctv-cam03.jpg             # Camera 03 — Private Dining CCTV
-│   └── cctv-cam04.jpg             # Camera 04 — Entrance & Terrace CCTV
+│   ├── cctv-cam04.jpg             # Camera 04 — Entrance & Host Reception CCTV
+│   ├── cctv-cam05.jpg             # Camera 05 — Kitchen Expediter & Hot Pass CCTV
+│   ├── cctv-cam06.jpg             # Camera 06 — Bar & Cocktail Lounge CCTV
+│   ├── cctv-cam07.jpg             # Camera 07 — Front Desk & Cashier POS CCTV
+│   └── cctv-cam08.jpg             # Camera 08 — Outdoor Garden Terrace CCTV
 │
 ├── src/
 │   ├── components/
