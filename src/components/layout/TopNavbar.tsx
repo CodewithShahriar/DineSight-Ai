@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import { useClock } from '../../hooks/useClock'
 import { OperationsEvent } from '../../types'
+import { STAFF_AVATARS } from '../../utils/avatar'
 
 interface TopNavbarProps {
   onToggleSidebar: () => void
@@ -200,7 +201,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
           >
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120"
+                src={STAFF_AVATARS['MGR-001']}
                 alt="Arthur Pendelton"
                 className="w-8 h-8 rounded-full object-cover border border-forest-600/30"
               />

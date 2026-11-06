@@ -20,6 +20,7 @@ import { RestaurantTable, TableStatus } from '../../types'
 import { Button } from '../shared/Button'
 import { Badge } from '../shared/Badge'
 import { getStatusColor, formatCurrency } from '../../utils'
+import { STAFF_AVATARS } from '../../utils/avatar'
 
 interface TableInspectorProps {
   table: RestaurantTable | null
@@ -298,7 +299,7 @@ export const TableInspector: React.FC<TableInspectorProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <img
-                src={table.assignedWaiterAvatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=250'}
+                src={table.assignedWaiterAvatar || STAFF_AVATARS['EMP-101']}
                 alt={table.assignedWaiterName}
                 className="w-10 h-10 rounded-full object-cover border border-warm-200 shrink-0"
               />
