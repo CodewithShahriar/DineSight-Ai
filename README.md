@@ -1,252 +1,112 @@
 # 🍽️ DineSight AI
-### AI-Powered Restaurant Table Occupancy & Waiter Assignment System
 
-![Project Banner](https://placehold.co/1200x400/111827/FFFFFF?text=DineSight+AI)
+### Enterprise AI Restaurant Operations & Intelligent Waiter Management System
 
-**DineSight AI** is a modern restaurant operations management dashboard designed to simulate AI-powered table occupancy monitoring, customer detection, intelligent waiter assignment, and real-time restaurant service tracking.
+![Project Banner](https://placehold.co/1200x400/111827/FFFFFF?text=DineSight+AI+Restaurant+Operations)
 
-The project demonstrates how AI-powered CCTV monitoring and smart automation could improve restaurant efficiency, reduce customer waiting time, and optimize waiter workload.
-
-> ⚠️ **Demo Project:** This is a frontend-only demonstration project. AI detection, CCTV monitoring, customer tracking, notifications, and waiter assignment are simulated. No real CCTV feed, AI API, backend server, or database is connected.
+**DineSight AI** is a modern, high-performance restaurant operations management system designed for executive restaurant managers and floor supervisors. It combines multi-angle CCTV surveillance intelligence, computer vision table occupancy tracking, automated 5-minute waiter dispatch timers, and service analytics into a single centralized SaaS dashboard.
 
 ---
 
 ## 📌 Table of Contents
 
 - [Overview](#-overview)
-- [Project Objectives](#-project-objectives)
 - [Key Features](#-key-features)
-- [System Workflow](#-system-workflow)
-- [Dashboard Modules](#-dashboard-modules)
-- [Technology Stack](#-technology-stack)
+- [System Architecture](#-system-architecture)
 - [Project Structure](#-project-structure)
-- [Installation](#-installation)
-- [Running the Project](#-running-the-project)
-- [Demo Scenarios](#-demo-scenarios)
-- [Future Improvements](#-future-improvements)
-- [Limitations](#-limitations)
-- [Screenshots](#-screenshots)
-- [Contributing](#-contributing)
+- [Technology Stack](#-technology-stack)
+- [Getting Started](#-getting-started)
+- [Live Demo Walkthrough](#-live-demo-walkthrough)
 - [License](#-license)
 
 ---
 
 ## 📖 Overview
 
-Restaurants often face operational challenges such as:
+Modern high-volume dining establishments face critical operational bottlenecks:
+- Delayed greeting and seating of newly arrived guests.
+- Unmonitored guest dwell times and extended waits for staff assistance.
+- Uneven waiter workload distribution across dining zones.
+- Lack of centralized, real-time visibility into table turnover and floor capacity.
 
-- Difficulty tracking table occupancy.
-- Delays in assigning waiters to newly seated customers.
-- Inefficient waiter workload distribution.
-- Long customer waiting times.
-- Lack of centralized restaurant service monitoring.
-
-**DineSight AI** introduces a smart restaurant management concept where CCTV-style monitoring, table status tracking, customer waiting timers, and waiter assignment are combined into a single dashboard.
-
-The system is designed for restaurant managers who need a centralized interface to monitor restaurant operations and make faster decisions.
-
-The current version is an interactive frontend prototype built for demonstration and presentation purposes.
-
----
-
-## 🎯 Project Objectives
-
-The main objectives of DineSight AI are:
-
-- Simulate AI-powered restaurant table occupancy detection.
-- Visualize restaurant CCTV monitoring.
-- Detect simulated customer arrival events.
-- Track customer waiting time.
-- Demonstrate automated waiter assignment.
-- Monitor waiter service progress.
-- Display restaurant floor plan and table status.
-- Provide real-time-style operational analytics.
-- Create a modern and user-friendly restaurant management interface.
+**DineSight AI** resolves these challenges by bridging surveillance feeds with operational automation:
+- **Vision Tracking:** Detects table occupancy, empty glassware, customer gestures, and dwell duration.
+- **SLA Countdown Engine:** Starts an automatic 5-minute countdown upon guest seating to ensure timely table-side attendance.
+- **Smart Staff Dispatch:** Automatically assigns the most available waiter based on active table load.
+- **Floor Telemetry:** Delivers real-time status updates across all 12 floor plan tables and dining zones.
 
 ---
 
 ## ✨ Key Features
 
-### 📹 CCTV Monitoring Simulation
+### 📹 1. Multi-Angle CCTV Vision Matrix
+- **4 Dedicated Camera Feeds:**
+  - `Camera 01` — Main Dining Area (Sector N-1)
+  - `Camera 02` — Window Seating & Terrace Facade
+  - `Camera 03` — Private Dining & VIP Banquette Suite
+  - `Camera 04` — Entrance, Host Reception & Foyer Pass
+- **Computer Vision Overlays:** Real-time bounding boxes with class tags, guest dwell duration, and gesture flags (`Hand Wave`, `Check Requested`, `Empty Glassware`).
+- **Surveillance Controls:**
+  - High-frequency millisecond OSD timestamp clock (`YYYY-MM-DD HH:MM:SS.mmm`).
+  - Live fluctuating stream telemetry (`FPS`, `Bitrate`, `Latency`, `REC ●`).
+  - Night Vision / IR Surveillance mode toggle.
+  - Occupancy Density Heatmap view.
+  - Digital PTZ Zoom (`1.0x`, `1.5x`, `2.0x`) and instant telemetry snapshot capture.
 
-- CCTV-style camera monitoring interface.
-- Multiple camera views.
-- Simulated table occupancy detection.
-- Visual representation of customer arrival.
-- Camera status indicators.
-- Simulated AI detection alerts.
+### 🪑 2. Interactive Restaurant Floor Plan
+- **12 Architectural Tables (`T-01` to `T-12`)**:
+  - Main Dining, Window Seating, Private VIP Suite, and Terrace Patio zones.
+  - Live status transitions: `AVAILABLE`, `OCCUPIED`, `WAITING_FOR_WAITER`, `WAITER_ASSIGNED`, `SERVING`, and `SERVICE_COMPLETED`.
+- **Table Inspector Panel:**
+  - Real-time animated countdown progress bar.
+  - Customer seating trigger ("Seat Customer & Start 5m Timer").
+  - Table capacity, seating session ID, assigned waiter profile, and step-by-step service timeline.
+  - Dynamic status filtering by occupancy and attention flags.
 
-### 🪑 Smart Table Management
+### 🤖 3. Intelligent Waiter Assignment & 5-Minute Timer Engine
+- **Dedicated Staff Roster:**
+  - `Ahmed Rahman` (`EMP-101`) — Senior Captain
+  - `Tanvir Hasan` (`EMP-102`) — Floor Waiter
+  - `Sakib Ahmed` (`EMP-103`) — Head Waiter
+  - `Fahim Chowdhury` (`EMP-104`) — Junior Server
+- **Automated Lifecycle Workflow:**
+  1. Customer arrives at table $\rightarrow$ Status sets to `OCCUPIED` & `WAITING_FOR_WAITER`.
+  2. 5-minute countdown starts with immediate manager notification.
+  3. When timer hits `00:00`, system selects available waiter with the lowest active table count.
+  4. Status updates to `WAITER_ASSIGNED`, notifying staff.
+  5. Waiter accepts task and transitions status to `SERVING` upon arrival table-side.
+- **Simulation Speed Controls:**
+  - `1x` (Real Time): Standard 1-second ticks.
+  - `10x`: 5 minutes elapse in 30 seconds.
+  - `60x`: 5 minutes elapse in 5 seconds (optimized for rapid demonstration).
 
-- Interactive restaurant floor plan.
-- Individual table status tracking.
-- Occupied and available table visualization.
-- Waiting customer indicators.
-- Table-level operational information.
-
-### 🤖 Intelligent Waiter Assignment Simulation
-
-- Simulated automatic waiter assignment.
-- Waiter availability tracking.
-- Customer waiting timer.
-- Assignment status visualization.
-- Waiter workload monitoring.
-
-### ⏱️ Customer Waiting Time Tracking
-
-- Track how long a customer has been waiting.
-- Display waiting duration.
-- Trigger simulated manager alerts after a configurable waiting period.
-- Visual waiting-time indicators.
-
-### 📱 Waiter Service Portal
-
-- Waiter task overview.
-- Assigned table information.
-- Service status updates.
-- Simulated service workflow:
-  - Assigned
-  - Accepted
-  - Serving
-  - Completed
-
-### 📊 Restaurant Analytics Dashboard
-
-- Total tables.
-- Occupied tables.
-- Available tables.
-- Waiting customers.
-- Active waiters.
-- Average waiting time.
-- Service performance overview.
-
-### 🔔 Alert & Notification System
-
-- Simulated customer arrival notifications.
-- Waiting-time alerts.
-- Waiter assignment notifications.
-- Table status change notifications.
-
-### 🎨 Modern UI/UX
-
-- Responsive dashboard design.
-- Modern sidebar navigation.
-- Interactive components.
-- Clean and professional interface.
-- Restaurant-focused visual design.
+### 📊 4. Manager Command Center & Analytics
+- **6 Core Operational KPIs:**
+  - Total Tables, Available Tables, Occupied Tables, Waiting for Waiter, Available Waiters, and Average Service Response Time.
+- **Executive Analytics:**
+  - Customer Wait Time Distribution chart.
+  - Table Turnover Velocity & Session Duration tracking.
+  - Staff Shift Performance & SLA Compliance leaderboard.
+  - Hourly Occupancy Rate and Peak Traffic forecasting.
 
 ---
 
-## 🔄 System Workflow
-
-The demonstration follows this workflow:
+## 🔄 System Architecture
 
 ```mermaid
 flowchart TD
-    A[Customer Arrives at Restaurant] --> B[Simulated CCTV Monitoring]
-    B --> C[Simulated AI Detects Customer]
-    C --> D[Table Occupancy Status Updated]
-    D --> E[Customer Waiting Timer Starts]
-    E --> F{Waiter Assigned?}
-    F -->|No| G[Manager Alert After 5 Minutes]
-    G --> H[Simulated Smart Waiter Assignment]
-    F -->|Yes| I[Waiter Receives Assignment]
-    H --> I
-    I --> J[Waiter Accepts Task]
-    J --> K[Waiter Starts Service]
-    K --> L[Service Completed]
-    L --> M[Table Status Updated]
-    M --> N[Dashboard Analytics Updated]
+    A[Customer Seated at Table] --> B[Camera Vision Detects Party]
+    B --> C[Table Status: OCCUPIED / WAITING_FOR_WAITER]
+    C --> D[5-Minute Service Timer Countdown Initiated]
+    D --> E{Timer Hits 00:00?}
+    E -->|No / Waiter En Route| F[Manager Monitoring Dashboard]
+    E -->|Yes / Timer Expired| G[Lowest Workload Algorithm Scans Staff]
+    G --> H[Auto-Assign Available Waiter]
+    H --> I[Status: WAITER_ASSIGNED & Dispatch Alert Sent]
+    I --> J[Staff Accepts Assignment]
+    J --> K[Table Status: SERVING]
+    K --> L[Service Finished / Status: AVAILABLE]
 ```
-
----
-
-## 🖥️ Dashboard Modules
-
-### 1. Manager Dashboard
-
-The main dashboard provides an overview of restaurant operations.
-
-It includes:
-
-- Restaurant performance statistics.
-- Table occupancy overview.
-- Customer waiting information.
-- Waiter availability.
-- Recent activity.
-- Alerts and notifications.
-
-### 2. CCTV Monitoring
-
-The CCTV monitoring module simulates restaurant camera feeds.
-
-Managers can:
-
-- View camera panels.
-- Monitor simulated table occupancy.
-- Observe customer arrival scenarios.
-- View simulated AI detection events.
-
-### 3. Restaurant Floor Plan
-
-The floor plan displays restaurant tables visually.
-
-Each table can represent different statuses:
-
-| Status | Description |
-|---|---|
-| Available | Table is currently free |
-| Occupied | Customers are seated |
-| Waiting | Customer is waiting for service |
-| Assigned | A waiter has been assigned |
-| Serving | Waiter is currently serving |
-| Cleaning | Table is being prepared for the next customer |
-
-### 4. Waiter Management
-
-This module displays waiter information and workload.
-
-It includes:
-
-- Waiter name.
-- Availability status.
-- Assigned tables.
-- Current workload.
-- Service progress.
-
-### 5. Waiter Portal
-
-The waiter portal demonstrates the staff-side interface.
-
-Waiters can simulate:
-
-- Receiving a new assignment.
-- Accepting a task.
-- Starting service.
-- Completing service.
-
-### 6. Analytics
-
-The analytics module presents operational insights using dashboard statistics and visual charts.
-
----
-
-## 🛠️ Technology Stack
-
-The project is developed using modern frontend technologies.
-
-| Technology | Purpose |
-|---|---|
-| React | UI development |
-| TypeScript | Type safety |
-| Vite | Development server and build tool |
-| Tailwind CSS | Styling |
-| shadcn/ui | UI components |
-| Lucide React | Icons |
-| React Router | Navigation |
-| Recharts | Data visualization |
-
-> Update this section if the actual implementation uses a different library or technology.
 
 ---
 
@@ -254,695 +114,128 @@ The project is developed using modern frontend technologies.
 
 ```text
 dinesight-ai/
-│
 ├── public/
-│   ├── images/
-│   └── videos/
+│   ├── cctv-cam01.jpg             # Camera 01 — Main Dining Area CCTV
+│   ├── cctv-cam02.jpg             # Camera 02 — Window Seating CCTV
+│   ├── cctv-cam03.jpg             # Camera 03 — Private Dining CCTV
+│   └── cctv-cam04.jpg             # Camera 04 — Entrance & Terrace CCTV
 │
 ├── src/
-│   ├── assets/
-│   │
 │   ├── components/
-│   │   ├── layout/
-│   │   ├── dashboard/
-│   │   ├── cctv/
-│   │   ├── floor-plan/
-│   │   ├── waiter/
-│   │   └── ui/
+│   │   ├── layout/                # Persistent Dark Charcoal Sidebar & Top Navbar
+│   │   ├── dashboard/             # KPI Cards, Demo Controls, Leaderboard & Activity Feed
+│   │   ├── monitoring/            # CCTV Camera Feed, Detection Overlays & Lens Controls
+│   │   ├── floor-plan/            # 12-Table Interactive Map & Table Inspector Panel
+│   │   ├── waiters/               # Staff Cards, Live Queue & Assignment Modals
+│   │   ├── notifications/         # Incident Filter Bar, Priority Alerts & Event Log
+│   │   ├── analytics/             # Turnaround Velocity & Response SLA Charts
+│   │   └── shared/                # Card, Badge, Button, Modal & StatCard primitives
 │   │
 │   ├── pages/
-│   │   ├── Dashboard.tsx
-│   │   ├── CCTVMonitoring.tsx
-│   │   ├── FloorPlan.tsx
-│   │   ├── WaiterManagement.tsx
-│   │   ├── WaiterPortal.tsx
-│   │   └── Analytics.tsx
+│   │   ├── Overview.tsx           # Executive Operations Dashboard
+│   │   ├── LiveMonitoring.tsx     # 4-Channel Live CCTV Vision Matrix
+│   │   ├── FloorPlan.tsx          # 12-Table Floor Plan with Live Countdown Badges
+│   │   ├── WaiterManagement.tsx   # Staff Roster, Workload Balance & Waiting Queue
+│   │   ├── Analytics.tsx          # Service Analytics & Dwell Time Reports
+│   │   ├── Notifications.tsx      # Central Operational Alert Dispatch
+│   │   └── Settings.tsx           # Shift Timing, Camera Latency & SLA Config
 │   │
 │   ├── data/
-│   │   └── mockData.ts
+│   │   ├── mockTables.ts          # 12 Tables (T-01 to T-12) & Seating Configurations
+│   │   ├── mockWaiters.ts         # 4 Staff Profiles (EMP-101 to EMP-104)
+│   │   └── mockEvents.ts          # CCTV Feeds, Detections & Historical Incident Logs
 │   │
 │   ├── hooks/
+│   │   ├── useRestaurantData.ts   # Central State, 5m Timer Engine, Auto-Assignment Loop
+│   │   └── useClock.ts            # High-Precision Timestamp & Millisecond Heartbeat
 │   │
-│   ├── utils/
-│   │
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
+│   ├── types/                     # TypeScript Domain Models & Interfaces
+│   ├── utils/                     # Formatting & Calculation Helpers
+│   ├── App.tsx                    # Route Definitions & Layout Provider
+│   ├── main.tsx                   # Application Entry Point
+│   └── index.css                  # Tailwind Styles, CCTV Scanlines & Radar Animations
 │
-├── .gitignore
 ├── package.json
-├── package-lock.json
+├── tailwind.config.js
 ├── tsconfig.json
-├── vite.config.ts
-├── README.md
-└── LICENSE
+└── vite.config.ts
 ```
-
-> The folder structure above is a suggested structure. Adjust it according to the actual project files.
 
 ---
 
-## 🚀 Installation
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| **React 19** | Component-driven user interface architecture |
+| **TypeScript** | Type safety across operational domain models |
+| **Vite** | Fast compilation and Hot Module Replacement |
+| **Tailwind CSS** | Custom charcoal, warm white, forest green & amber palette |
+| **Lucide React** | Enterprise icon system |
+| **React Router v7** | Client-side routing with persistent navigation |
+| **Recharts** | Interactive SVG operational metrics and analytics charts |
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 18.0 or higher recommended)
+- npm or pnpm
 
-- [Node.js](https://nodejs.org/) (LTS version recommended)
-- npm
-- Git
+### Installation
 
-### Step 1: Clone the Repository
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/dinesight-ai.git
+   cd dinesight-ai
+   ```
 
-```bash
-git clone https://github.com/YOUR-USERNAME/dinesight-ai.git
-```
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-### Step 2: Navigate to the Project Directory
+3. **Launch the Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-```bash
-cd dinesight-ai
-```
+4. **Access the Dashboard:**
+   Open your browser and navigate to:
+   ```text
+   http://localhost:5173
+   ```
 
-### Step 3: Install Dependencies
-
-```bash
-npm install
-```
-
----
-
-## ▶️ Running the Project
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Open the local URL displayed in your terminal, usually:
-
-```text
-http://localhost:5173
-```
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
+5. **Build for Production:**
+   ```bash
+   npm run build
+   ```
 
 ---
 
-## 🎬 Demo Scenarios
+## 🎬 Live Demo Walkthrough
 
-The following scenarios can be demonstrated during a project presentation.
+### 1. Multi-Angle CCTV Monitoring (`/monitoring`)
+- View all 4 live restaurant surveillance camera angles simultaneously.
+- Observe bounding boxes detecting dining tables, occupied parties, and patrolling servers.
+- Toggle between **AI Boxes**, **Heatmap**, and **Clean** surveillance feed modes.
+- Switch to **IR Night Vision** or use **Digital Zoom (1.0x - 2.0x)** to inspect individual tables.
 
-### Scenario 1: New Customer Arrival
-
-1. Open the CCTV Monitoring page.
-2. Trigger a simulated customer arrival event.
-3. Observe the table occupancy update.
-4. View the new customer alert on the manager dashboard.
-
-### Scenario 2: Customer Waiting for a Waiter
-
-1. Simulate a customer waiting at a table.
-2. Observe the waiting timer.
-3. Allow the timer to reach the configured threshold.
-4. View the simulated manager alert.
-
-### Scenario 3: Waiter Assignment
-
-1. Trigger the waiter assignment simulation.
-2. Observe the assigned waiter.
-3. Open the Waiter Portal.
-4. Accept the assignment.
-5. Start the service.
-6. Complete the service.
-
-### Scenario 4: Table Status Update
-
-1. Complete the waiter service.
-2. Observe the table status change.
-3. Review the updated dashboard statistics.
-
----
-
-## 🔮 Future Improvements
-
-The following features could be added in future versions:
-
-- Real CCTV camera integration.
-- AI-based customer detection using YOLO or similar computer vision models.
-- Backend development using Node.js and Express.
-- Database integration using PostgreSQL or MongoDB.
-- Real-time updates using WebSockets.
-- Actual waiter assignment optimization algorithms.
-- Mobile application for restaurant staff.
-- Push notifications.
-- Customer queue management.
-- Restaurant-specific AI analytics.
-- Authentication and role-based access control.
-- Cloud deployment.
-- Integration with restaurant POS systems.
-
----
-
-## ⚠️ Limitations
-
-The current version is a frontend-only prototype.
-
-- No backend server is connected.
-- No persistent database is used.
-- CCTV footage is simulated.
-- AI detection is not real.
-- Waiter assignment is simulated.
-- Notifications are demonstration events.
-- Data may reset after refreshing the application.
-
-This project demonstrates the concept and user experience of an AI-powered restaurant operations system rather than a production-ready AI solution.
-
----
-
-## 📸 Screenshots
-
-Add screenshots of your project here after capturing them from the running application.
-
-```markdown
-![Dashboard](screenshots/dashboard.png)
-
-![CCTV Monitoring](screenshots/cctv-monitoring.png)
-
-![Restaurant Floor Plan](screenshots/floor-plan.png)
-
-![Waiter Portal](screenshots/waiter-portal.png)
-```
-
----
-
-## 🤝 Contributing
-
-Contributions, suggestions, and improvements are welcome.
-
-To contribute:
-
-1. Fork the repository.
-2. Create a new branch.
-
-```bash
-git checkout -b feature/your-feature-name
-```
-
-3. Commit your changes.
-
-```bash
-git commit -m "Add your feature"
-```
-
-4. Push your branch.
-
-```bash
-git push origin feature/your-feature-name
-```
-
-5. Open a Pull Request.
+### 2. 5-Minute Timer & Auto-Assignment Workflow (`/floor-plan` & `/waiters`)
+- Navigate to the **Restaurant Floor Plan** and select any available table.
+- Click **"Seat Customer (Start 5m Timer)"** in the Table Inspector.
+- Set simulation speed to **`60x`** to observe the 5-minute countdown elapse in 5 seconds.
+- Watch the automated assignment select the available waiter with the lowest active table load.
+- Open **Waiter Management** to accept the dispatch and initiate table service.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-
-You are free to use, modify, and distribute this project according to the terms of the license.
-
-See the [LICENSE](LICENSE) file for details.
+This project is open-source and available under the [MIT License](LICENSE).
 
 ---
-
-## 👨‍💻 Author
-
-**Abid Shahriar**
-
-CSE Student | Frontend Developer
-
-GitHub: [YOUR-GITHUB-USERNAME](https://github.com/YOUR-GITHUB-USERNAME)
-
----
-
-## ⭐ Support
-
-If you find this project interesting or useful, consider giving it a ⭐ on GitHub.
 
 **DineSight AI — Smarter Restaurant Operations Through Intelligent Automation.**
-# 🍽️ DineSight AI
-### AI-Powered Restaurant Table Occupancy & Waiter Assignment System
-
-![Project Banner](https://placehold.co/1200x400/111827/FFFFFF?text=DineSight+AI)
-
-**DineSight AI** is a modern restaurant operations management dashboard designed to simulate AI-powered table occupancy monitoring, customer detection, intelligent waiter assignment, and real-time restaurant service tracking.
-
-The project demonstrates how AI-powered CCTV monitoring and smart automation could improve restaurant efficiency, reduce customer waiting time, and optimize waiter workload.
-
-> ⚠️ **Demo Project:** This is a frontend-only demonstration project. AI detection, CCTV monitoring, customer tracking, notifications, and waiter assignment are simulated. No real CCTV feed, AI API, backend server, or database is connected.
-
----
-
-## 📌 Table of Contents
-
-- [Overview](#-overview)
-- [Project Objectives](#-project-objectives)
-- [Key Features](#-key-features)
-- [System Workflow](#-system-workflow)
-- [Dashboard Modules](#-dashboard-modules)
-- [Technology Stack](#-technology-stack)
-- [Project Structure](#-project-structure)
-- [Installation](#-installation)
-- [Running the Project](#-running-the-project)
-- [Demo Scenarios](#-demo-scenarios)
-- [Future Improvements](#-future-improvements)
-- [Limitations](#-limitations)
-- [Screenshots](#-screenshots)
-- [Contributing](#-contributing)
-- [License](#-license)
-
----
-
-## 📖 Overview
-
-Restaurants often face operational challenges such as:
-
-- Difficulty tracking table occupancy.
-- Delays in assigning waiters to newly seated customers.
-- Inefficient waiter workload distribution.
-- Long customer waiting times.
-- Lack of centralized restaurant service monitoring.
-
-**DineSight AI** introduces a smart restaurant management concept where CCTV-style monitoring, table status tracking, customer waiting timers, and waiter assignment are combined into a single dashboard.
-
-The system is designed for restaurant managers who need a centralized interface to monitor restaurant operations and make faster decisions.
-
-The current version is an interactive frontend prototype built for demonstration and presentation purposes.
-
----
-
-## 🎯 Project Objectives
-
-The main objectives of DineSight AI are:
-
-- Simulate AI-powered restaurant table occupancy detection.
-- Visualize restaurant CCTV monitoring.
-- Detect simulated customer arrival events.
-- Track customer waiting time.
-- Demonstrate automated waiter assignment.
-- Monitor waiter service progress.
-- Display restaurant floor plan and table status.
-- Provide real-time-style operational analytics.
-- Create a modern and user-friendly restaurant management interface.
-
----
-
-## ✨ Key Features
-
-### 📹 CCTV Monitoring Simulation
-
-- CCTV-style camera monitoring interface.
-- Multiple camera views.
-- Simulated table occupancy detection.
-- Visual representation of customer arrival.
-- Camera status indicators.
-- Simulated AI detection alerts.
-
-### 🪑 Smart Table Management
-
-- Interactive restaurant floor plan.
-- Individual table status tracking.
-- Occupied and available table visualization.
-- Waiting customer indicators.
-- Table-level operational information.
-
-### 🤖 Intelligent Waiter Assignment Simulation
-
-- Simulated automatic waiter assignment.
-- Waiter availability tracking.
-- Customer waiting timer.
-- Assignment status visualization.
-- Waiter workload monitoring.
-
-### ⏱️ Customer Waiting Time Tracking
-
-- Track how long a customer has been waiting.
-- Display waiting duration.
-- Trigger simulated manager alerts after a configurable waiting period.
-- Visual waiting-time indicators.
-
-### 📱 Waiter Service Portal
-
-- Waiter task overview.
-- Assigned table information.
-- Service status updates.
-- Simulated service workflow:
-  - Assigned
-  - Accepted
-  - Serving
-  - Completed
-
-### 📊 Restaurant Analytics Dashboard
-
-- Total tables.
-- Occupied tables.
-- Available tables.
-- Waiting customers.
-- Active waiters.
-- Average waiting time.
-- Service performance overview.
-
-### 🔔 Alert & Notification System
-
-- Simulated customer arrival notifications.
-- Waiting-time alerts.
-- Waiter assignment notifications.
-- Table status change notifications.
-
-### 🎨 Modern UI/UX
-
-- Responsive dashboard design.
-- Modern sidebar navigation.
-- Interactive components.
-- Clean and professional interface.
-- Restaurant-focused visual design.
-
----
-
-## 🔄 System Workflow
-
-The demonstration follows this workflow:
-
-```mermaid
-flowchart TD
-    A[Customer Arrives at Restaurant] --> B[Simulated CCTV Monitoring]
-    B --> C[Simulated AI Detects Customer]
-    C --> D[Table Occupancy Status Updated]
-    D --> E[Customer Waiting Timer Starts]
-    E --> F{Waiter Assigned?}
-    F -->|No| G[Manager Alert After 5 Minutes]
-    G --> H[Simulated Smart Waiter Assignment]
-    F -->|Yes| I[Waiter Receives Assignment]
-    H --> I
-    I --> J[Waiter Accepts Task]
-    J --> K[Waiter Starts Service]
-    K --> L[Service Completed]
-    L --> M[Table Status Updated]
-    M --> N[Dashboard Analytics Updated]
-```
-
----
-
-## 🖥️ Dashboard Modules
-
-### 1. Manager Dashboard
-
-The main dashboard provides an overview of restaurant operations.
-
-It includes:
-
-- Restaurant performance statistics.
-- Table occupancy overview.
-- Customer waiting information.
-- Waiter availability.
-- Recent activity.
-- Alerts and notifications.
-
-### 2. CCTV Monitoring
-
-The CCTV monitoring module simulates restaurant camera feeds.
-
-Managers can:
-
-- View camera panels.
-- Monitor simulated table occupancy.
-- Observe customer arrival scenarios.
-- View simulated AI detection events.
-
-### 3. Restaurant Floor Plan
-
-The floor plan displays restaurant tables visually.
-
-Each table can represent different statuses:
-
-| Status | Description |
-|---|---|
-| Available | Table is currently free |
-| Occupied | Customers are seated |
-| Waiting | Customer is waiting for service |
-| Assigned | A waiter has been assigned |
-| Serving | Waiter is currently serving |
-| Cleaning | Table is being prepared for the next customer |
-
-### 4. Waiter Management
-
-This module displays waiter information and workload.
-
-It includes:
-
-- Waiter name.
-- Availability status.
-- Assigned tables.
-- Current workload.
-- Service progress.
-
-### 5. Waiter Portal
-
-The waiter portal demonstrates the staff-side interface.
-
-Waiters can simulate:
-
-- Receiving a new assignment.
-- Accepting a task.
-- Starting service.
-- Completing service.
-
-### 6. Analytics
-
-The analytics module presents operational insights using dashboard statistics and visual charts.
-
----
-
-## 🛠️ Technology Stack
-
-The project is developed using modern frontend technologies.
-
-| Technology | Purpose |
-|---|---|
-| React | UI development |
-| TypeScript | Type safety |
-| Vite | Development server and build tool |
-| Tailwind CSS | Styling |
-| shadcn/ui | UI components |
-| Lucide React | Icons |
-| React Router | Navigation |
-| Recharts | Data visualization |
-
-> Update this section if the actual implementation uses a different library or technology.
-
----
-
-## 📂 Project Structure
-
-```text
-dinesight-ai/
-│
-├── public/
-│   ├── images/
-│   └── videos/
-│
-├── src/
-│   ├── assets/
-│   │
-│   ├── components/
-│   │   ├── layout/
-│   │   ├── dashboard/
-│   │   ├── cctv/
-│   │   ├── floor-plan/
-│   │   ├── waiter/
-│   │   └── ui/
-│   │
-│   ├── pages/
-│   │   ├── Dashboard.tsx
-│   │   ├── CCTVMonitoring.tsx
-│   │   ├── FloorPlan.tsx
-│   │   ├── WaiterManagement.tsx
-│   │   ├── WaiterPortal.tsx
-│   │   └── Analytics.tsx
-│   │
-│   ├── data/
-│   │   └── mockData.ts
-│   │
-│   ├── hooks/
-│   │
-│   ├── utils/
-│   │
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-│
-├── .gitignore
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-├── vite.config.ts
-├── README.md
-└── LICENSE
-```
-
-> The folder structure above is a suggested structure. Adjust it according to the actual project files.
-
----
-
-## 🚀 Installation
-
-### Prerequisites
-
-Make sure you have the following installed:
-
-- [Node.js](https://nodejs.org/) (LTS version recommended)
-- npm
-- Git
-
-### Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/YOUR-USERNAME/dinesight-ai.git
-```
-
-### Step 2: Navigate to the Project Directory
-
-```bash
-cd dinesight-ai
-```
-
-### Step 3: Install Dependencies
-
-```bash
-npm install
-```
-
----
-
-## ▶️ Running the Project
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Open the local URL displayed in your terminal, usually:
-
-```text
-http://localhost:5173
-```
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
----
-
-## 🎬 Demo Scenarios
-
-The following scenarios can be demonstrated during a project presentation.
-
-### Scenario 1: New Customer Arrival
-
-1. Open the CCTV Monitoring page.
-2. Trigger a simulated customer arrival event.
-3. Observe the table occupancy update.
-4. View the new customer alert on the manager dashboard.
-
-### Scenario 2: Customer Waiting for a Waiter
-
-1. Simulate a customer waiting at a table.
-2. Observe the waiting timer.
-3. Allow the timer to reach the configured threshold.
-4. View the simulated manager alert.
-
-### Scenario 3: Waiter Assignment
-
-1. Trigger the waiter assignment simulation.
-2. Observe the assigned waiter.
-3. Open the Waiter Portal.
-4. Accept the assignment.
-5. Start the service.
-6. Complete the service.
-
-### Scenario 4: Table Status Update
-
-1. Complete the waiter service.
-2. Observe the table status change.
-3. Review the updated dashboard statistics.
-
----
-
-## 🔮 Future Improvements
-
-The following features could be added in future versions:
-
-- Real CCTV camera integration.
-- AI-based customer detection using YOLO or similar computer vision models.
-- Backend development using Node.js and Express.
-- Database integration using PostgreSQL or MongoDB.
-- Real-time updates using WebSockets.
-- Actual waiter assignment optimization algorithms.
-- Mobile application for restaurant staff.
-- Push notifications.
-- Customer queue management.
-- Restaurant-specific AI analytics.
-- Authentication and role-based access control.
-- Cloud deployment.
-- Integration with restaurant POS systems.
-
----
-
-## 📸 Screenshots
-
-Add screenshots of your project here after capturing them from the running application.
-
-```markdown
-![Dashboard](screenshots/dashboard.png)
-
-![CCTV Monitoring](screenshots/cctv-monitoring.png)
-
-![Restaurant Floor Plan](screenshots/floor-plan.png)
-
-![Waiter Portal](screenshots/waiter-portal.png)
-```
-
----
-
-
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-You are free to use, modify, and distribute this project according to the terms of the license.
-
-See the [LICENSE](LICENSE) file for details.
-
----
-
