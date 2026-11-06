@@ -2,7 +2,7 @@
 
 ### Enterprise AI Restaurant Operations & Intelligent Waiter Management System
 
-![DineSight AI - Executive Operations Dashboard](docs/screenshots/01-overview-dashboard.jpg)
+![Project Banner](https://placehold.co/1200x400/111827/FFFFFF?text=DineSight+AI+Restaurant+Operations)
 
 **DineSight AI** is a modern, high-performance restaurant operations management system designed for executive restaurant managers and floor supervisors. It combines multi-angle CCTV surveillance intelligence, computer vision table occupancy tracking, automated 5-minute waiter dispatch timers, and service analytics into a single centralized SaaS dashboard.
 
