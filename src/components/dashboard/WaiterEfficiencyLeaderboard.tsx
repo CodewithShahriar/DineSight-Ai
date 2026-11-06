@@ -1,5 +1,6 @@
 import React from 'react'
-import { Star, Clock, Award } from 'lucide-react'
+import { Star, Clock, Award, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { Card, CardHeader, CardTitle, CardDescription } from '../shared/Card'
 import { Badge } from '../shared/Badge'
 import { Waiter } from '../../types'
@@ -31,7 +32,7 @@ export const WaiterEfficiencyLeaderboard: React.FC<WaiterEfficiencyLeaderboardPr
       </CardHeader>
 
       <div className="space-y-3">
-        {sortedWaiters.slice(0, 4).map((waiter, idx) => (
+        {sortedWaiters.slice(0, 5).map((waiter, idx) => (
           <div
             key={waiter.id}
             className="flex items-center justify-between p-2.5 rounded-xl border border-warm-150 hover:bg-warm-50/80 transition-colors"
@@ -68,8 +69,12 @@ export const WaiterEfficiencyLeaderboard: React.FC<WaiterEfficiencyLeaderboardPr
                 </div>
                 <div className="text-[11px] text-charcoal-500 flex items-center space-x-2 mt-0.5">
                   <span>Zone: {waiter.zone}</span>
-                  <span>•</span>
-                  <span>Tables: {waiter.assignedTables.join(', ')}</span>
+                  {waiter.assignedTables && waiter.assignedTables.length > 0 && (
+                    <>
+                      <span>•</span>
+                      <span>Tables: {waiter.assignedTables.join(', ')}</span>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -88,6 +93,18 @@ export const WaiterEfficiencyLeaderboard: React.FC<WaiterEfficiencyLeaderboardPr
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-3 pt-3 border-t border-warm-100 flex items-center justify-between text-xs">
+        <span className="text-charcoal-500 font-medium">
+          Showing top 5 of {waiters.length} rostered staff
+        </span>
+        <Link
+          to="/waiters"
+          className="font-semibold text-forest-700 hover:text-forest-900 inline-flex items-center"
+        >
+          View Full Roster ({waiters.length}) <ArrowRight className="w-3.5 h-3.5 ml-1" />
+        </Link>
       </div>
     </Card>
   )

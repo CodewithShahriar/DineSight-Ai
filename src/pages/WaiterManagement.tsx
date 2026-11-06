@@ -84,10 +84,10 @@ export const WaiterManagement: React.FC = () => {
     <div className="space-y-6">
       <PageHeader
         title="Waiter Management & Table Assignment"
-        subtitle="Manage the 4-staff server roster, monitor active section loads, and simulate automated 5-minute customer waiting dispatch."
+        subtitle="Manage the active floor staff roster, balance live dining section loads, track server SLAs, and monitor automated 5-minute customer waiting dispatch."
         badge={
           <Badge variant="forest" dot>
-            4 Servers Rostered
+            {waiters.length} Staff Rostered • {waiters.filter((w) => w.status === 'active').length} On Active Duty
           </Badge>
         }
         actions={

@@ -28,7 +28,7 @@ export function useRestaurantData() {
   const [demoState, setDemoState] = useState<DemoState>('running')
   const [simulationSpeed, setSimulationSpeed] = useState<SimulationSpeed>(1)
   const [lastActivityMessage, setLastActivityMessage] = useState<string>(
-    'DineSight AI operational. 4 Waiters on active monitoring roster.'
+    'DineSight AI operational. 10 staff members on active shift roster.'
   )
 
   // Ref to hold current state inside interval callbacks without stale closures
