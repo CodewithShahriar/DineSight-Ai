@@ -32,3 +32,4 @@ export const STAFF_AVATARS: Record<string, string> = {
   'EMP-110': createStaffAvatar('GS', '#0284c7', '#0369a1', '#ffffff'), // Gabriel Silva - Ocean Azure
   'MGR-001': createStaffAvatar('AP', '#0f172a', '#1e293b', '#facc15'), // Arthur Pendelton (GM) - Obsidian & Gold
 }
+

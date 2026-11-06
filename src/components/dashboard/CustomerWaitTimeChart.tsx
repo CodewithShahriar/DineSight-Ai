@@ -28,26 +28,26 @@ export const CustomerWaitTimeChart: React.FC = () => {
   return (
     <Card className="flex flex-col justify-between">
       <div>
-        <CardHeader>
+        <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap items-center gap-2">
               <CardTitle>Average Customer Waiting Time</CardTitle>
-              <span className="flex items-center text-[10px] font-bold text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-200">
+              <span className="flex items-center text-[10px] font-bold text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-200 shrink-0">
                 <TrendingDown className="w-3 h-3 mr-1" />
                 -63% Lower Wait
               </span>
             </div>
-            <CardDescription>
+            <CardDescription className="mt-1">
               Time elapsed from customer gesture or need identification to server table-side arrival
             </CardDescription>
           </div>
-          <Badge variant="forest" dot>
+          <Badge variant="forest" dot className="self-start sm:self-auto shrink-0">
             SLA Met: 98.4%
           </Badge>
         </CardHeader>
 
         {/* Top Summary Stat Pills */}
-        <div className="grid grid-cols-3 gap-2.5 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-4">
           <div className="p-2.5 rounded-lg bg-warm-100/70 border border-warm-200/60">
             <span className="text-[10px] text-charcoal-500 font-medium block">Current Avg Wait</span>
             <span className="text-lg font-extrabold text-charcoal-900 font-mono">1m 24s</span>

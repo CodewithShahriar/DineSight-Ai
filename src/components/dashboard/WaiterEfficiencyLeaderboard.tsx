@@ -37,18 +37,18 @@ export const WaiterEfficiencyLeaderboard: React.FC<WaiterEfficiencyLeaderboardPr
             key={waiter.id}
             className="flex items-center justify-between p-2.5 rounded-xl border border-warm-150 hover:bg-warm-50/80 transition-colors"
           >
-            <div className="flex items-center space-x-3">
-              <span className="w-5 text-xs font-bold text-charcoal-400 font-mono text-center">
+            <div className="flex items-center space-x-2.5 sm:space-x-3 min-w-0">
+              <span className="w-4 sm:w-5 text-xs font-bold text-charcoal-400 font-mono text-center shrink-0">
                 #{idx + 1}
               </span>
-              <div className="relative">
+              <div className="relative shrink-0">
                 <img
                   src={waiter.avatar}
                   alt={waiter.name}
-                  className="w-10 h-10 rounded-full object-cover border border-warm-200"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border border-warm-200"
                 />
                 <span
-                  className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-white ${
+                  className={`absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border-2 border-white ${
                     waiter.status === 'busy'
                       ? 'bg-amber-500'
                       : waiter.status === 'active'
@@ -58,28 +58,28 @@ export const WaiterEfficiencyLeaderboard: React.FC<WaiterEfficiencyLeaderboardPr
                 />
               </div>
 
-              <div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-xs font-bold text-charcoal-900">
+              <div className="min-w-0">
+                <div className="flex items-center space-x-1.5 sm:space-x-2">
+                  <span className="text-xs font-bold text-charcoal-900 truncate">
                     {waiter.name}
                   </span>
-                  <span className="text-[10px] text-charcoal-500 font-medium">
-                    {waiter.role}
+                  <span className="text-[10px] text-charcoal-500 font-medium truncate hidden sm:inline">
+                    • {waiter.role}
                   </span>
                 </div>
-                <div className="text-[11px] text-charcoal-500 flex items-center space-x-2 mt-0.5">
-                  <span>Zone: {waiter.zone}</span>
+                <div className="text-[11px] text-charcoal-500 flex items-center space-x-1 sm:space-x-2 mt-0.5 truncate">
+                  <span className="truncate">{waiter.zone}</span>
                   {waiter.assignedTables && waiter.assignedTables.length > 0 && (
                     <>
                       <span>•</span>
-                      <span>Tables: {waiter.assignedTables.join(', ')}</span>
+                      <span className="shrink-0">T-{waiter.assignedTables.join(', ')}</span>
                     </>
                   )}
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center space-x-3 text-right">
+            <div className="flex items-center space-x-2 sm:space-x-3 text-right shrink-0 ml-2">
               <div>
                 <div className="flex items-center justify-end space-x-1 text-xs font-bold text-charcoal-900">
                   <Clock className="w-3 h-3 text-forest-600" />

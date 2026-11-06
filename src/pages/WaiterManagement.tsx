@@ -92,8 +92,8 @@ export const WaiterManagement: React.FC = () => {
         }
         actions={
           /* Simulation Speed Controls: Real Time, 10x, 60x */
-          <div className="flex items-center space-x-2 bg-warm-100 p-1 rounded-xl border border-warm-200">
-            <span className="text-[11px] font-bold text-charcoal-500 uppercase tracking-wider px-2 flex items-center">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 bg-warm-100 p-1 rounded-xl border border-warm-200 max-w-full">
+            <span className="text-[11px] font-bold text-charcoal-500 uppercase tracking-wider px-1.5 sm:px-2 flex items-center shrink-0">
               <Gauge className="w-3.5 h-3.5 mr-1 text-forest-700" />
               Speed:
             </span>
@@ -101,13 +101,13 @@ export const WaiterManagement: React.FC = () => {
               <button
                 key={spd}
                 onClick={() => setSimulationSpeed(spd)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all ${
+                className={`px-2 sm:px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap shrink-0 ${
                   simulationSpeed === spd
                     ? 'bg-forest-700 text-white shadow-xs'
                     : 'text-charcoal-700 hover:bg-warm-200'
                 }`}
               >
-                {spd === 1 ? '1x (Real Time)' : `${spd}x`}
+                {spd === 1 ? <>1x<span className="hidden sm:inline"> (Real Time)</span></> : `${spd}x`}
               </button>
             ))}
           </div>
@@ -187,12 +187,12 @@ export const WaiterManagement: React.FC = () => {
                     key={t.id}
                     className="p-3 rounded-xl bg-white border border-warm-200 flex flex-col md:flex-row md:items-center md:justify-between gap-3 shadow-2xs hover:border-warm-300"
                   >
-                    <div className="flex items-center space-x-3">
-                      <span className="text-base font-black font-display text-charcoal-900 font-mono w-12">
+                    <div className="flex flex-wrap items-center gap-2 sm:space-x-3">
+                      <span className="text-base font-black font-display text-charcoal-900 font-mono w-12 shrink-0">
                         {t.id}
                       </span>
                       <span
-                        className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border ${style.badgeBg}`}
+                        className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border shrink-0 ${style.badgeBg}`}
                       >
                         {t.status.replace(/_/g, ' ')}
                       </span>
@@ -201,20 +201,20 @@ export const WaiterManagement: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="flex items-center space-x-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 pt-2 sm:pt-0 border-t sm:border-t-0 border-warm-100">
                       {/* Timer Display */}
-                      <div className="text-right">
+                      <div>
                         <span className="text-[10px] text-charcoal-400 font-bold uppercase block">
                           Waiting Countdown
                         </span>
-                        <span className="text-sm font-mono font-black text-amber-800 flex items-center justify-end">
-                          <Hourglass className="w-3.5 h-3.5 mr-1 text-amber-600 animate-spin-slow" />
+                        <span className="text-sm font-mono font-black text-amber-800 flex items-center">
+                          <Hourglass className="w-3.5 h-3.5 mr-1 text-amber-600 animate-spin-slow shrink-0" />
                           {t.isQueued ? 'QUEUED (NO STAFF)' : formattedTime}
                         </span>
                       </div>
 
                       {/* Waiter Info / Action */}
-                      <div className="text-right pl-3 border-l border-warm-200">
+                      <div className="pl-3 border-l border-warm-200">
                         <span className="text-[10px] text-charcoal-400 font-bold uppercase block">
                           Assigned Staff
                         </span>
@@ -224,7 +224,7 @@ export const WaiterManagement: React.FC = () => {
                       </div>
 
                       {/* Interactive Actions for Workflow */}
-                      <div className="flex items-center space-x-1.5 pl-2">
+                      <div className="flex items-center space-x-1.5 shrink-0">
                         {t.status === 'WAITER_ASSIGNED' && !t.assignmentAccepted && (
                           <Button
                             size="sm"
@@ -304,8 +304,8 @@ export const WaiterManagement: React.FC = () => {
 
       {/* Reassignment Modal */}
       {selectedWaiter && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-in fade-in">
-          <div className="bg-white rounded-2xl border border-warm-200 shadow-floating max-w-lg w-full p-6 space-y-4 animate-in zoom-in-95 duration-150">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-xs animate-in fade-in">
+          <div className="bg-white rounded-2xl border border-warm-200 shadow-floating max-w-lg w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6 space-y-4 animate-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between pb-3 border-b border-warm-100">
               <div className="flex items-center space-x-3">
                 <img

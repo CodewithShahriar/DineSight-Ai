@@ -38,13 +38,13 @@ export const WaiterCard: React.FC<WaiterCardProps> = ({
     <Card className="hover:shadow-card transition-all flex flex-col justify-between border-warm-200">
       <div>
         {/* Header: Employee ID, Name, Role, Availability Status */}
-        <div className="flex items-start justify-between pb-3.5 border-b border-warm-100">
-          <div className="flex items-center space-x-3">
-            <div className="relative">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-3.5 border-b border-warm-100">
+          <div className="flex items-center space-x-3 min-w-0">
+            <div className="relative shrink-0">
               <img
                 src={waiter.avatar}
                 alt={waiter.name}
-                className="w-13 h-13 rounded-full object-cover border-2 border-warm-200 shadow-xs"
+                className="w-12 h-12 sm:w-13 sm:h-13 rounded-full object-cover border-2 border-warm-200 shadow-xs"
               />
               <span
                 className={`absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full border-2 border-white ${
@@ -60,27 +60,27 @@ export const WaiterCard: React.FC<WaiterCardProps> = ({
               />
             </div>
 
-            <div>
-              <div className="flex items-center space-x-2">
-                <h4 className="text-sm font-bold text-charcoal-900">{waiter.name}</h4>
-                <span className="font-mono text-[10px] font-bold px-1.5 py-0.2 rounded bg-charcoal-800 text-white">
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <h4 className="text-sm font-bold text-charcoal-900 truncate">{waiter.name}</h4>
+                <span className="font-mono text-[10px] font-bold px-1.5 py-0.2 rounded bg-charcoal-800 text-white shrink-0">
                   {waiter.employeeId}
                 </span>
               </div>
-              <p className="text-xs text-charcoal-500 font-medium mt-0.5">{waiter.role}</p>
+              <p className="text-xs text-charcoal-500 font-medium mt-0.5 truncate">{waiter.role}</p>
               <div className="flex items-center space-x-1 mt-0.5 text-[11px] text-charcoal-400">
-                <Phone className="w-3 h-3 text-charcoal-400" />
+                <Phone className="w-3 h-3 text-charcoal-400 shrink-0" />
                 <span>{waiter.phone}</span>
               </div>
             </div>
           </div>
 
           {/* Availability Status Selector */}
-          <div className="text-right">
+          <div className="w-full sm:w-auto text-left sm:text-right shrink-0">
             <select
               value={waiter.status}
               onChange={(e) => onUpdateStatus?.(waiter.id, e.target.value as WaiterStatus)}
-              className={`text-[11px] font-mono font-bold px-2 py-1 rounded-lg border focus:outline-none cursor-pointer ${
+              className={`w-full sm:w-auto text-[11px] font-mono font-bold px-2 py-1 rounded-lg border focus:outline-none cursor-pointer ${
                 waiter.status === 'active'
                   ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
                   : waiter.status === 'busy'

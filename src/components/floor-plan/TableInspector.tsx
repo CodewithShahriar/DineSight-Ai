@@ -66,7 +66,7 @@ export const TableInspector: React.FC<TableInspectorProps> = ({
   const formattedCountdown = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`
 
   return (
-    <div className="bg-white rounded-2xl border border-warm-200/90 shadow-card p-5 flex flex-col h-full animate-in fade-in zoom-in-95 duration-150">
+    <div className="bg-white rounded-2xl border border-warm-200/90 shadow-card p-4 sm:p-5 flex flex-col h-full animate-in fade-in zoom-in-95 duration-150">
       {/* Header: Table ID and Status */}
       <div className="flex items-start justify-between pb-4 border-b border-warm-100">
         <div>

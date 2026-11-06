@@ -56,55 +56,55 @@ export const OperationsSummary: React.FC<OperationsSummaryProps> = ({
         </CardHeader>
 
         {/* 4 Core Operational Highlights */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-          <div className="p-3 rounded-xl bg-warm-100/60 border border-warm-200/60">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mb-5">
+          <div className="p-2.5 sm:p-3 rounded-xl bg-warm-100/60 border border-warm-200/60 min-w-0">
             <div className="flex items-center text-charcoal-500 text-xs mb-1">
-              <Users className="w-3.5 h-3.5 mr-1 text-forest-600" />
-              <span>Current Diners</span>
+              <Users className="w-3.5 h-3.5 mr-1 text-forest-600 shrink-0" />
+              <span className="truncate">Current Diners</span>
             </div>
-            <div className="text-xl font-extrabold text-charcoal-900 font-display">
+            <div className="text-lg sm:text-xl font-extrabold text-charcoal-900 font-display truncate">
               {totalGuests} <span className="text-xs text-charcoal-500 font-normal">Guests</span>
             </div>
-            <span className="text-[10px] text-forest-700 font-semibold block mt-0.5">
+            <span className="text-[10px] text-forest-700 font-semibold block mt-0.5 truncate">
               Across {occupiedCount} tables
             </span>
           </div>
 
-          <div className="p-3 rounded-xl bg-warm-100/60 border border-warm-200/60">
+          <div className="p-2.5 sm:p-3 rounded-xl bg-warm-100/60 border border-warm-200/60 min-w-0">
             <div className="flex items-center text-charcoal-500 text-xs mb-1">
-              <DollarSign className="w-3.5 h-3.5 mr-1 text-emerald-600" />
-              <span>Active Bill Total</span>
+              <DollarSign className="w-3.5 h-3.5 mr-1 text-emerald-600 shrink-0" />
+              <span className="truncate">Active Bill Total</span>
             </div>
-            <div className="text-xl font-extrabold text-charcoal-900 font-display">
+            <div className="text-lg sm:text-xl font-extrabold text-charcoal-900 font-display truncate">
               {formatCurrency(totalOpenRevenue)}
             </div>
-            <span className="text-[10px] text-emerald-700 font-semibold block mt-0.5">
+            <span className="text-[10px] text-emerald-700 font-semibold block mt-0.5 truncate">
               +18.4% velocity vs avg
             </span>
           </div>
 
-          <div className="p-3 rounded-xl bg-warm-100/60 border border-warm-200/60">
+          <div className="p-2.5 sm:p-3 rounded-xl bg-warm-100/60 border border-warm-200/60 min-w-0">
             <div className="flex items-center text-charcoal-500 text-xs mb-1">
-              <Clock className="w-3.5 h-3.5 mr-1 text-forest-600" />
-              <span>Avg Table Turn</span>
+              <Clock className="w-3.5 h-3.5 mr-1 text-forest-600 shrink-0" />
+              <span className="truncate">Avg Table Turn</span>
             </div>
-            <div className="text-xl font-extrabold text-charcoal-900 font-display">
+            <div className="text-lg sm:text-xl font-extrabold text-charcoal-900 font-display truncate">
               52 mins
             </div>
-            <span className="text-[10px] text-forest-700 font-semibold block mt-0.5">
+            <span className="text-[10px] text-forest-700 font-semibold block mt-0.5 truncate">
               -16m faster turnaround
             </span>
           </div>
 
-          <div className="p-3 rounded-xl bg-warm-100/60 border border-warm-200/60">
+          <div className="p-2.5 sm:p-3 rounded-xl bg-warm-100/60 border border-warm-200/60 min-w-0">
             <div className="flex items-center text-charcoal-500 text-xs mb-1">
-              <ShieldCheck className="w-3.5 h-3.5 mr-1 text-forest-600" />
-              <span>Floor Staffing</span>
+              <ShieldCheck className="w-3.5 h-3.5 mr-1 text-forest-600 shrink-0" />
+              <span className="truncate">Floor Staffing</span>
             </div>
-            <div className="text-xl font-extrabold text-charcoal-900 font-display">
+            <div className="text-lg sm:text-xl font-extrabold text-charcoal-900 font-display truncate">
               {activeWaiters} / {waiters.length}
             </div>
-            <span className="text-[10px] text-emerald-700 font-semibold block mt-0.5">
+            <span className="text-[10px] text-emerald-700 font-semibold block mt-0.5 truncate">
               100% Sections Covered
             </span>
           </div>

@@ -29,17 +29,17 @@ export const StatCard: React.FC<StatCardProps> = ({
   return (
     <Card
       className={cn(
-        'relative overflow-hidden transition-all duration-200 hover:shadow-card hover:-translate-y-0.5',
+        'relative overflow-hidden transition-all duration-200 hover:shadow-card hover:-translate-y-0.5 p-3.5 sm:p-5',
         highlight && 'border-amber-300/80 bg-gradient-to-br from-amber-50/40 via-white to-white'
       )}
     >
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-charcoal-500">
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-charcoal-500 truncate">
             {title}
           </p>
-          <div className="mt-1.5 flex items-baseline space-x-2">
-            <span className="text-2xl font-extrabold tracking-tight text-charcoal-900 font-display">
+          <div className="mt-1 flex items-baseline space-x-2">
+            <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-charcoal-900 font-display">
               {value}
             </span>
           </div>
@@ -47,7 +47,7 @@ export const StatCard: React.FC<StatCardProps> = ({
 
         <div
           className={cn(
-            'flex items-center justify-center w-10 h-10 rounded-xl border',
+            'flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl border shrink-0',
             iconBg
           )}
         >

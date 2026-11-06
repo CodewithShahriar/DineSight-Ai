@@ -286,9 +286,9 @@ export const CameraFeed: React.FC<CameraFeedProps> = ({
       </div>
 
       {/* FOOTER CAMERA CONTROLS BAR */}
-      <div className="px-3 py-2 bg-charcoal-900 border-t border-charcoal-800 flex items-center justify-between text-xs">
+      <div className="px-3 py-2 bg-charcoal-900 border-t border-charcoal-800 flex flex-wrap items-center justify-between gap-2 text-xs">
         {/* Left: Play/Pause Controls & Mode Switcher */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 shrink-0">
           <button
             onClick={() => setIsPlaying(!isPlaying)}
             className={`p-1.5 rounded-lg border transition-all ${
@@ -345,7 +345,7 @@ export const CameraFeed: React.FC<CameraFeedProps> = ({
         </div>
 
         {/* Right: Snapshot, Zoom, Audio & Fullscreen */}
-        <div className="flex items-center space-x-1.5">
+        <div className="flex items-center space-x-1.5 shrink-0 ml-auto sm:ml-0">
           {/* Snapshot Button */}
           <button
             onClick={handleTakeSnapshot}

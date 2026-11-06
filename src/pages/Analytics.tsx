@@ -55,9 +55,9 @@ export const Analytics: React.FC = () => {
           </Badge>
         }
         actions={
-          <div className="flex items-center space-x-2">
+          <div className="flex flex-wrap items-center gap-2">
             <div className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-warm-100 border border-warm-200 text-xs font-semibold text-charcoal-700">
-              <Calendar className="w-3.5 h-3.5 text-forest-700" />
+              <Calendar className="w-3.5 h-3.5 text-forest-700 shrink-0" />
               <select
                 value={timeRange}
                 onChange={(e) => setTimeRange(e.target.value)}

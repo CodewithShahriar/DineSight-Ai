@@ -14,10 +14,10 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
   actions,
 }) => {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-warm-200/80">
-      <div>
-        <div className="flex items-center space-x-3">
-          <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-charcoal-900 font-display">
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-5 sm:mb-6 pb-3 sm:pb-4 border-b border-warm-200/80">
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <h1 className="text-lg sm:text-2xl font-extrabold tracking-tight text-charcoal-900 font-display">
             {title}
           </h1>
           {badge}
@@ -28,7 +28,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
       </div>
 
       {actions && (
-        <div className="flex items-center space-x-2.5 shrink-0">
+        <div className="flex flex-wrap items-center gap-2 shrink-0">
           {actions}
         </div>
       )}

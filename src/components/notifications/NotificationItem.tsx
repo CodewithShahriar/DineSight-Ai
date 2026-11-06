@@ -104,7 +104,7 @@ export const NotificationItem: React.FC<NotificationItemProps> = ({
         </div>
 
         {/* Right column: Action buttons */}
-        <div className="flex items-center sm:self-end md:self-center space-x-2 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-warm-100">
+        <div className="flex items-center space-x-2 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-warm-100 w-full md:w-auto justify-end">
           {event.status === 'active' && (
             <Button
               variant="amber"

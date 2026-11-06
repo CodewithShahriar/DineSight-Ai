@@ -68,8 +68,8 @@ export const FloorPlan: React.FC = () => {
         }
         actions={
           /* Simulation Speed Options (Real Time, 10x, 60x) */
-          <div className="flex items-center space-x-2 bg-warm-100 p-1 rounded-xl border border-warm-200">
-            <span className="text-[11px] font-bold text-charcoal-500 uppercase tracking-wider px-2 flex items-center">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 bg-warm-100 p-1 rounded-xl border border-warm-200 max-w-full">
+            <span className="text-[11px] font-bold text-charcoal-500 uppercase tracking-wider px-1.5 sm:px-2 flex items-center shrink-0">
               <Gauge className="w-3.5 h-3.5 mr-1 text-forest-700" />
               Speed:
             </span>
@@ -77,13 +77,13 @@ export const FloorPlan: React.FC = () => {
               <button
                 key={spd}
                 onClick={() => setSimulationSpeed(spd)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all ${
+                className={`px-2 sm:px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap shrink-0 ${
                   simulationSpeed === spd
                     ? 'bg-forest-700 text-white shadow-xs'
                     : 'text-charcoal-700 hover:bg-warm-200'
                 }`}
               >
-                {spd === 1 ? '1x (Real Time)' : `${spd}x`}
+                {spd === 1 ? <>1x<span className="hidden sm:inline"> (Real Time)</span></> : `${spd}x`}
               </button>
             ))}
           </div>

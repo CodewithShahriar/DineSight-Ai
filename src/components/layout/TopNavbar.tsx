@@ -39,29 +39,29 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
   return (
     <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 sm:px-6 bg-white/95 backdrop-blur border-b border-warm-200/80 shadow-subtle transition-all">
       {/* Left: Mobile menu toggle & Restaurant Identity */}
-      <div className="flex items-center space-x-3 sm:space-x-4">
+      <div className="flex items-center space-x-2 sm:space-x-4 min-w-0">
         <button
           onClick={onToggleSidebar}
-          className="p-2 -ml-1 text-charcoal-600 rounded-lg lg:hidden hover:bg-warm-100 focus:outline-none"
+          className="p-2 -ml-1 text-charcoal-600 rounded-lg lg:hidden hover:bg-warm-100 focus:outline-none shrink-0"
           aria-label="Open navigation sidebar"
         >
           <Menu className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center space-x-2.5">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-forest-50 border border-forest-200/60 text-forest-700">
+        <div className="flex items-center space-x-2 sm:space-x-2.5 min-w-0">
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-forest-50 border border-forest-200/60 text-forest-700 shrink-0">
             <Building2 className="w-4 h-4" />
           </div>
-          <div>
-            <div className="flex items-center space-x-2">
-              <h1 className="text-sm sm:text-base font-bold text-charcoal-900 tracking-tight">
+          <div className="min-w-0">
+            <div className="flex items-center space-x-1.5 sm:space-x-2">
+              <h1 className="text-xs sm:text-base font-bold text-charcoal-900 tracking-tight truncate">
                 The Grand Bistro
               </h1>
-              <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-warm-150 text-charcoal-700 border border-warm-200">
+              <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-warm-150 text-charcoal-700 border border-warm-200 whitespace-nowrap shrink-0">
                 Main Floor & Patio
               </span>
             </div>
-            <p className="text-[11px] text-charcoal-500 font-medium hidden md:block">
+            <p className="text-[11px] text-charcoal-500 font-medium hidden md:block truncate">
               Connected System • Terminal 04-A
             </p>
           </div>
@@ -83,20 +83,20 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
         <button
           onClick={onToggleDemoMode}
           title="Click to toggle Demo Simulation data"
-          className={`flex items-center px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
+          className={`flex items-center px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all shrink-0 ${
             demoMode
               ? 'bg-amber-50 text-amber-900 border-amber-300/80 shadow-xs hover:bg-amber-100/70'
               : 'bg-warm-100 text-charcoal-600 border-warm-200 hover:bg-warm-150'
           }`}
         >
           <Sparkles
-            className={`w-3.5 h-3.5 mr-1.5 ${
+            className={`w-3.5 h-3.5 mr-1 sm:mr-1.5 ${
               demoMode ? 'text-amber-600 animate-spin-slow' : 'text-charcoal-400'
             }`}
           />
-          <span className="hidden xs:inline">Demo Mode</span>
+          <span className="hidden sm:inline">Demo Mode</span>
           <span
-            className={`ml-1.5 px-1.5 py-0.2 rounded-full text-[10px] font-bold ${
+            className={`ml-1 sm:ml-1.5 px-1.5 py-0.2 rounded-full text-[10px] font-bold ${
               demoMode
                 ? 'bg-amber-600 text-white'
                 : 'bg-charcoal-300 text-charcoal-700'
@@ -123,7 +123,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
 
           {/* Quick Notification Drawer / Popover */}
           {showNotifications && (
-            <div className="absolute right-0 mt-2 w-80 sm:w-96 rounded-xl bg-white border border-warm-200 shadow-floating py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+            <div className="absolute right-0 mt-2 w-[calc(100vw-2rem)] sm:w-96 max-w-sm rounded-xl bg-white border border-warm-200 shadow-floating py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
               <div className="flex items-center justify-between px-4 py-2 border-b border-warm-100">
                 <div className="flex items-center space-x-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-charcoal-700">
@@ -220,7 +220,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
 
           {/* Profile Menu */}
           {showProfileMenu && (
-            <div className="absolute right-0 mt-2 w-52 rounded-xl bg-white border border-warm-200 shadow-floating py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
+            <div className="absolute right-0 mt-2 w-56 max-w-[calc(100vw-2rem)] rounded-xl bg-white border border-warm-200 shadow-floating py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
               <div className="px-4 py-2 border-b border-warm-100">
                 <p className="text-xs font-bold text-charcoal-900">Arthur Pendelton</p>
                 <p className="text-[11px] text-charcoal-500">gm@thegrandbistro.com</p>

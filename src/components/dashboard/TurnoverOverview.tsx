@@ -26,12 +26,12 @@ export const TurnoverOverview: React.FC<TurnoverOverviewProps> = ({ tables }) =>
   return (
     <Card className="flex flex-col justify-between">
       <div>
-        <CardHeader>
+        <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <div>
             <CardTitle>Floor Capacity & Health</CardTitle>
-            <CardDescription>Real-time dining room seating distribution</CardDescription>
+            <CardDescription className="mt-0.5">Real-time dining room seating distribution</CardDescription>
           </div>
-          <span className="text-xl font-extrabold text-charcoal-900 font-mono">
+          <span className="text-xl font-extrabold text-charcoal-900 font-mono shrink-0 self-start sm:self-auto">
             {occupancyRate}% <span className="text-xs text-charcoal-500 font-normal">Capacity</span>
           </span>
         </CardHeader>
