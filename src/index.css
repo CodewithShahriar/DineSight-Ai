@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 25% 98%;
+    --foreground: 200 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 20% 10%;
+    --primary: 153 48% 21%;
+    --primary-foreground: 150 50% 98%;
+    --secondary: 40 15% 93%;
+    --secondary-foreground: 200 20% 15%;
+    --muted: 40 10% 92%;
+    --muted-foreground: 30 5% 45%;
+    --accent: 153 30% 92%;
+    --accent-foreground: 153 48% 21%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 153 48% 21%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    border-color: #ede8df;
+  }
+
+  body {
+    background-color: #fcfbf8;
+    color: #111618;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ded7ca;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5b8a1;
+}
+
+/* Pulse radar effect for live CCTV & Floor Plan tables */
+@keyframes ping-slow {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+/* Subtle continuous surveillance PTZ drift that mimics a live mechanical CCTV feed */
+@keyframes cctv-drift {
+  0% {
+    transform: scale(1.05) translate(0px, 0px);
+  }
+  25% {
+    transform: scale(1.07) translate(-6px, -4px);
+  }
+  50% {
+    transform: scale(1.06) translate(4px, -2px);
+  }
+  75% {
+    transform: scale(1.08) translate(-3px, 5px);
+  }
+  100% {
+    transform: scale(1.05) translate(0px, 0px);
+  }
+}
+
+.animate-cctv-drift {
+  animation: cctv-drift 24s ease-in-out infinite alternate;
+}
+
+/* Thermal Heatmap pulsing gradient */
+@keyframes heatmap-pulse {
+  0%, 100% {
+    opacity: 0.65;
+    filter: blur(16px) hue-rotate(0deg);
+  }
+  50% {
+    opacity: 0.85;
+    filter: blur(20px) hue-rotate(15deg);
+  }
+}
+
+.animate-heatmap {
+  animation: heatmap-pulse 6s ease-in-out infinite;
+}
