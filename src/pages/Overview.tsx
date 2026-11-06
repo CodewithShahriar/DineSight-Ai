@@ -168,7 +168,7 @@ export const Overview: React.FC = () => {
       </div>
 
       {/* Main Operational Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column (7 cols): Analytics Chart & Operations Summary */}
         <div className="lg:col-span-7 space-y-6">
           {/* Customer Waiting Time Analytics Chart */}
@@ -196,10 +196,10 @@ export const Overview: React.FC = () => {
       </div>
 
       {/* Vision Sensor Hardware Status Banner */}
-      <Card>
-        <CardHeader>
+      <Card className="overflow-hidden">
+        <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center space-x-2">
-            <Cctv className="w-4 h-4 text-forest-700" />
+            <Cctv className="w-4 h-4 text-forest-700 shrink-0" />
             <div>
               <CardTitle>Surveillance Telemetry & Hardware Nodes</CardTitle>
               <CardDescription>
@@ -209,7 +209,7 @@ export const Overview: React.FC = () => {
           </div>
           <Link
             to="/monitoring"
-            className="text-xs font-semibold text-forest-700 hover:text-forest-900 inline-flex items-center"
+            className="text-xs font-semibold text-forest-700 hover:text-forest-900 inline-flex items-center shrink-0 self-start sm:self-auto"
           >
             Open CCTV Matrix Wall <ExternalLink className="w-3.5 h-3.5 ml-1" />
           </Link>
@@ -219,7 +219,7 @@ export const Overview: React.FC = () => {
           {cameras.map((cam) => (
             <div
               key={cam.id}
-              className="p-3 rounded-xl bg-charcoal-900 text-white border border-charcoal-800 relative overflow-hidden group hover:border-forest-600 transition-all"
+              className="p-3 rounded-xl bg-charcoal-900 text-white border border-charcoal-800 relative overflow-hidden group hover:border-forest-600 transition-all min-w-0"
             >
               <div className="flex items-center justify-between text-[11px] mb-2">
                 <span className="font-mono text-charcoal-300 font-semibold">{cam.id}</span>

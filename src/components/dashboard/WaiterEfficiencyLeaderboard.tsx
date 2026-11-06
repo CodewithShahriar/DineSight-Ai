@@ -17,15 +17,15 @@ export const WaiterEfficiencyLeaderboard: React.FC<WaiterEfficiencyLeaderboardPr
 
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between gap-2">
         <div>
           <div className="flex items-center space-x-2">
             <CardTitle>Staff Shift Performance</CardTitle>
-            <Award className="w-4 h-4 text-amber-500" />
+            <Award className="w-4 h-4 text-amber-500 shrink-0" />
           </div>
           <CardDescription>Live response metrics and guest service speed</CardDescription>
         </div>
-        <Badge variant="forest" dot>
+        <Badge variant="forest" dot className="shrink-0">
           {waiters.filter((w) => w.status === 'active' || w.status === 'busy').length} Active
         </Badge>
       </CardHeader>

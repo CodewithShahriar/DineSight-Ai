@@ -34,8 +34,8 @@ export const LiveActivityFeed: React.FC<LiveActivityFeedProps> = ({
   })
 
   return (
-    <Card className="flex flex-col h-full">
-      <CardHeader>
+    <Card className="flex flex-col">
+      <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center space-x-2">
             <span className="relative flex h-2.5 w-2.5">

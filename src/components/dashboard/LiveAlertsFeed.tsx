@@ -17,7 +17,7 @@ export const LiveAlertsFeed: React.FC<LiveAlertsFeedProps> = ({
   onResolve,
 }) => {
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="flex flex-col">
       <CardHeader>
         <div>
           <div className="flex items-center space-x-2">
