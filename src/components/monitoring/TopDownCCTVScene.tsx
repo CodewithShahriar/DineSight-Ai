@@ -252,10 +252,10 @@ const Camera01MainDiningScene: React.FC<{ isNightVision?: boolean; isLive?: bool
       </g>
 
       {/* ---------------------------------------------------------------------- */}
-      {/* WAITER: Ahmed Rahman (EMP-101) Walking Central Aisle */}
+      {/* WAITER: Alexander Wright (EMP-101) Walking Central Aisle */}
       {/* Positioned at x: 72%, y: 16%, w: 10%, h: 24% */}
       {/* ---------------------------------------------------------------------- */}
-      <g id="waiter-ahmed" transform="translate(735, 110)">
+      <g id="waiter-alexander" transform="translate(735, 110)">
         {/* Server Shoulder silhouette in sharp black vest */}
         <ellipse cx="35" cy="35" rx="26" ry="18" fill="#0f171c" stroke="#2563eb" strokeWidth="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.6))" />
         {/* Waiter White Collar */}
@@ -358,14 +358,14 @@ const Camera02WindowSeatingScene: React.FC<{ isNightVision?: boolean; isLive?: b
         </g>
       </g>
 
-      {/* WAITER: Tanvir Hasan (EMP-102) Standing at Service Hub */}
+      {/* WAITER: Marcus Vance (EMP-102) Standing at Service Hub */}
       {/* Positioned at x: 78%, y: 18%, w: 14%, h: 32% */}
-      <g id="waiter-tanvir" transform="translate(790, 130)">
+      <g id="waiter-marcus" transform="translate(790, 130)">
         {/* Server Credenza / POS console */}
         <rect x="0" y="80" width="85" height="40" rx="4" fill="#2d3748" stroke="#4a5568" />
         <rect x="25" y="86" width="35" height="24" rx="2" fill="#0284c7" />
 
-        {/* Tanvir Figure */}
+        {/* Marcus Figure */}
         <ellipse cx="42" cy="40" rx="24" ry="17" fill="#0f171c" stroke="#2563eb" strokeWidth="2" />
         <circle cx="42" cy="38" r="12" fill="#d2a679" />
         <path d="M30 34 Q42 26 54 34" fill="#17120e" />
@@ -439,9 +439,9 @@ const Camera03PrivateDiningScene: React.FC<{ isNightVision?: boolean; isLive?: b
         <g transform="translate(670, 395)"><ellipse cx="30" cy="25" rx="24" ry="16" fill="#1c1917" /><circle cx="30" cy="24" r="12" fill="#c49b76" /></g>
       </g>
 
-      {/* HEAD WAITER / SOMMELIER: Sakib Ahmed (EMP-103) Table-Side */}
+      {/* HEAD WAITER / SOMMELIER: Julian Montgomery (EMP-103) Table-Side */}
       {/* Positioned at x: 82%, y: 32%, w: 12%, h: 36% */}
-      <g id="waiter-sakib" transform="translate(825, 200)">
+      <g id="waiter-julian" transform="translate(825, 200)">
         <ellipse cx="32" cy="35" rx="25" ry="18" fill="#0f171c" stroke="#2563eb" strokeWidth="2" />
         <circle cx="32" cy="33" r="12" fill="#c49b76" />
         {/* Serving White Napkin & Wine Bottle */}
@@ -492,9 +492,9 @@ const Camera04EntranceScene: React.FC<{ isNightVision?: boolean; isLive?: boolea
         <rect x="145" y="285" width="60" height="45" rx="3" fill="#1e293b" stroke="#64748b" />
       </g>
 
-      {/* HOST: Fahim Chowdhury (EMP-104) behind Podium */}
+      {/* HOST: Christian Laurent (EMP-104) behind Podium */}
       {/* Positioned at x: 14%, y: 14%, w: 12%, h: 28% */}
-      <g id="waiter-fahim" transform="translate(145, 95)">
+      <g id="waiter-christian" transform="translate(145, 95)">
         <ellipse cx="32" cy="35" rx="24" ry="17" fill="#0f171c" stroke="#2563eb" strokeWidth="2" />
         <circle cx="32" cy="33" r="12" fill="#d2a679" />
         <path d="M20 29 Q32 21 44 29" fill="#1f1610" />

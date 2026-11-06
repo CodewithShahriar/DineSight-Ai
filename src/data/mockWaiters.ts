@@ -4,7 +4,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-1',
     employeeId: 'EMP-101',
-    name: 'Ahmed Rahman',
+    name: 'Alexander Wright',
     role: 'Senior Floor Captain & Lead Expediter',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=250',
     zone: 'Main Dining (North/East)',
@@ -23,7 +23,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-2',
     employeeId: 'EMP-102',
-    name: 'Tanvir Hasan',
+    name: 'Marcus Vance',
     role: 'Station Captain & Senior Server',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=250',
     zone: 'Main Dining (Central/West)',
@@ -42,7 +42,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-3',
     employeeId: 'EMP-103',
-    name: 'Sakib Ahmed',
+    name: 'Julian Montgomery',
     role: 'Senior Terrace & Patio Specialist',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=250',
     zone: 'Veranda Patio (Window)',
@@ -61,7 +61,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-4',
     employeeId: 'EMP-104',
-    name: 'Fahim Chowdhury',
+    name: 'Christian Laurent',
     role: 'VIP Suite Sommelier & Host',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=250',
     zone: 'Private Dining & Bar Lounge',
@@ -80,7 +80,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-5',
     employeeId: 'EMP-105',
-    name: 'Nusrat Jahan',
+    name: 'Elena Rostova',
     role: 'Beverage & Cocktail Sommelier',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=250',
     zone: 'Bar Lounge & VIP Suite',
@@ -99,7 +99,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-6',
     employeeId: 'EMP-106',
-    name: 'Mehedi Hasan',
+    name: 'Lucas Bennett',
     role: 'Dining Room Station Server',
     avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=250',
     zone: 'Main Dining (South Sector)',
@@ -118,7 +118,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-7',
     employeeId: 'EMP-107',
-    name: 'Rifat Al-Mamun',
+    name: 'Dominic Sterling',
     role: 'Food Runner & Kitchen Expediter',
     avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=250',
     zone: 'Kitchen Pass & Main Floor',
@@ -137,7 +137,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-8',
     employeeId: 'EMP-108',
-    name: 'Shila Akter',
+    name: 'Sophia Chen',
     role: 'Lead Hostess & Floor Coordinator',
     avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=250',
     zone: 'Entrance Foyer & Reception',
@@ -156,7 +156,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-9',
     employeeId: 'EMP-109',
-    name: 'Kamal Hossain',
+    name: 'Oliver Hayes',
     role: 'Table Busser & Sanitization Lead',
     avatar: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=250',
     zone: 'Dining Room Turnaround Fleet',
@@ -175,7 +175,7 @@ export const mockWaiters: Waiter[] = [
   {
     id: 'wtr-10',
     employeeId: 'EMP-110',
-    name: 'Tariqul Islam',
+    name: 'Gabriel Silva',
     role: 'Junior Floor Server',
     avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=250',
     zone: 'Veranda Patio (Garden Booths)',

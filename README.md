@@ -100,16 +100,16 @@ Executive reporting suite tracking hourly diner volume vs. revenue velocity, tur
 
 ### 🤖 3. Intelligent Waiter Assignment & 5-Minute Timer Engine
 - **Enterprise 10-Staff Operational Hierarchy:**
-  - `Ahmed Rahman` (`EMP-101`) — Senior Floor Captain & Lead Expediter (Main Dining North/East)
-  - `Tanvir Hasan` (`EMP-102`) — Station Captain & Senior Server (Main Dining Central)
-  - `Sakib Ahmed` (`EMP-103`) — Senior Terrace & Patio Specialist (Veranda Patio)
-  - `Fahim Chowdhury` (`EMP-104`) — VIP Suite Sommelier & Host (Private Dining & Bar)
-  - `Nusrat Jahan` (`EMP-105`) — Beverage & Cocktail Sommelier (Bar Lounge & VIP)
-  - `Mehedi Hasan` (`EMP-106`) — Dining Room Station Server (Main Dining South)
-  - `Rifat Al-Mamun` (`EMP-107`) — Food Runner & Kitchen Expediter (Kitchen Pass)
-  - `Shila Akter` (`EMP-108`) — Lead Hostess & Floor Coordinator (Entrance Foyer)
-  - `Kamal Hossain` (`EMP-109`) — Table Busser & Sanitization Lead (Turnaround Fleet)
-  - `Tariqul Islam` (`EMP-110`) — Junior Floor Server (Garden Booths)
+  - `Alexander Wright` (`EMP-101`) — Senior Floor Captain & Lead Expediter (Main Dining North/East)
+  - `Marcus Vance` (`EMP-102`) — Station Captain & Senior Server (Main Dining Central)
+  - `Julian Montgomery` (`EMP-103`) — Senior Terrace & Patio Specialist (Veranda Patio)
+  - `Christian Laurent` (`EMP-104`) — VIP Suite Sommelier & Host (Private Dining & Bar)
+  - `Elena Rostova` (`EMP-105`) — Beverage & Cocktail Sommelier (Bar Lounge & VIP)
+  - `Lucas Bennett` (`EMP-106`) — Dining Room Station Server (Main Dining South)
+  - `Dominic Sterling` (`EMP-107`) — Food Runner & Kitchen Expediter (Kitchen Pass)
+  - `Sophia Chen` (`EMP-108`) — Lead Hostess & Floor Coordinator (Entrance Foyer)
+  - `Oliver Hayes` (`EMP-109`) — Table Busser & Sanitization Lead (Turnaround Fleet)
+  - `Gabriel Silva` (`EMP-110`) — Junior Floor Server (Garden Booths)
 - **Automated Lifecycle Workflow:**
   1. Customer arrives at table $\rightarrow$ Status sets to `OCCUPIED` & `WAITING_FOR_WAITER`.
   2. 5-minute countdown starts with immediate manager notification.
