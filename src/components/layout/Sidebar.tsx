@@ -13,6 +13,8 @@ import {
   ShieldCheck,
   Radio,
   UtensilsCrossed,
+  Receipt,
+  ChefHat,
 } from 'lucide-react'
 
 interface SidebarProps {
@@ -41,9 +43,14 @@ const navItems = [
     icon: LayoutGrid,
   },
   {
-    name: 'Live Orders & 86\'d Menu',
+    name: 'Live Table Orders & Bills',
     path: '/orders',
-    icon: UtensilsCrossed,
+    icon: Receipt,
+  },
+  {
+    name: 'Kitchen 86\'d & Menu Stock',
+    path: '/menu-stock',
+    icon: ChefHat,
   },
   {
     name: 'Waiter Management',

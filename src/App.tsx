@@ -11,7 +11,8 @@ import { WaiterManagement } from './pages/WaiterManagement'
 import { Analytics } from './pages/Analytics'
 import { Notifications } from './pages/Notifications'
 import { Settings } from './pages/Settings'
-import { OrdersAndMenu } from './pages/OrdersAndMenu'
+import { LiveOrders } from './pages/LiveOrders'
+import { MenuStock } from './pages/MenuStock'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth()
@@ -42,7 +43,8 @@ export function App() {
               <Route index element={<Overview />} />
               <Route path="monitoring" element={<LiveMonitoring />} />
               <Route path="floor-plan" element={<FloorPlan />} />
-              <Route path="orders" element={<OrdersAndMenu />} />
+              <Route path="orders" element={<LiveOrders />} />
+              <Route path="menu-stock" element={<MenuStock />} />
               <Route path="waiters" element={<WaiterManagement />} />
               <Route path="analytics" element={<Analytics />} />
               <Route path="notifications" element={<Notifications />} />
