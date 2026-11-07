@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
+import { OrderProvider } from './context/OrderContext'
 import { Login } from './pages/Login'
 import { AppLayout } from './components/layout/AppLayout'
 import { Overview } from './pages/Overview'
@@ -10,6 +11,7 @@ import { WaiterManagement } from './pages/WaiterManagement'
 import { Analytics } from './pages/Analytics'
 import { Notifications } from './pages/Notifications'
 import { Settings } from './pages/Settings'
+import { OrdersAndMenu } from './pages/OrdersAndMenu'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth()
@@ -25,28 +27,31 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 export function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <AppLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<Overview />} />
-            <Route path="monitoring" element={<LiveMonitoring />} />
-            <Route path="floor-plan" element={<FloorPlan />} />
-            <Route path="waiters" element={<WaiterManagement />} />
-            <Route path="analytics" element={<Analytics />} />
-            <Route path="notifications" element={<Notifications />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <OrderProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<Overview />} />
+              <Route path="monitoring" element={<LiveMonitoring />} />
+              <Route path="floor-plan" element={<FloorPlan />} />
+              <Route path="orders" element={<OrdersAndMenu />} />
+              <Route path="waiters" element={<WaiterManagement />} />
+              <Route path="analytics" element={<Analytics />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </OrderProvider>
     </AuthProvider>
   )
 }

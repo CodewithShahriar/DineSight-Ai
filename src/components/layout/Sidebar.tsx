@@ -12,6 +12,7 @@ import {
   ChevronRight,
   ShieldCheck,
   Radio,
+  UtensilsCrossed,
 } from 'lucide-react'
 
 interface SidebarProps {
@@ -38,6 +39,11 @@ const navItems = [
     name: 'Restaurant Floor Plan',
     path: '/floor-plan',
     icon: LayoutGrid,
+  },
+  {
+    name: 'Live Orders & 86\'d Menu',
+    path: '/orders',
+    icon: UtensilsCrossed,
   },
   {
     name: 'Waiter Management',

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   X,
   Users,
@@ -15,6 +16,7 @@ import {
   FastForward,
   UserPlus,
   Coffee,
+  Receipt,
 } from 'lucide-react'
 import { RestaurantTable, TableStatus } from '../../types'
 import { Button } from '../shared/Button'
@@ -320,6 +322,25 @@ export const TableInspector: React.FC<TableInspectorProps> = ({
             )}
           </div>
         </div>
+
+        {/* Live Order & Bill Shortcut */}
+        <Link
+          to="/orders"
+          className="flex items-center justify-between p-3 rounded-xl bg-forest-900 text-white hover:bg-forest-950 transition-colors shadow-xs"
+        >
+          <div className="flex items-center space-x-2.5">
+            <div className="p-1.5 rounded-lg bg-forest-800 text-emerald-400">
+              <Receipt className="w-4 h-4" />
+            </div>
+            <div>
+              <p className="text-xs font-bold leading-tight">View Live Table Order & Bill</p>
+              <p className="text-[10px] text-emerald-300 font-mono mt-0.5">
+                {table.currentBill ? `Running check: $${table.currentBill.toFixed(2)}` : 'Manage items & 86\'d stock'}
+              </p>
+            </div>
+          </div>
+          <ArrowRight className="w-4 h-4 text-emerald-300" />
+        </Link>
 
         {/* Service Timeline */}
         <div className="p-3.5 rounded-xl border border-warm-200 bg-warm-50/40">

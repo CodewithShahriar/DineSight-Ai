@@ -155,3 +155,50 @@ export interface MetricSummary {
   isPositive: boolean
   description: string
 }
+
+export type MenuCategory =
+  | 'Starters'
+  | 'Steaks & Grills'
+  | 'Mains'
+  | 'Sides'
+  | 'Desserts'
+  | 'Beverages & Wine'
+
+export type KitchenStation = 'Grill' | 'Saute' | 'Cold Pantry' | 'Pastry' | 'Bar'
+
+export interface MenuItem {
+  id: string
+  name: string
+  category: MenuCategory
+  price: number
+  is86: boolean // true = 86'd / Sold out, false = In stock
+  stockRemaining?: number // portions remaining (if tracked)
+  station: KitchenStation
+  description: string
+  dietary?: string[]
+}
+
+export interface OrderItem {
+  id: string
+  menuItemId: string
+  name: string
+  price: number
+  quantity: number
+  notes?: string
+  orderedAt: string
+  status: 'ordered' | 'in_kitchen' | 'served'
+}
+
+export interface TableOrder {
+  id: string
+  tableId: string
+  tableNumber: number
+  zone: string
+  waiterId: string
+  waiterName: string
+  waiterAvatar?: string
+  guestCount: number
+  openedAt: string
+  items: OrderItem[]
+  status: 'active' | 'billing' | 'paid'
+}
