@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   Menu,
   Bell,
@@ -16,6 +16,7 @@ import {
 import { useClock } from '../../hooks/useClock'
 import { OperationsEvent } from '../../types'
 import { STAFF_AVATARS } from '../../utils/avatar'
+import { useAuth } from '../../context/AuthContext'
 
 interface TopNavbarProps {
   onToggleSidebar: () => void
@@ -31,10 +32,18 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
   events = [],
 }) => {
   const { formattedDate, formattedTime } = useClock()
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
   const [showNotifications, setShowNotifications] = useState(false)
   const [showProfileMenu, setShowProfileMenu] = useState(false)
 
   const activeAlerts = events.filter((e) => e.status === 'active')
+
+  const handleSignOut = () => {
+    setShowProfileMenu(false)
+    logout()
+    navigate('/login')
+  }
 
   return (
     <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 sm:px-6 bg-white/95 backdrop-blur border-b border-warm-200/80 shadow-subtle transition-all">
@@ -201,18 +210,18 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
           >
             <div className="relative">
               <img
-                src={STAFF_AVATARS['MGR-001']}
-                alt="Arthur Pendelton"
+                src={user?.avatar || STAFF_AVATARS['MGR-001']}
+                alt={user?.name || 'Arthur Pendelton'}
                 className="w-8 h-8 rounded-full object-cover border border-forest-600/30"
               />
               <span className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white" />
             </div>
             <div className="text-left hidden lg:block">
               <div className="text-xs font-bold text-charcoal-900 leading-none">
-                Arthur Pendelton
+                {user?.name || 'Arthur Pendelton'}
               </div>
               <div className="text-[10px] text-charcoal-500 font-medium mt-0.5">
-                General Manager
+                {user?.role ? user.role.split('/')[0].trim() : 'General Manager'}
               </div>
             </div>
             <ChevronDown className="w-3.5 h-3.5 text-charcoal-400 hidden sm:block" />
@@ -222,8 +231,8 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
           {showProfileMenu && (
             <div className="absolute right-0 mt-2 w-56 max-w-[calc(100vw-2rem)] rounded-xl bg-white border border-warm-200 shadow-floating py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
               <div className="px-4 py-2 border-b border-warm-100">
-                <p className="text-xs font-bold text-charcoal-900">Arthur Pendelton</p>
-                <p className="text-[11px] text-charcoal-500">gm@thegrandbistro.com</p>
+                <p className="text-xs font-bold text-charcoal-900">{user?.name || 'Arthur Pendelton'}</p>
+                <p className="text-[11px] text-charcoal-500">{user?.email || 'gm@thegrandbistro.com'}</p>
                 <span className="inline-flex items-center mt-1 text-[10px] font-semibold text-emerald-700">
                   <CheckCircle2 className="w-3 h-3 mr-1" /> Duty Manager On-Shift
                 </span>
@@ -250,11 +259,11 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
 
               <div className="pt-1 border-t border-warm-100 text-xs">
                 <button
-                  onClick={() => setShowProfileMenu(false)}
-                  className="flex items-center w-full px-4 py-2 text-rose-600 hover:bg-rose-50"
+                  onClick={handleSignOut}
+                  className="flex items-center w-full px-4 py-2 text-rose-600 hover:bg-rose-50 cursor-pointer"
                 >
                   <LogOut className="w-3.5 h-3.5 mr-2.5" />
-                  Sign Out (Demo)
+                  Sign Out
                 </button>
               </div>
             </div>
