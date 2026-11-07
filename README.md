@@ -23,7 +23,6 @@
 - [Key Features](#-key-features)
 - [System Architecture](#-system-architecture)
 - [Technology Stack](#-technology-stack)
-- [Getting Started](#-getting-started)
 - [Live Demo Walkthrough](#-live-demo-walkthrough)
 - [License](#-license)
 
@@ -243,43 +242,6 @@ flowchart TD
 | **React Router v7** | Client-side routing with smooth zero-shift micro-slide page transitions (`220ms`) |
 | **Recharts** | Interactive SVG operational metrics, wait-time curves, and turnaround graphs |
 | **Lucide React** | Enterprise icon system |
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) (version 18.0 or higher recommended)
-- npm or pnpm
-
-### Installation
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/CodewithShahriar/DineSight-Ai.git
-   cd DineSight-Ai
-   ```
-
-2. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Launch the Development Server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Access the Dashboard:**
-   Open your browser and navigate to:
-   ```text
-   http://localhost:5173
-   ```
-
-5. **Build for Production:**
-   ```bash
-   npm run build
-   ```
 
 ---
 
