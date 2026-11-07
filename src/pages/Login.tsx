@@ -29,6 +29,7 @@ export const Login: React.FC = () => {
   const [rememberMe, setRememberMe] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [authStage, setAuthStage] = useState<'idle' | 'verifying' | 'granted'>('idle')
+  const [grantedPhase, setGrantedPhase] = useState<'granted' | 'launching'>('granted')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false)
   const [isShaking, setIsShaking] = useState(false)
@@ -107,8 +108,12 @@ export const Login: React.FC = () => {
       const res = await login(cleanEmail, cleanPass)
       if (res.success) {
         setAuthStage('granted')
-        // Cinematic 800ms loading & success transition before moving to dashboard
-        await new Promise((resolve) => setTimeout(resolve, 800))
+        setGrantedPhase('granted')
+        // Phase 1: Access Granted & verification feedback (900ms)
+        await new Promise((resolve) => setTimeout(resolve, 900))
+        setGrantedPhase('launching')
+        // Phase 2: Smooth launch transition into operations dashboard (900ms)
+        await new Promise((resolve) => setTimeout(resolve, 900))
         const origin = (location.state as { from?: { pathname: string } })?.from?.pathname || '/'
         navigate(origin, { replace: true })
       } else {
@@ -311,7 +316,9 @@ export const Login: React.FC = () => {
                   <div className="flex items-center justify-center space-x-2 py-0.5 animate-in fade-in zoom-in-95 duration-200">
                     <CheckCircle2 className="w-4.5 h-4.5 text-emerald-200 shrink-0 animate-bounce" />
                     <span className="whitespace-nowrap font-bold text-xs sm:text-sm text-emerald-100">
-                      Access Granted • Launching Console...
+                      {grantedPhase === 'granted'
+                        ? 'Access Granted • Initializing Console...'
+                        : 'Terminal Ready • Launching Dashboard...'}
                     </span>
                   </div>
                 ) : authStage === 'verifying' ? (
@@ -359,8 +366,8 @@ export const Login: React.FC = () => {
 
                 {/* Animated loading progress line when access is granted */}
                 {authStage === 'granted' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-emerald-300/30 overflow-hidden">
-                    <div className="h-full bg-white/90 animate-in slide-in-from-left duration-700 w-full" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-emerald-950/50 overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-emerald-300 via-white to-emerald-200 animate-progress-fill" />
                   </div>
                 )}
               </button>

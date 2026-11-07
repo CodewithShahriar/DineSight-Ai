@@ -144,3 +144,17 @@
 .animate-auth-shake {
   animation: auth-shake 0.4s ease-in-out;
 }
+
+/* Progress fill animation for login transition */
+@keyframes progress-fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-progress-fill {
+  animation: progress-fill 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
