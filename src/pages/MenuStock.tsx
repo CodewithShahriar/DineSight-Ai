@@ -251,3 +251,4 @@ export const MenuStock: React.FC = () => {
 }
 
 export default MenuStock
+
