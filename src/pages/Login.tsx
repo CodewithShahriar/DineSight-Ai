@@ -269,7 +269,7 @@ export const Login: React.FC = () => {
             </div>
 
             {/* Remember device checkbox */}
-            <div className="flex items-center justify-between text-xs pt-1">
+            <div className="flex items-center text-xs pt-1">
               <label className="flex items-center space-x-2 cursor-pointer text-charcoal-400 hover:text-charcoal-300">
                 <input
                   type="checkbox"
@@ -279,10 +279,6 @@ export const Login: React.FC = () => {
                 />
                 <span>Remember this terminal session</span>
               </label>
-
-              <span className="text-emerald-400 font-mono text-[11px] font-semibold flex items-center">
-                <CheckCircle2 className="w-3 h-3 mr-1" /> Duty Online
-              </span>
             </div>
 
             {/* Dynamic Sign In Button */}
