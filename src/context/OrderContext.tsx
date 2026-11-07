@@ -23,6 +23,8 @@ interface OrderContextType {
   addOrderItem: (tableId: string, params: AddItemParams) => void
   removeOrderItem: (tableId: string, orderItemId: string) => void
   updateOrderStatus: (tableId: string, status: 'active' | 'billing' | 'paid') => void
+  reopenOrder: (tableId: string) => void
+  resetAllOrders: () => void
   settleBill: (
     tableId: string,
     paymentMethod: string,
@@ -171,6 +173,23 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     )
   }
 
+  // Reopen paid order back to unpaid / active
+  const reopenOrder = (tableId: string) => {
+    setTableOrders((prev) =>
+      prev.map((ord) => (ord.tableId === tableId ? { ...ord, status: 'active' } : ord))
+    )
+  }
+
+  // Reset all table orders to default demo initial state
+  const resetAllOrders = () => {
+    setTableOrders(mockInitialTableOrders)
+    try {
+      localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(mockInitialTableOrders))
+    } catch {
+      // ignore
+    }
+  }
+
   // Settle bill / Checkout
   const settleBill = (
     tableId: string,
@@ -224,6 +243,8 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         addOrderItem,
         removeOrderItem,
         updateOrderStatus,
+        reopenOrder,
+        resetAllOrders,
         settleBill,
         getOrderForTable,
         stats: {

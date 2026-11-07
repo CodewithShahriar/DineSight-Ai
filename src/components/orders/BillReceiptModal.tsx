@@ -13,6 +13,7 @@ import {
   Clock,
   Sparkles,
   Building2,
+  RotateCcw,
 } from 'lucide-react'
 import { TableOrder } from '../../types'
 import { useOrders } from '../../context/OrderContext'
@@ -28,16 +29,23 @@ export const BillReceiptModal: React.FC<BillReceiptModalProps> = ({
   isOpen,
   onClose,
 }) => {
-  const { settleBill } = useOrders()
+  const { settleBill, reopenOrder } = useOrders()
 
   const [tipPercent, setTipPercent] = useState<number>(18)
   const [customTip, setCustomTip] = useState<string>('')
   const [splitCount, setSplitCount] = useState<number>(1)
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'cash' | 'apple_pay'>('card')
-  const [isPaid, setIsPaid] = useState(false)
+  const [isPaid, setIsPaid] = useState(() => order?.status === 'paid')
   const [receiptNumber, setReceiptNumber] = useState<string>(() => {
     return `GB-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`
   })
+
+  // Synchronize paid state if order changes
+  React.useEffect(() => {
+    if (order) {
+      setIsPaid(order.status === 'paid')
+    }
+  }, [order?.status])
 
   // Prevent background scroll when modal is active
   React.useEffect(() => {
@@ -365,12 +373,24 @@ export const BillReceiptModal: React.FC<BillReceiptModalProps> = ({
               <span>Settle & Complete Bill (${grandTotal.toFixed(2)})</span>
             </button>
           ) : (
-            <button
-              onClick={onClose}
-              className="px-5 py-2 rounded-xl bg-charcoal-900 hover:bg-charcoal-800 text-white font-bold text-xs shadow-md transition-all cursor-pointer"
-            >
-              Done & Close
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => {
+                  reopenOrder(order.tableId)
+                  setIsPaid(false)
+                }}
+                className="px-3.5 py-2 rounded-xl border border-emerald-300 bg-white hover:bg-emerald-50 text-emerald-800 font-bold text-xs transition-colors flex items-center space-x-1.5 cursor-pointer shadow-xs"
+              >
+                <RotateCcw className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Mark as Unpaid (Reopen)</span>
+              </button>
+              <button
+                onClick={onClose}
+                className="px-5 py-2 rounded-xl bg-charcoal-900 hover:bg-charcoal-800 text-white font-bold text-xs shadow-md transition-all cursor-pointer"
+              >
+                Done & Close
+              </button>
+            </div>
           )}
         </div>
       </div>
