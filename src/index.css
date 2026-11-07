@@ -156,5 +156,5 @@
 }
 
 .animate-progress-fill {
-  animation: progress-fill 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: progress-fill 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
