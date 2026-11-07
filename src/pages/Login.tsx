@@ -109,11 +109,11 @@ export const Login: React.FC = () => {
       if (res.success) {
         setAuthStage('granted')
         setGrantedPhase('granted')
-        // Phase 1: Access Granted & verification feedback (1400ms)
-        await new Promise((resolve) => setTimeout(resolve, 1400))
+        // Phase 1: Access Granted & verification feedback (1500ms)
+        await new Promise((resolve) => setTimeout(resolve, 1500))
         setGrantedPhase('launching')
-        // Phase 2: Smooth launch transition into operations dashboard (1400ms)
-        await new Promise((resolve) => setTimeout(resolve, 1400))
+        // Phase 2: Slow & cinematic launch transition into operations dashboard (2500ms)
+        await new Promise((resolve) => setTimeout(resolve, 2500))
         const origin = (location.state as { from?: { pathname: string } })?.from?.pathname || '/'
         navigate(origin, { replace: true })
       } else {
