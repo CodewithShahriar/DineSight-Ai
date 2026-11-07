@@ -958,6 +958,120 @@ export const initialCameras: CCTVFeed[] = [
       },
     ],
   },
+
+  // --------------------------------------------------------------------------
+  // CAMERA 09 — WASTE & SANITATION STATION (cctv-cam09.jpg)
+  // --------------------------------------------------------------------------
+  {
+    id: 'CAM-09',
+    name: 'Camera 09 — Waste & Sanitation Station',
+    zone: 'Service & Sanitation',
+    status: 'online',
+    streamQuality: '1080p 60fps',
+    latencyMs: 41,
+    aiTrackingEnabled: true,
+    currentDetections: 1,
+    thumbnailPlaceholderColor: '#1e293b',
+    lastIncident: 'Sanitation team active • Waste sorting nominal',
+    imageUrl: '/cctv-cam09.jpg',
+    detections: [
+      {
+        id: 'det-901',
+        category: 'waiter',
+        label: 'STAFF: Sanitation & Turnover',
+        subLabel: 'Active • Segregated Waste Disposal',
+        status: 'Active Duty',
+        confidence: 0.98,
+        x: 27.5,
+        y: 24.5,
+        width: 17.5,
+        height: 54.5,
+        color: 'blue',
+      },
+    ],
+  },
+
+  // --------------------------------------------------------------------------
+  // CAMERA 10 — DRY STORAGE & INVENTORY (cctv-cam10.jpg)
+  // --------------------------------------------------------------------------
+  {
+    id: 'CAM-10',
+    name: 'Camera 10 — Dry Storage & Inventory',
+    zone: 'Store & Cellar',
+    status: 'online',
+    streamQuality: '1080p 60fps',
+    latencyMs: 39,
+    aiTrackingEnabled: true,
+    currentDetections: 1,
+    thumbnailPlaceholderColor: '#1a1f26',
+    lastIncident: 'Provisions inventory inspection in progress',
+    imageUrl: '/cctv-cam10.jpg',
+    detections: [
+      {
+        id: 'det-1001',
+        category: 'waiter',
+        label: 'STAFF: Inventory Controller',
+        subLabel: 'Active • Stock Audit & FIFO Restocking',
+        status: 'Active Duty',
+        confidence: 0.99,
+        x: 54.5,
+        y: 17.5,
+        width: 13.5,
+        height: 51.5,
+        color: 'blue',
+      },
+    ],
+  },
+
+  // --------------------------------------------------------------------------
+  // CAMERA 11 — VALET PARKING & DRIVEWAY (cctv-cam11.jpg)
+  // --------------------------------------------------------------------------
+  {
+    id: 'CAM-11',
+    name: 'Camera 11 — Valet Parking & Driveway',
+    zone: 'Exterior & Parking',
+    status: 'online',
+    streamQuality: '1080p 60fps',
+    latencyMs: 34,
+    aiTrackingEnabled: true,
+    currentDetections: 0,
+    thumbnailPlaceholderColor: '#111827',
+    lastIncident: 'Driveway clear • Parking bays nominal',
+    imageUrl: '/cctv-cam11.jpg',
+    detections: [],
+  },
+
+  // --------------------------------------------------------------------------
+  // CAMERA 12 — CURBSIDE PICKUP & DRIVEWAY (cctv-cam12.jpg)
+  // --------------------------------------------------------------------------
+  {
+    id: 'CAM-12',
+    name: 'Camera 12 — Curbside Pickup & Drive-thru',
+    zone: 'Exterior & Parking',
+    status: 'online',
+    streamQuality: '1080p 60fps',
+    latencyMs: 36,
+    aiTrackingEnabled: true,
+    currentDetections: 1,
+    thumbnailPlaceholderColor: '#0f172a',
+    lastIncident: 'Takeout handoff completed to guest vehicle',
+    imageUrl: '/cctv-cam12.jpg',
+    detections: [
+      {
+        id: 'det-1201',
+        category: 'waiter',
+        label: 'STAFF: Curbside Runner',
+        subLabel: 'Active • Delivering Takeout Order to Vehicle',
+        status: 'Handoff Active',
+        confidence: 0.98,
+        x: 37.5,
+        y: 38.0,
+        width: 13.5,
+        height: 40.0,
+        color: 'blue',
+      },
+    ],
+  },
 ]
 
 export const initialEvents: OperationsEvent[] = [
