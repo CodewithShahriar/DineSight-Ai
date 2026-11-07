@@ -173,15 +173,12 @@ export const Login: React.FC = () => {
         <div className="w-full max-w-md bg-charcoal-900/90 backdrop-blur-xl border border-charcoal-800/90 rounded-2xl shadow-2xl p-6 sm:p-8 animate-in fade-in zoom-in-95 duration-200">
           {/* Card Title & Icon */}
           <div className="text-center mb-6">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-forest-950/80 border border-forest-700/50 text-forest-300 mb-3 shadow-inner">
-              <KeyRound className="w-6 h-6 text-emerald-400" />
+            <div className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-forest-950/80 border border-forest-700/50 text-forest-300 mb-2.5 shadow-inner">
+              <KeyRound className="w-5 h-5 text-emerald-400" />
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white font-display">
-              Manager Sign In
+              Sign In
             </h2>
-            <p className="text-xs sm:text-sm text-charcoal-400 mt-1">
-              Enter your credentials to access the Restaurant Operations Console
-            </p>
           </div>
 
           {/* Error Alert Message */}
