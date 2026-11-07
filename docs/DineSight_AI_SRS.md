@@ -162,3 +162,4 @@ flowchart TD
 ---
 
 *DineSight AI — Smarter Restaurant Operations Through Intelligent Automation.*
+

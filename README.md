@@ -66,30 +66,65 @@ A formal, IEEE Std 830-1998 compliant **Software Requirements Specification (SRS
 ## 📸 Interface Preview & Screenshots
 
 ### 🖥️ 1. Executive Operations Console
-Centralized dashboard tracking capacity KPIs, customer wait-time distribution curves, dining zone occupancy breakdowns, and live vision incident feeds.
+Centralized command center tracking floor capacity KPIs, customer wait-time distribution curves, dining zone occupancy breakdowns, and live vision incident feeds.
 
 ![Executive Operations Console](docs/screenshots/01-overview-dashboard.jpg)
 
 ---
 
-### 📹 2. Multi-Angle CCTV Vision Matrix Wall
-12-camera synchronized commercial surveillance grid monitoring dining rooms, terrace, bar, kitchen pass, waste station, dry storage, and parking with bounding boxes and OSD telemetry.
+### 📹 2. Front-of-House CCTV Vision Matrix Wall
+Synchronized commercial surveillance grid monitoring the Main Dining Room, Window Seating, Private VIP Suite, and Entrance Reception with real-time bounding boxes and millisecond OSD telemetry.
 
-![Multi-Angle CCTV Vision Matrix Wall](docs/screenshots/02-cctv-quad-matrix.jpg)
-
----
-
-### 🚨 3. Incident & Alert Dispatch Log
-Chronological event hub classifying vision alerts (*Empty Glassware*, *Beverage Refill Needed*, *Check Requested*, *Dwell Time Escalation*) with 1-click waiter dispatches.
-
-![Incident & Alert Dispatch Log](docs/screenshots/03-incidents-dispatch.jpg)
+![Front-of-House CCTV Vision Matrix Wall](docs/screenshots/02-cctv-quad-matrix.jpg)
 
 ---
 
-### 📈 4. Service Velocity & Operational Analytics
+### 📦 3. Backstage, Logistics & Parking CCTV Surveillance Matrix
+Surveillance coverage spanning Camera 09 (Waste & Sanitation Station), Camera 10 (Dry Storage & Provisions Cellar), Camera 11 (Valet Parking Lot), and Camera 12 (Curbside Pickup Vehicle Handoff) with active computer-vision staff detection.
+
+![Backstage, Logistics & Parking CCTV Surveillance Matrix](docs/screenshots/05-cctv-backstage-parking.jpg)
+
+---
+
+### 🧾 4. Live Table Orders, Course Rounds & Billing Tickets
+Live table order management displaying active dining course tickets (Round 1, Round 2), running subtotals, item modification notes, and 1-click checkout buttons.
+
+![Live Table Orders, Course Rounds & Billing Tickets](docs/screenshots/08-live-table-orders-billing.jpg)
+
+---
+
+### 🚫 5. Kitchen 86'd & Menu Stock Controls
+Real-time culinary stock dashboard with station categorization (Grill, Sauté, Pantry, Pastry, Bar), portion depletion meters, and 1-click instant sold-out (*86'd*) toggles.
+
+![Kitchen 86'd & Menu Stock Controls](docs/screenshots/09-kitchen-86d-menu-stock.jpg)
+
+---
+
+### 🤖 6. Waiter Management & 5-Minute Auto-Dispatch Engine
+10-staff enterprise roster, sub-second waiting countdown queue, waiter availability selectors, and matching full-width action buttons for profile dossiers and section reassignments.
+
+![Waiter Management & 5-Minute Auto-Dispatch Engine](docs/screenshots/06-waiter-management-dispatch.jpg)
+
+---
+
+### 🪑 7. Interactive 12-Table Section Reassignment Modal
+Portaled full-screen modal with background scroll lock, 12-table visual selection grid, automatic zone allocation shortcuts, and live dining capacity load calculation.
+
+![Interactive 12-Table Section Reassignment Modal](docs/screenshots/07-reassign-tables-modal.jpg)
+
+---
+
+### 🚨 8. Real-Time Incident & Alert Dispatch Log
+Chronological event hub classifying computer-vision alerts (*Empty Glassware*, *Beverage Refill Needed*, *Check Requested*, *Dwell Time Escalation*) with 1-click waiter dispatches.
+
+![Real-Time Incident & Alert Dispatch Log](docs/screenshots/03-incidents-dispatch.jpg)
+
+---
+
+### 📈 9. Service Velocity & Operational Analytics Suite
 Executive reporting tracking hourly volume vs. revenue velocity, turnover acceleration (-16m faster table turns), and server table-side response SLA compliance.
 
-![Service Velocity & Operational Analytics](docs/screenshots/04-service-analytics.jpg)
+![Service Velocity & Operational Analytics Suite](docs/screenshots/04-service-analytics.jpg)
 
 ---
 

@@ -574,3 +574,4 @@ export function generateSRSPDF(outputPath) {
 // Execute generator
 const outPath = path.resolve('docs', 'DineSight_AI_SRS.pdf')
 generateSRSPDF(outPath)
+
