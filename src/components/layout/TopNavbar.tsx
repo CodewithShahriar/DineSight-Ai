@@ -46,7 +46,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
   }
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 sm:px-6 bg-white/95 backdrop-blur border-b border-warm-200/80 shadow-subtle transition-all">
+    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 sm:px-6 bg-white/95 backdrop-blur border-b border-warm-200/80 shadow-subtle">
       {/* Left: Mobile menu toggle & Restaurant Identity */}
       <div className="flex items-center space-x-2 sm:space-x-4 min-w-0">
         <button

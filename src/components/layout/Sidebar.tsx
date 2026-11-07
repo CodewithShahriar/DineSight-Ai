@@ -132,42 +132,55 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={onCloseMobile}
                 end={item.path === '/'}
                 className={({ isActive }) =>
-                  `group flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 ${
+                  `group relative flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors duration-150 ${
                     isActive
-                      ? 'bg-forest-900/90 text-white shadow-sm border border-forest-700/50'
-                      : 'text-charcoal-400 hover:text-charcoal-100 hover:bg-charcoal-800/60'
+                      ? 'bg-forest-900/90 text-white shadow-xs border-forest-700/60 font-semibold'
+                      : 'text-charcoal-400 border-transparent hover:text-charcoal-100 hover:bg-charcoal-800/60'
                   }`
                 }
               >
                 {({ isActive }) => (
                   <>
+                    {/* Active accent pill on the left border */}
+                    <span
+                      className={`absolute left-0 top-2 bottom-2 w-1 rounded-r-md transition-opacity duration-200 ${
+                        isActive ? 'bg-emerald-400 opacity-100' : 'opacity-0'
+                      }`}
+                    />
+
                     <div className="flex items-center space-x-3">
                       <Icon
-                        className={`w-4 h-4 transition-colors ${
+                        className={`w-4 h-4 transition-colors duration-150 ${
                           isActive
-                            ? 'text-forest-400'
+                            ? 'text-emerald-400'
                             : 'text-charcoal-400 group-hover:text-charcoal-200'
                         }`}
                       />
                       <span>{item.name}</span>
                     </div>
 
-                    {item.badgeType === 'live' && (
-                      <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-red-950/80 text-red-400 border border-red-800/40">
-                        <Radio className="w-2.5 h-2.5 mr-1 animate-pulse" />
-                        LIVE
-                      </span>
-                    )}
+                    <div className="flex items-center space-x-1.5 ml-auto">
+                      {item.badgeType === 'live' && (
+                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-red-950/80 text-red-400 border border-red-800/40">
+                          <Radio className="w-2.5 h-2.5 mr-1 animate-pulse" />
+                          LIVE
+                        </span>
+                      )}
 
-                    {item.badgeKey === 'unread' && unreadCount > 0 && (
-                      <span className="px-1.5 py-0.2 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                        {unreadCount}
-                      </span>
-                    )}
+                      {item.badgeKey === 'unread' && unreadCount > 0 && (
+                        <span className="px-1.5 py-0.2 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                          {unreadCount}
+                        </span>
+                      )}
 
-                    {isActive && (
-                      <ChevronRight className="w-3.5 h-3.5 text-forest-400 ml-auto" />
-                    )}
+                      <ChevronRight
+                        className={`w-3.5 h-3.5 text-emerald-400 transition-all duration-200 ${
+                          isActive
+                            ? 'opacity-100 translate-x-0'
+                            : 'opacity-0 -translate-x-1 pointer-events-none'
+                        }`}
+                      />
+                    </div>
                   </>
                 )}
               </NavLink>
