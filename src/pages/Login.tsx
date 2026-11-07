@@ -28,6 +28,7 @@ export const Login: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [rememberMe, setRememberMe] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
+  const [authStage, setAuthStage] = useState<'idle' | 'verifying' | 'granted'>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false)
   const [isShaking, setIsShaking] = useState(false)
@@ -52,13 +53,13 @@ export const Login: React.FC = () => {
   const isCredentialsValid = isFilled && isEmailValid && isPassValid
   const isCredentialsInvalid = isFilled && (!isEmailValid || !isPassValid)
 
-  // Redirect if already logged in
+  // Redirect if already logged in (only on mount / idle, not during granted animation)
   React.useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && authStage === 'idle') {
       const origin = (location.state as { from?: { pathname: string } })?.from?.pathname || '/'
       navigate(origin, { replace: true })
     }
-  }, [isAuthenticated, navigate, location])
+  }, [isAuthenticated, navigate, location, authStage])
 
   const triggerShake = () => {
     setIsShaking(true)
@@ -100,18 +101,24 @@ export const Login: React.FC = () => {
     }
 
     setIsLoading(true)
+    setAuthStage('verifying')
 
     try {
       const res = await login(cleanEmail, cleanPass)
       if (res.success) {
+        setAuthStage('granted')
+        // Cinematic 800ms loading & success transition before moving to dashboard
+        await new Promise((resolve) => setTimeout(resolve, 800))
         const origin = (location.state as { from?: { pathname: string } })?.from?.pathname || '/'
         navigate(origin, { replace: true })
       } else {
+        setAuthStage('idle')
         setErrorMessage(res.error || 'Authentication failed. Please verify your credentials.')
         setHasAttemptedSubmit(true)
         triggerShake()
       }
     } catch {
+      setAuthStage('idle')
       setErrorMessage('A connection error occurred. Please try again.')
       setHasAttemptedSubmit(true)
       triggerShake()
@@ -277,67 +284,94 @@ export const Login: React.FC = () => {
             <div className="pt-2">
               <button
                 type="submit"
-                disabled={isLoading || !isFilled}
-                className={`w-full py-3.5 px-4 rounded-xl font-semibold text-sm transition-all flex items-center justify-center space-x-2 focus:outline-none ${
-                  // State 1: Loading
-                  isLoading
+                disabled={isLoading || !isFilled || authStage === 'granted'}
+                className={`relative overflow-hidden w-full py-3 px-4 rounded-xl font-semibold text-sm transition-all flex items-center justify-center space-x-2 focus:outline-none select-none ${
+                  // State 1: Access Granted (Success Animation)
+                  authStage === 'granted'
+                    ? 'bg-gradient-to-r from-emerald-500 via-forest-600 to-emerald-500 text-white font-bold border border-emerald-300/80 shadow-2xl shadow-emerald-950/80 ring-2 ring-emerald-400/60 scale-[1.02] cursor-default'
+                    // State 2: Verifying Loading
+                    : authStage === 'verifying'
                     ? 'bg-forest-900/90 border border-forest-600/70 text-forest-200 cursor-wait shadow-inner'
-                    // State 2: Has error after submit attempt
+                    // State 3: Has error after submit attempt
                     : hasAttemptedSubmit && (errorMessage || isCredentialsInvalid)
                     ? `bg-gradient-to-r from-rose-900 via-rose-950 to-rose-900 border-2 border-rose-600/90 text-rose-100 shadow-xl shadow-rose-950/70 cursor-pointer hover:brightness-110 ${
                         isShaking ? 'animate-auth-shake' : ''
                       }`
-                    // State 3: Correct Manager Credentials Match
+                    // State 4: Correct Manager Credentials Match
                     : isCredentialsValid
                     ? 'bg-gradient-to-r from-emerald-600 via-forest-600 to-emerald-600 hover:from-emerald-500 hover:to-forest-500 text-white font-bold border border-emerald-400/60 shadow-xl shadow-emerald-950/60 ring-2 ring-emerald-500/40 hover:scale-[1.01] active:scale-[0.99] cursor-pointer group'
-                    // State 4: Filled with unrecognized credentials (caution state)
+                    // State 5: Filled with unrecognized credentials (caution state)
                     : isCredentialsInvalid
                     ? 'bg-charcoal-800 hover:bg-charcoal-750 border border-amber-600/50 hover:border-amber-500/80 text-amber-200 shadow-md cursor-pointer hover:scale-[1.005]'
-                    // State 5: Empty / Incomplete
+                    // State 6: Empty / Incomplete
                     : 'bg-charcoal-850 border border-charcoal-800 text-charcoal-500 cursor-not-allowed opacity-60'
                 }`}
               >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="w-4.5 h-4.5 animate-spin text-emerald-400" />
-                    <span>Verifying Terminal Security...</span>
-                  </>
-                ) : hasAttemptedSubmit && (errorMessage || isCredentialsInvalid) ? (
-                  <>
-                    <XCircle className="w-4.5 h-4.5 text-rose-400 shrink-0" />
-                    <span>Access Denied — Invalid Credentials</span>
-                  </>
-                ) : isCredentialsValid ? (
-                  <>
-                    <span className="relative flex h-2.5 w-2.5 mr-0.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-300" />
+                {authStage === 'granted' ? (
+                  <div className="flex items-center justify-center space-x-2 py-0.5 animate-in fade-in zoom-in-95 duration-200">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-emerald-200 shrink-0 animate-bounce" />
+                    <span className="whitespace-nowrap font-bold text-xs sm:text-sm text-emerald-100">
+                      Access Granted • Launching Console...
                     </span>
-                    <Unlock className="w-4.5 h-4.5 text-emerald-200" />
-                    <span>Authorize & Sign In to Operations Console</span>
-                    <ArrowRight className="w-4 h-4 text-emerald-200 group-hover:translate-x-1 transition-transform ml-0.5" />
-                  </>
+                  </div>
+                ) : authStage === 'verifying' ? (
+                  <div className="flex items-center justify-center space-x-2 py-0.5">
+                    <Loader2 className="w-4.5 h-4.5 animate-spin text-emerald-400 shrink-0" />
+                    <span className="whitespace-nowrap font-mono text-xs sm:text-sm">
+                      Authenticating Terminal...
+                    </span>
+                  </div>
+                ) : hasAttemptedSubmit && (errorMessage || isCredentialsInvalid) ? (
+                  <div className="flex items-center justify-center space-x-2 py-0.5">
+                    <XCircle className="w-4.5 h-4.5 text-rose-400 shrink-0" />
+                    <span className="whitespace-nowrap font-semibold text-xs sm:text-sm">
+                      Access Denied — Check Credentials
+                    </span>
+                  </div>
+                ) : isCredentialsValid ? (
+                  <div className="flex items-center justify-center space-x-2 py-0.5">
+                    <span className="relative flex h-2 w-2 mr-0.5 shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-300" />
+                    </span>
+                    <Unlock className="w-4 h-4 text-emerald-200 shrink-0" />
+                    <span className="whitespace-nowrap font-bold text-xs sm:text-sm">
+                      Authorize & Enter Console
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-emerald-200 group-hover:translate-x-1 transition-transform shrink-0" />
+                  </div>
                 ) : isCredentialsInvalid ? (
-                  <>
-                    <KeyRound className="w-4 h-4 text-amber-400" />
-                    <span>Verify Credentials & Sign In</span>
-                    <ArrowRight className="w-4 h-4 text-amber-300 ml-0.5" />
-                  </>
+                  <div className="flex items-center justify-center space-x-2 py-0.5">
+                    <KeyRound className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span className="whitespace-nowrap font-medium text-xs sm:text-sm">
+                      Verify & Sign In
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-amber-300 shrink-0" />
+                  </div>
                 ) : (
-                  <>
-                    <Lock className="w-4 h-4 text-charcoal-600" />
-                    <span>Enter Credentials to Sign In</span>
-                  </>
+                  <div className="flex items-center justify-center space-x-2 py-0.5">
+                    <Lock className="w-4 h-4 text-charcoal-600 shrink-0" />
+                    <span className="whitespace-nowrap font-medium text-xs sm:text-sm">
+                      Enter Credentials to Sign In
+                    </span>
+                  </div>
+                )}
+
+                {/* Animated loading progress line when access is granted */}
+                {authStage === 'granted' && (
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-emerald-300/30 overflow-hidden">
+                    <div className="h-full bg-white/90 animate-in slide-in-from-left duration-700 w-full" />
+                  </div>
                 )}
               </button>
 
               {/* Dynamic Status Badges under button */}
-              {isCredentialsValid && !isLoading && (
+              {isCredentialsValid && authStage === 'idle' && (
                 <p className="text-[11px] text-center text-emerald-400 mt-2 font-mono flex items-center justify-center font-semibold animate-in fade-in duration-200">
                   <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-400" /> Duty Manager Credentials Recognized
                 </p>
               )}
-              {hasAttemptedSubmit && (errorMessage || isCredentialsInvalid) && !isLoading && (
+              {hasAttemptedSubmit && (errorMessage || isCredentialsInvalid) && authStage === 'idle' && (
                 <p className="text-[11px] text-center text-rose-400 mt-2 font-mono flex items-center justify-center animate-in fade-in duration-200">
                   <AlertCircle className="w-3.5 h-3.5 mr-1 text-rose-400" /> Check manager email or security passkey
                 </p>
