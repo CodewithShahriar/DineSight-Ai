@@ -7,7 +7,6 @@ import {
   Eye,
   EyeOff,
   Building2,
-  ShieldCheck,
   AlertCircle,
   Loader2,
   ArrowRight,
@@ -21,9 +20,9 @@ export const Login: React.FC = () => {
   const location = useLocation()
   const { login, isAuthenticated } = useAuth()
 
-  // Pre-fill default manager credentials for easy access without a 1-click bypass button
-  const [email, setEmail] = useState('gm@thegrandbistro.com')
-  const [password, setPassword] = useState('admin123')
+  // Real credentials inputs requiring manual user entry
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [rememberMe, setRememberMe] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
@@ -152,11 +151,10 @@ export const Login: React.FC = () => {
 
             {/* Password */}
             <div>
-              <div className="flex items-center justify-between mb-1.5">
+              <div className="mb-1.5">
                 <label className="block text-xs font-semibold text-charcoal-300 uppercase tracking-wider">
                   Security Passkey
                 </label>
-                <span className="text-[11px] text-charcoal-500 font-mono">Duty Key: admin123</span>
               </div>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-charcoal-500">
@@ -217,17 +215,6 @@ export const Login: React.FC = () => {
               )}
             </button>
           </form>
-
-          {/* Authorized Credentials Card Hint (For reviewer convenience without any shortcut button) */}
-          <div className="mt-6 pt-4 border-t border-charcoal-800 text-[11px] text-charcoal-400 flex items-center justify-between">
-            <span className="flex items-center">
-              <ShieldCheck className="w-3.5 h-3.5 text-forest-400 mr-1.5 shrink-0" />
-              General Manager Credentials:
-            </span>
-            <span className="font-mono text-charcoal-300 bg-charcoal-800/80 px-2 py-0.5 rounded border border-charcoal-700 font-semibold">
-              admin123
-            </span>
-          </div>
         </div>
       </main>
 
@@ -244,3 +231,4 @@ export const Login: React.FC = () => {
     </div>
   )
 }
+
