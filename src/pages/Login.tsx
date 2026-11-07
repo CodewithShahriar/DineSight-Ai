@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import {
   ScanEye,
   Lock,
+  Unlock,
   Mail,
   Eye,
   EyeOff,
@@ -12,6 +13,7 @@ import {
   ArrowRight,
   KeyRound,
   CheckCircle2,
+  XCircle,
 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 
@@ -27,6 +29,28 @@ export const Login: React.FC = () => {
   const [rememberMe, setRememberMe] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false)
+  const [isShaking, setIsShaking] = useState(false)
+
+  // Accepted manager credentials check
+  const cleanEmail = email.trim().toLowerCase()
+  const cleanPass = password.trim()
+
+  const validEmails = [
+    'gm@thegrandbistro.com',
+    'arthur@thegrandbistro.com',
+    'arthur.pendelton@thegrandbistro.com',
+    'admin',
+    'manager',
+  ]
+  const validPasswords = ['admin123', 'password123', 'dinesight2026', 'admin', 'password', '123456']
+
+  const isEmailValid = validEmails.includes(cleanEmail) || cleanEmail.endsWith('@thegrandbistro.com')
+  const isPassValid = validPasswords.includes(cleanPass)
+
+  const isFilled = cleanEmail.length > 0 && cleanPass.length > 0
+  const isCredentialsValid = isFilled && isEmailValid && isPassValid
+  const isCredentialsInvalid = isFilled && (!isEmailValid || !isPassValid)
 
   // Redirect if already logged in
   React.useEffect(() => {
@@ -36,32 +60,61 @@ export const Login: React.FC = () => {
     }
   }, [isAuthenticated, navigate, location])
 
+  const triggerShake = () => {
+    setIsShaking(true)
+    setTimeout(() => setIsShaking(false), 500)
+  }
+
+  const handleEmailChange = (val: string) => {
+    setEmail(val)
+    if (errorMessage) setErrorMessage(null)
+    if (hasAttemptedSubmit) setHasAttemptedSubmit(false)
+  }
+
+  const handlePasswordChange = (val: string) => {
+    setPassword(val)
+    if (errorMessage) setErrorMessage(null)
+    if (hasAttemptedSubmit) setHasAttemptedSubmit(false)
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setErrorMessage(null)
+    setHasAttemptedSubmit(false)
 
-    if (!email.trim()) {
+    if (!cleanEmail) {
       setErrorMessage('Please enter your manager email or terminal ID.')
+      triggerShake()
       return
     }
 
-    if (!password.trim()) {
+    if (!cleanPass) {
       setErrorMessage('Please enter your security passkey.')
+      triggerShake()
       return
+    }
+
+    if (!isCredentialsValid) {
+      setHasAttemptedSubmit(true)
+      triggerShake()
     }
 
     setIsLoading(true)
 
     try {
-      const res = await login(email, password)
+      const res = await login(cleanEmail, cleanPass)
       if (res.success) {
         const origin = (location.state as { from?: { pathname: string } })?.from?.pathname || '/'
         navigate(origin, { replace: true })
       } else {
         setErrorMessage(res.error || 'Authentication failed. Please verify your credentials.')
+        setHasAttemptedSubmit(true)
+        triggerShake()
       }
     } catch {
       setErrorMessage('A connection error occurred. Please try again.')
+      setHasAttemptedSubmit(true)
+      triggerShake()
     } finally {
       setIsLoading(false)
     }
@@ -121,7 +174,7 @@ export const Login: React.FC = () => {
 
           {/* Error Alert Message */}
           {errorMessage && (
-            <div className="mb-5 p-3 rounded-xl bg-rose-950/60 border border-rose-800/80 text-rose-200 text-xs flex items-start space-x-2 animate-in fade-in">
+            <div className="mb-5 p-3 rounded-xl bg-rose-950/70 border border-rose-800 text-rose-200 text-xs flex items-start space-x-2 animate-in fade-in">
               <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
               <span>{errorMessage}</span>
             </div>
@@ -131,9 +184,16 @@ export const Login: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Email / Username */}
             <div>
-              <label className="block text-xs font-semibold text-charcoal-300 uppercase tracking-wider mb-1.5">
-                Manager Email / ID
-              </label>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-xs font-semibold text-charcoal-300 uppercase tracking-wider">
+                  Manager Email / ID
+                </label>
+                {isFilled && isEmailValid && (
+                  <span className="flex items-center text-[10px] text-emerald-400 font-mono font-semibold">
+                    <CheckCircle2 className="w-3 h-3 mr-1" /> Recognized
+                  </span>
+                )}
+              </div>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-charcoal-500">
                   <Mail className="w-4 h-4" />
@@ -141,20 +201,31 @@ export const Login: React.FC = () => {
                 <input
                   type="text"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => handleEmailChange(e.target.value)}
                   placeholder="gm@thegrandbistro.com"
                   autoComplete="username"
-                  className="w-full pl-9 pr-3 py-2.5 bg-charcoal-950/80 border border-charcoal-700/80 rounded-xl text-sm text-white placeholder-charcoal-500 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent transition-all"
+                  className={`w-full pl-9 pr-3 py-2.5 bg-charcoal-950/80 border rounded-xl text-sm text-white placeholder-charcoal-500 focus:outline-none transition-all ${
+                    isFilled && isEmailValid
+                      ? 'border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/50'
+                      : hasAttemptedSubmit && !isEmailValid
+                      ? 'border-rose-600/80 focus:ring-2 focus:ring-rose-500/50'
+                      : 'border-charcoal-700/80 focus:ring-2 focus:ring-forest-600'
+                  }`}
                 />
               </div>
             </div>
 
             {/* Password */}
             <div>
-              <div className="mb-1.5">
+              <div className="flex items-center justify-between mb-1.5">
                 <label className="block text-xs font-semibold text-charcoal-300 uppercase tracking-wider">
                   Security Passkey
                 </label>
+                {isFilled && isPassValid && (
+                  <span className="flex items-center text-[10px] text-emerald-400 font-mono font-semibold">
+                    <CheckCircle2 className="w-3 h-3 mr-1" /> Valid Key
+                  </span>
+                )}
               </div>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-charcoal-500">
@@ -163,10 +234,16 @@ export const Login: React.FC = () => {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => handlePasswordChange(e.target.value)}
                   placeholder="••••••••"
                   autoComplete="current-password"
-                  className="w-full pl-9 pr-10 py-2.5 bg-charcoal-950/80 border border-charcoal-700/80 rounded-xl text-sm text-white placeholder-charcoal-500 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent transition-all"
+                  className={`w-full pl-9 pr-10 py-2.5 bg-charcoal-950/80 border rounded-xl text-sm text-white placeholder-charcoal-500 focus:outline-none transition-all ${
+                    isFilled && isPassValid
+                      ? 'border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/50'
+                      : hasAttemptedSubmit && !isPassValid
+                      ? 'border-rose-600/80 focus:ring-2 focus:ring-rose-500/50'
+                      : 'border-charcoal-700/80 focus:ring-2 focus:ring-forest-600'
+                  }`}
                 />
                 <button
                   type="button"
@@ -196,24 +273,76 @@ export const Login: React.FC = () => {
               </span>
             </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full mt-2 py-3 px-4 rounded-xl bg-gradient-to-r from-forest-600 to-forest-700 hover:from-forest-500 hover:to-forest-600 text-white font-semibold text-sm shadow-lg shadow-forest-900/40 transition-all flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-forest-500 focus:ring-offset-2 focus:ring-offset-charcoal-900 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-            >
-              {isLoading ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Verifying Terminal Passkey...</span>
-                </>
-              ) : (
-                <>
-                  <span>Sign In to Operations Console</span>
-                  <ArrowRight className="w-4 h-4" />
-                </>
+            {/* Dynamic Sign In Button */}
+            <div className="pt-2">
+              <button
+                type="submit"
+                disabled={isLoading || !isFilled}
+                className={`w-full py-3.5 px-4 rounded-xl font-semibold text-sm transition-all flex items-center justify-center space-x-2 focus:outline-none ${
+                  // State 1: Loading
+                  isLoading
+                    ? 'bg-forest-900/90 border border-forest-600/70 text-forest-200 cursor-wait shadow-inner'
+                    // State 2: Has error after submit attempt
+                    : hasAttemptedSubmit && (errorMessage || isCredentialsInvalid)
+                    ? `bg-gradient-to-r from-rose-900 via-rose-950 to-rose-900 border-2 border-rose-600/90 text-rose-100 shadow-xl shadow-rose-950/70 cursor-pointer hover:brightness-110 ${
+                        isShaking ? 'animate-auth-shake' : ''
+                      }`
+                    // State 3: Correct Manager Credentials Match
+                    : isCredentialsValid
+                    ? 'bg-gradient-to-r from-emerald-600 via-forest-600 to-emerald-600 hover:from-emerald-500 hover:to-forest-500 text-white font-bold border border-emerald-400/60 shadow-xl shadow-emerald-950/60 ring-2 ring-emerald-500/40 hover:scale-[1.01] active:scale-[0.99] cursor-pointer group'
+                    // State 4: Filled with unrecognized credentials (caution state)
+                    : isCredentialsInvalid
+                    ? 'bg-charcoal-800 hover:bg-charcoal-750 border border-amber-600/50 hover:border-amber-500/80 text-amber-200 shadow-md cursor-pointer hover:scale-[1.005]'
+                    // State 5: Empty / Incomplete
+                    : 'bg-charcoal-850 border border-charcoal-800 text-charcoal-500 cursor-not-allowed opacity-60'
+                }`}
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4.5 h-4.5 animate-spin text-emerald-400" />
+                    <span>Verifying Terminal Security...</span>
+                  </>
+                ) : hasAttemptedSubmit && (errorMessage || isCredentialsInvalid) ? (
+                  <>
+                    <XCircle className="w-4.5 h-4.5 text-rose-400 shrink-0" />
+                    <span>Access Denied — Invalid Credentials</span>
+                  </>
+                ) : isCredentialsValid ? (
+                  <>
+                    <span className="relative flex h-2.5 w-2.5 mr-0.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-300" />
+                    </span>
+                    <Unlock className="w-4.5 h-4.5 text-emerald-200" />
+                    <span>Authorize & Sign In to Operations Console</span>
+                    <ArrowRight className="w-4 h-4 text-emerald-200 group-hover:translate-x-1 transition-transform ml-0.5" />
+                  </>
+                ) : isCredentialsInvalid ? (
+                  <>
+                    <KeyRound className="w-4 h-4 text-amber-400" />
+                    <span>Verify Credentials & Sign In</span>
+                    <ArrowRight className="w-4 h-4 text-amber-300 ml-0.5" />
+                  </>
+                ) : (
+                  <>
+                    <Lock className="w-4 h-4 text-charcoal-600" />
+                    <span>Enter Credentials to Sign In</span>
+                  </>
+                )}
+              </button>
+
+              {/* Dynamic Status Badges under button */}
+              {isCredentialsValid && !isLoading && (
+                <p className="text-[11px] text-center text-emerald-400 mt-2 font-mono flex items-center justify-center font-semibold animate-in fade-in duration-200">
+                  <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-400" /> Duty Manager Credentials Recognized
+                </p>
               )}
-            </button>
+              {hasAttemptedSubmit && (errorMessage || isCredentialsInvalid) && !isLoading && (
+                <p className="text-[11px] text-center text-rose-400 mt-2 font-mono flex items-center justify-center animate-in fade-in duration-200">
+                  <AlertCircle className="w-3.5 h-3.5 mr-1 text-rose-400" /> Check manager email or security passkey
+                </p>
+              )}
+            </div>
           </form>
         </div>
       </main>
@@ -231,4 +360,4 @@ export const Login: React.FC = () => {
     </div>
   )
 }
-
+export default Login
