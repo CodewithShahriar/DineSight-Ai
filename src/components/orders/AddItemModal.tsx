@@ -45,6 +45,17 @@ export const AddItemModal: React.FC<AddItemModalProps> = ({
   const [notes, setNotes] = useState('')
   const [showSuccessToast, setShowSuccessToast] = useState(false)
 
+  // Prevent background scroll when modal is active
+  React.useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = originalOverflow
+      }
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   const filteredItems = menuItems.filter((item) => {
@@ -80,8 +91,14 @@ export const AddItemModal: React.FC<AddItemModalProps> = ({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal-950/70 backdrop-blur-sm animate-in fade-in duration-150">
-      <div className="bg-white border border-warm-200 rounded-2xl shadow-floating w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-150">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal-950/70 backdrop-blur-sm animate-in fade-in duration-150"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white border border-warm-200 rounded-2xl shadow-floating w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-150"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="px-5 py-4 border-b border-warm-100 flex items-center justify-between bg-warm-50/60">
           <div className="flex items-center space-x-2.5">
@@ -263,3 +280,4 @@ export const AddItemModal: React.FC<AddItemModalProps> = ({
     </div>
   )
 }
+

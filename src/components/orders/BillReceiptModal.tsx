@@ -38,6 +38,17 @@ export const BillReceiptModal: React.FC<BillReceiptModalProps> = ({
     return `GB-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`
   })
 
+  // Prevent background scroll when modal is active
+  React.useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = originalOverflow
+      }
+    }
+  }, [isOpen])
+
   if (!isOpen || !order) return null
 
   const subtotal = order.items.reduce((sum, it) => sum + it.price * it.quantity, 0)
@@ -66,10 +77,16 @@ export const BillReceiptModal: React.FC<BillReceiptModalProps> = ({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-charcoal-950/75 backdrop-blur-sm animate-in fade-in duration-150 overflow-y-auto">
-      <div className="bg-white border border-warm-200 rounded-2xl shadow-floating w-full max-w-lg my-auto overflow-hidden animate-in zoom-in-95 duration-150">
-        {/* Modal Top Bar */}
-        <div className="px-5 py-3.5 border-b border-warm-100 flex items-center justify-between bg-warm-50/70">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-charcoal-950/80 backdrop-blur-sm animate-in fade-in duration-150"
+      onClick={onClose}
+    >
+      <div
+        className="relative bg-white border border-warm-200 rounded-2xl shadow-2xl w-full max-w-lg h-[88vh] max-h-[88vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-150"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Modal Top Bar (Fixed) */}
+        <div className="shrink-0 px-5 py-3.5 border-b border-warm-100 flex items-center justify-between bg-warm-50/90">
           <div className="flex items-center space-x-2">
             <div className="p-1.5 bg-forest-100 text-forest-800 rounded-lg">
               <Receipt className="w-4 h-4" />
@@ -91,8 +108,8 @@ export const BillReceiptModal: React.FC<BillReceiptModalProps> = ({
           </button>
         </div>
 
-        {/* Photorealistic Thermal Receipt Body */}
-        <div className="p-5 overflow-y-auto max-h-[calc(80vh-8rem)]">
+        {/* Photorealistic Thermal Receipt Body (Scrollable Container) */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-5 scrollbar-thin">
           <div className="p-5 sm:p-6 bg-warm-50/90 border border-warm-200/90 rounded-xl font-mono text-charcoal-800 text-xs shadow-inner relative">
             {/* Paid Watermark Stamp */}
             {isPaid && (
@@ -328,8 +345,8 @@ export const BillReceiptModal: React.FC<BillReceiptModalProps> = ({
           )}
         </div>
 
-        {/* Modal Bottom Actions */}
-        <div className="p-4 border-t border-warm-100 bg-warm-50 flex items-center justify-between gap-3">
+        {/* Modal Bottom Actions (Fixed) */}
+        <div className="shrink-0 p-4 border-t border-warm-100 bg-warm-50 flex items-center justify-between gap-3">
           <button
             onClick={handlePrint}
             className="px-3.5 py-2 rounded-xl border border-warm-200 hover:bg-white text-charcoal-700 font-semibold text-xs transition-colors flex items-center space-x-1.5 cursor-pointer shadow-xs"
@@ -359,3 +376,4 @@ export const BillReceiptModal: React.FC<BillReceiptModalProps> = ({
     </div>
   )
 }
+
