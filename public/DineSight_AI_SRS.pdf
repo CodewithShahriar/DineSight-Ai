@@ -1,0 +1,450 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R] /Count 6 >>
+endobj
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+4 0 obj
+<< /Length 4249 >>
+stream
+0.06 0.08 0.09 rg 0 621.89 595.28 220 re f
+0.11 0.38 0.24 rg 0 616.89 595.28 5 re f
+BT /F2 13 Tf 0.43 0.76 0.61 rg 48 771.89 Td (SOFTWARE REQUIREMENTS SPECIFICATION) Tj ET
+BT /F2 26 Tf 1 1 1 rg 48 731.89 Td (DineSight AI — Vision Operations Suite) Tj ET
+BT /F1 11 Tf 0.85 0.88 0.9 rg 48 696.89 Td (Enterprise Multi-Angle CCTV Intelligence, Computer Vision Table Occupancy,) Tj ET
+BT /F1 11 Tf 0.85 0.88 0.9 rg 48 679.89 Td (Automated 5-Minute Waiter Dispatch, Live Table Orders & Menu Inventory System) Tj ET
+BT /F3 9 Tf 0.65 0.72 0.75 rg 48 641.89 Td (Document Version: 2.0.0  |  Status: Production Approved  |  Date: November 2026) Tj ET
+0.96 0.98 0.97 rg 0.8 0.88 0.84 RG 1 w 48 501.89 499.28 95 re B
+BT /F2 10 Tf 0.1 0.3 0.2 rg 62 576.89 Td (DOCUMENT CONTROL & PROJECT METADATA) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 556.89 Td (Author / Lead Architect: DineSight AI Engineering Group) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 541.89 Td (Client / Target Facility: The Grand Bistro \(Fine Dining & Vision Operations\)) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 526.89 Td (Target Platform: Modern Web Browsers \(Chrome, Edge, Safari, Firefox\) • React 19 + TypeScript) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 511.89 Td (Compliance Standards: IEEE Std 830-1998 \(SRS\) • HACCP Food Safety Level 3 • POS Audit Trails) Tj ET
+BT /F2 14 Tf 0.08 0.15 0.11 rg 48 471.89 Td (1. Executive Abstract) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 465.89 m 547.28 465.89 l S
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 446.89 Td (DineSight AI is an autonomous restaurant operations command system that eliminates dining room) Tj ET
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 432.89 Td (service bottlenecks by synchronizing computer-vision telemetry with front-of-house hospitality dispatch.) Tj ET
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 418.89 Td (Traditional restaurant environments suffer from unmonitored customer dwell times, delayed table greeting,) Tj ET
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 404.89 Td (asymmetrical server workload distribution, and disconnected POS billing workflows.) Tj ET
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 384.89 Td (By bridging 12 synchronized commercial CCTV camera feeds with real-time neural detection overlays,) Tj ET
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 370.89 Td (DineSight AI enforces an automated 5-minute guest attendance SLA. Newly seated guests trigger optical) Tj ET
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 356.89 Td (countdown timers that dispatch the nearest available waiter with the lowest active table load. Integrated) Tj ET
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 342.89 Td (with full-lifecycle Live Table Orders, printable itemized guest checks, instant kitchen 86'd stock toggles,) Tj ET
+BT /F1 9.5 Tf 0.2 0.2 0.2 rg 48 328.89 Td (and exhaustive staff dossiers, DineSight AI provides an end-to-end intelligent operating system.) Tj ET
+0.94 0.96 0.98 rg 0.75 0.82 0.9 RG 1 w 48 70 499.28 130 re B
+BT /F2 10 Tf 0.1 0.25 0.45 rg 62 182 Td (CORE ARCHITECTURAL HIGHLIGHTS) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 164 Td (• 12 Commercial CCTV Surveillance Streams with Simulated Neural Detections & Heatmaps) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 148 Td (• 12 Architectural Floor Plan Tables with Real-Time Service Status & Countdown Badges) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 132 Td (• 5-Minute Automated Waiter Dispatch Engine with Workload-Balancing Greedy Algorithm) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 116 Td (• Live Table Cart, Tax \(8.25%\), Gratuity \(10%\), Tip Selection, & Printable Receipts) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 100 Td (• Kitchen 86'd & Menu Stock Controls with One-Click Sold-Out Toggles & Portion Depletion) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 62 84 Td (• Comprehensive Staff Dossier: Tenure, Emergency Contacts, Blood Groups & Shift Reassignments) Tj ET
+0.07 0.14 0.11 rg 48 805.89 499.28 18 re f
+BT /F2 8 Tf 0.7 0.9 0.8 rg 58 809.89 Td (DINESIGHT AI — ENTERPRISE RESTAURANT OPERATIONS) Tj ET
+BT /F1 8 Tf 1 1 1 rg 407.28 809.89 Td (IEEE 830 STANDARD SRS • v2.0) Tj ET
+0.8 0.85 0.8 RG 1 w 48 799.89 m 547.28 799.89 l S
+0.85 0.85 0.85 RG 0.5 w 48 36 m 547.28 36 l S
+BT /F1 8 Tf 0.5 0.5 0.5 rg 48 24 Td (Confidential • DineSight AI Architectural Specification • The Grand Bistro Operations) Tj ET
+BT /F2 8 Tf 0.2 0.4 0.3 rg 492.28 24 Td (Page 1 of 6) Tj ET
+
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 4 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 5675 >>
+stream
+0.07 0.14 0.11 rg 48 805.89 499.28 18 re f
+BT /F2 8 Tf 0.7 0.9 0.8 rg 58 809.89 Td (DINESIGHT AI — ENTERPRISE RESTAURANT OPERATIONS) Tj ET
+BT /F1 8 Tf 1 1 1 rg 407.28 809.89 Td (IEEE 830 STANDARD SRS • v2.0) Tj ET
+0.8 0.85 0.8 RG 1 w 48 799.89 m 547.28 799.89 l S
+0.85 0.85 0.85 RG 0.5 w 48 36 m 547.28 36 l S
+BT /F1 8 Tf 0.5 0.5 0.5 rg 48 24 Td (Confidential • DineSight AI Architectural Specification • The Grand Bistro Operations) Tj ET
+BT /F2 8 Tf 0.2 0.4 0.3 rg 492.28 24 Td (Page 2 of 6) Tj ET
+BT /F2 14 Tf 0.08 0.15 0.11 rg 48 771.89 Td (2. Table of Contents & Document Roadmap) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 765.89 m 547.28 765.89 l S
+BT /F2 9.5 Tf 0.15 0.2 0.25 rg 58 741.89 Td (1. Executive Abstract & High-Level Scope) Tj ET
+BT /F1 9.5 Tf 0.3 0.5 0.4 rg 487.28 741.89 Td (Page 1) Tj ET
+0.9 0.9 0.9 RG 0.5 w 58 735.89 m 537.28 735.89 l S
+BT /F2 9.5 Tf 0.15 0.2 0.25 rg 58 719.89 Td (2. Table of Contents & Definitions) Tj ET
+BT /F1 9.5 Tf 0.3 0.5 0.4 rg 487.28 719.89 Td (Page 2) Tj ET
+0.9 0.9 0.9 RG 0.5 w 58 713.89 m 537.28 713.89 l S
+BT /F2 9.5 Tf 0.15 0.2 0.25 rg 58 697.89 Td (3. System Architecture & High-Frequency Telemetry) Tj ET
+BT /F1 9.5 Tf 0.3 0.5 0.4 rg 487.28 697.89 Td (Page 3) Tj ET
+0.9 0.9 0.9 RG 0.5 w 58 691.89 m 537.28 691.89 l S
+BT /F2 9.5 Tf 0.15 0.2 0.25 rg 58 675.89 Td (4. Functional Requirements: CCTV & 5-Minute Dispatch Engine) Tj ET
+BT /F1 9.5 Tf 0.3 0.5 0.4 rg 487.28 675.89 Td (Page 4) Tj ET
+0.9 0.9 0.9 RG 0.5 w 58 669.89 m 537.28 669.89 l S
+BT /F2 9.5 Tf 0.15 0.2 0.25 rg 58 653.89 Td (5. Functional Requirements: Live Orders, 86'd Stock & Staff Dossier) Tj ET
+BT /F1 9.5 Tf 0.3 0.5 0.4 rg 487.28 653.89 Td (Page 5) Tj ET
+0.9 0.9 0.9 RG 0.5 w 58 647.89 m 537.28 647.89 l S
+BT /F2 9.5 Tf 0.15 0.2 0.25 rg 58 631.89 Td (6. Non-Functional Requirements, Security & Verification Standards) Tj ET
+BT /F1 9.5 Tf 0.3 0.5 0.4 rg 487.28 631.89 Td (Page 6) Tj ET
+0.9 0.9 0.9 RG 0.5 w 58 625.89 m 537.28 625.89 l S
+BT /F2 14 Tf 0.08 0.15 0.11 rg 48 581.89 Td (3. Definitions, Acronyms & Terminology) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 575.89 m 547.28 575.89 l S
+BT /F2 9 Tf 0.1 0.35 0.22 rg 56 551.89 Td (CCTV Matrix:) Tj ET
+BT /F1 9 Tf 0.25 0.25 0.25 rg 188 551.89 Td (Closed-Circuit Television wall displaying 12 synchronized commercial camera streams.) Tj ET
+BT /F2 9 Tf 0.1 0.35 0.22 rg 56 533.89 Td (OSD \(On-Screen Display\):) Tj ET
+BT /F1 9 Tf 0.25 0.25 0.25 rg 188 533.89 Td (Millisecond-accurate HUD telemetry rendering timestamp, FPS, latency, and REC indicator.) Tj ET
+BT /F2 9 Tf 0.1 0.35 0.22 rg 56 515.89 Td (86'd / Sold Out:) Tj ET
+BT /F1 9 Tf 0.25 0.25 0.25 rg 188 515.89 Td (Culinary industry standard terminology designating a menu item unavailable due to zero stock.) Tj ET
+BT /F2 9 Tf 0.1 0.35 0.22 rg 56 497.89 Td (SLA \(Service Level Agreement\):) Tj ET
+BT /F1 9 Tf 0.25 0.25 0.25 rg 188 497.89 Td (Contractual or operational target requiring table-side waiter greeting within 300 seconds.) Tj ET
+BT /F2 9 Tf 0.1 0.35 0.22 rg 56 479.89 Td (Greedy Dispatch Algorithm:) Tj ET
+BT /F1 9 Tf 0.25 0.25 0.25 rg 188 479.89 Td (Load-balancing heuristic selecting the waiter with minimum active table allocations.) Tj ET
+BT /F2 9 Tf 0.1 0.35 0.22 rg 56 461.89 Td (PTZ Lens Zoom:) Tj ET
+BT /F1 9 Tf 0.25 0.25 0.25 rg 188 461.89 Td (Simulated Pan-Tilt-Zoom optical magnification enabling 1.0x, 1.5x, and 2.0x focal inspection.) Tj ET
+BT /F2 9 Tf 0.1 0.35 0.22 rg 56 443.89 Td (Table Turnover Velocity:) Tj ET
+BT /F1 9 Tf 0.25 0.25 0.25 rg 188 443.89 Td (Duration from guest seating through dining, bill settlement, and sanitization turnover.) Tj ET
+BT /F2 14 Tf 0.08 0.15 0.11 rg 48 391.89 Td (4. User Classes & Operational Personas) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 385.89 m 547.28 385.89 l S
+0.15 0.22 0.2 rg 48 356.89 499.28 20 re f
+BT /F2 8.5 Tf 1 1 1 rg 56 369.89 Td (User Role) Tj ET
+BT /F2 8.5 Tf 1 1 1 rg 168 369.89 Td (Primary Responsibilities & Console Capabilities) Tj ET
+BT /F2 8.5 Tf 1 1 1 rg 472.28 369.89 Td (Access Level) Tj ET
+0.97 0.98 0.97 rg 0.9 0.9 0.9 RG 0.5 w 48 328.89 499.28 20 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 339.89 Td (General Manager) Tj ET
+BT /F1 8.5 Tf 0.2 0.2 0.2 rg 168 339.89 Td (Full executive oversight, shift SLAs, live KPI telemetry, staff performance appraisals.) Tj ET
+BT /F3 8 Tf 0.3 0.5 0.4 rg 472.28 339.89 Td (Tier 1 \(Admin\)) Tj ET
+1 1 1 rg 0.9 0.9 0.9 RG 0.5 w 48 308.89 499.28 20 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 319.89 Td (Floor Captain) Tj ET
+BT /F1 8.5 Tf 0.2 0.2 0.2 rg 168 319.89 Td (Monitors 12 floor tables, reassigns station coverage, supervises customer dispatch queues.) Tj ET
+BT /F3 8 Tf 0.3 0.5 0.4 rg 472.28 319.89 Td (Tier 2 \(Captain\)) Tj ET
+0.97 0.98 0.97 rg 0.9 0.9 0.9 RG 0.5 w 48 288.89 499.28 20 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 299.89 Td (Station Waiter) Tj ET
+BT /F1 8.5 Tf 0.2 0.2 0.2 rg 168 299.89 Td (Accepts table dispatches, updates party orders, checks out guest receipts, tracks tip pools.) Tj ET
+BT /F3 8 Tf 0.3 0.5 0.4 rg 472.28 299.89 Td (Tier 3 \(Staff\)) Tj ET
+1 1 1 rg 0.9 0.9 0.9 RG 0.5 w 48 268.89 499.28 20 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 279.89 Td (Kitchen Expediter) Tj ET
+BT /F1 8.5 Tf 0.2 0.2 0.2 rg 168 279.89 Td (Manages pass line, monitors 86'd menu ingredients, tracks course preparation velocity.) Tj ET
+BT /F3 8 Tf 0.3 0.5 0.4 rg 472.28 279.89 Td (Tier 3 \(Kitchen\)) Tj ET
+0.97 0.98 0.97 rg 0.9 0.9 0.9 RG 0.5 w 48 248.89 499.28 20 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 259.89 Td (Reception Hostess) Tj ET
+BT /F1 8.5 Tf 0.2 0.2 0.2 rg 168 259.89 Td (Welcomes parties, initiates seating timer countdowns, orchestrates reservation flow.) Tj ET
+BT /F3 8 Tf 0.3 0.5 0.4 rg 472.28 259.89 Td (Tier 3 \(Host\)) Tj ET
+
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 6 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> >>
+endobj
+8 0 obj
+<< /Length 4562 >>
+stream
+0.07 0.14 0.11 rg 48 805.89 499.28 18 re f
+BT /F2 8 Tf 0.7 0.9 0.8 rg 58 809.89 Td (DINESIGHT AI — ENTERPRISE RESTAURANT OPERATIONS) Tj ET
+BT /F1 8 Tf 1 1 1 rg 407.28 809.89 Td (IEEE 830 STANDARD SRS • v2.0) Tj ET
+0.8 0.85 0.8 RG 1 w 48 799.89 m 547.28 799.89 l S
+0.85 0.85 0.85 RG 0.5 w 48 36 m 547.28 36 l S
+BT /F1 8 Tf 0.5 0.5 0.5 rg 48 24 Td (Confidential • DineSight AI Architectural Specification • The Grand Bistro Operations) Tj ET
+BT /F2 8 Tf 0.2 0.4 0.3 rg 492.28 24 Td (Page 3 of 6) Tj ET
+BT /F2 14 Tf 0.08 0.15 0.11 rg 48 771.89 Td (5. System Architecture & Workflow Pipeline) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 765.89 m 547.28 765.89 l S
+BT /F1 9.5 Tf 0.1 0.1 0.1 rg 48 747.89 Td (The architectural diagram below illustrates the autonomous service dispatch loop:) Tj ET
+0.96 0.98 0.97 rg 0.8 0.88 0.83 RG 1 w 48 673.89 499.28 54 re B
+0.11 0.38 0.24 rg 48 673.89 65 54 re f
+BT /F2 9 Tf 1 1 1 rg 60 703.89 Td (STEP 1) Tj ET
+BT /F2 10 Tf 0.08 0.18 0.12 rg 123 705.89 Td (Party Arrival & Optical Detection) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 123 689.89 Td (Host seats guests at Table \(T-01 to T-12\). Vision sensor or Host manual trigger flags table status to OCCUPIED and initiates 5-minute countdown.) Tj ET
+0.96 0.98 0.97 rg 0.8 0.88 0.83 RG 1 w 48 609.89 499.28 54 re B
+0.11 0.38 0.24 rg 48 609.89 65 54 re f
+BT /F2 9 Tf 1 1 1 rg 60 639.89 Td (STEP 2) Tj ET
+BT /F2 10 Tf 0.08 0.18 0.12 rg 123 641.89 Td (Real-Time 300s Countdown Engine) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 123 625.89 Td (Sub-second timer runs with live visual progress bar. Manager dashboard and Floor Plan render pulsing amber alerts as timer approaches zero.) Tj ET
+0.96 0.98 0.97 rg 0.8 0.88 0.83 RG 1 w 48 545.89 499.28 54 re B
+0.11 0.38 0.24 rg 48 545.89 65 54 re f
+BT /F2 9 Tf 1 1 1 rg 60 575.89 Td (STEP 3) Tj ET
+BT /F2 10 Tf 0.08 0.18 0.12 rg 123 577.89 Td (Autonomous Lowest-Load Greedy Dispatch) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 123 561.89 Td (Upon timer expiry \(00:00\), the system scans the 10-waiter roster, filters active staff in eligible zones, and dispatches the server with lowest active table load.) Tj ET
+0.96 0.98 0.97 rg 0.8 0.88 0.83 RG 1 w 48 481.89 499.28 54 re B
+0.11 0.38 0.24 rg 48 481.89 65 54 re f
+BT /F2 9 Tf 1 1 1 rg 60 511.89 Td (STEP 4) Tj ET
+BT /F2 10 Tf 0.08 0.18 0.12 rg 123 513.89 Td (Staff Acceptance & Service Initiation) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 123 497.89 Td (Assigned server receives instant visual banner alert. Server accepts dispatch and arrives table-side, transitioning status to SERVING and resetting SLA counter.) Tj ET
+0.96 0.98 0.97 rg 0.8 0.88 0.83 RG 1 w 48 417.89 499.28 54 re B
+0.11 0.38 0.24 rg 48 417.89 65 54 re f
+BT /F2 9 Tf 1 1 1 rg 60 447.89 Td (STEP 5) Tj ET
+BT /F2 10 Tf 0.08 0.18 0.12 rg 123 449.89 Td (Live Dining Cart & Course Ordering) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 123 433.89 Td (Server appends rounds of appetizers, entrees, and beverages. Real-time subtotal, 8.25% sales tax, and 10% service gratuity compute continuously.) Tj ET
+0.96 0.98 0.97 rg 0.8 0.88 0.83 RG 1 w 48 353.89 499.28 54 re B
+0.11 0.38 0.24 rg 48 353.89 65 54 re f
+BT /F2 9 Tf 1 1 1 rg 60 383.89 Td (STEP 6) Tj ET
+BT /F2 10 Tf 0.08 0.18 0.12 rg 123 385.89 Td (Settlement, Invoice Printing & Reopening) Tj ET
+BT /F1 8.5 Tf 0.25 0.25 0.25 rg 123 369.89 Td (Guest check is settled via Card, Cash, or Apple Pay. Invoice receipt GB-YYYY-XXXXXX is printed. Table transitions to turnover sanitization and reset.) Tj ET
+BT /F2 13 Tf 0.08 0.15 0.11 rg 48 327.89 Td (6. Surveillance & Hardware Telemetry Specifications) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 321.89 m 547.28 321.89 l S
+0.98 0.98 0.99 rg 0.85 0.85 0.9 RG 1 w 48 197.89 499.28 115 re B
+BT /F2 9.5 Tf 0.1 0.2 0.4 rg 60 303.89 Td (HIGH-FREQUENCY CCTV OSD HARDWARE PARAMETERS) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 60 285.89 Td (• Optical Resolution: Full HD \(1920x1080p @ 60fps\) and 4K Ultra HD \(3840x2160p @ 30fps\)) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 60 269.89 Td (• Clock Precision: High-resolution millisecond clock \(YYYY-MM-DD HH:MM:SS.mmm\) synchronized via NTP) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 60 253.89 Td (• Latency Metrics: Simulated physical network latency jitter between 32ms and 46ms across commercial IP hubs) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 60 237.89 Td (• Thermal Sensor Overlay: 16-point color-dodge algorithmic heat-signature emulation indicating human occupancy) Tj ET
+BT /F1 9 Tf 0.1 0.1 0.1 rg 60 221.89 Td (• Night Vision Filter: Green phosphorus IR optical matrix \(brightness 1.15, contrast 1.35, hue-rotate 95deg\)) Tj ET
+
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 8 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> >>
+endobj
+10 0 obj
+<< /Length 6903 >>
+stream
+0.07 0.14 0.11 rg 48 805.89 499.28 18 re f
+BT /F2 8 Tf 0.7 0.9 0.8 rg 58 809.89 Td (DINESIGHT AI — ENTERPRISE RESTAURANT OPERATIONS) Tj ET
+BT /F1 8 Tf 1 1 1 rg 407.28 809.89 Td (IEEE 830 STANDARD SRS • v2.0) Tj ET
+0.8 0.85 0.8 RG 1 w 48 799.89 m 547.28 799.89 l S
+0.85 0.85 0.85 RG 0.5 w 48 36 m 547.28 36 l S
+BT /F1 8 Tf 0.5 0.5 0.5 rg 48 24 Td (Confidential • DineSight AI Architectural Specification • The Grand Bistro Operations) Tj ET
+BT /F2 8 Tf 0.2 0.4 0.3 rg 492.28 24 Td (Page 4 of 6) Tj ET
+BT /F2 14 Tf 0.08 0.15 0.11 rg 48 771.89 Td (7. Functional Requirements: CCTV Vision Matrix \(FR-1\)) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 765.89 m 547.28 765.89 l S
+0.1 0.2 0.15 rg 48 743.89 499.28 18 re f
+BT /F2 8 Tf 1 1 1 rg 56 755.89 Td (Camera ID & Facility Angle) Tj ET
+BT /F2 8 Tf 1 1 1 rg 238 755.89 Td (Dining Zone) Tj ET
+BT /F2 8 Tf 1 1 1 rg 328 755.89 Td (Active Computer Vision Telemetry & Detections) Tj ET
+0.97 0.98 0.97 rg 0.88 0.88 0.88 RG 0.5 w 48 719.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 727.89 Td (CAM-01 — Main Dining Area \(North/East Sector\)) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 727.89 Td (Main Dining) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 727.89 Td (T-01, T-02, T-03 Occupancy, Empty Glassware Flag) Tj ET
+1 1 1 rg 0.88 0.88 0.88 RG 0.5 w 48 702.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 710.89 Td (CAM-02 — Window Seating & Terrace Facade) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 710.89 Td (Window Seating) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 710.89 Td (T-04, T-05, T-06 Dwell Time Tracking & Refill Alerts) Tj ET
+0.97 0.98 0.97 rg 0.88 0.88 0.88 RG 0.5 w 48 685.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 693.89 Td (CAM-03 — Private Dining & VIP Banquette Suite) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 693.89 Td (Private VIP) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 693.89 Td (T-10, T-11, T-12 Executive Party & Sommelier Service) Tj ET
+1 1 1 rg 0.88 0.88 0.88 RG 0.5 w 48 668.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 676.89 Td (CAM-04 — Entrance Foyer & Host Reception Pass) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 676.89 Td (Entrance) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 676.89 Td (Arriving Guests, Host Welcome Stand & Walk-in Queue) Tj ET
+0.97 0.98 0.97 rg 0.88 0.88 0.88 RG 0.5 w 48 651.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 659.89 Td (CAM-05 — Kitchen Expediter Pass & Hot Food Station) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 659.89 Td (Kitchen Pass) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 659.89 Td (Plated Main Entrees Ready for Runner Dispatch) Tj ET
+1 1 1 rg 0.88 0.88 0.88 RG 0.5 w 48 634.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 642.89 Td (CAM-06 — Bar Counter & Cocktail Mixology Station) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 642.89 Td (Bar Lounge) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 642.89 Td (Bar Stools, Beverage Glassware & Sommelier Prep) Tj ET
+0.97 0.98 0.97 rg 0.88 0.88 0.88 RG 0.5 w 48 617.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 625.89 Td (CAM-07 — Front Desk, Reception & Cashier POS) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 625.89 Td (Cashier POS) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 625.89 Td (Invoice Clearance, Terminal Payments & Guest Departure) Tj ET
+1 1 1 rg 0.88 0.88 0.88 RG 0.5 w 48 600.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 608.89 Td (CAM-08 — Outdoor Garden Terrace & Al-Fresco Dining) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 608.89 Td (Veranda Patio) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 608.89 Td (Patio Tables T-07, T-08, T-09 Evening Dinner Service) Tj ET
+0.97 0.98 0.97 rg 0.88 0.88 0.88 RG 0.5 w 48 583.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 591.89 Td (CAM-09 — Waste & Sanitation Station \(Garbage\)) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 591.89 Td (Service & Sanitation) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 591.89 Td (Staff Detection: Segregated Waste & Bin Turnover) Tj ET
+1 1 1 rg 0.88 0.88 0.88 RG 0.5 w 48 566.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 574.89 Td (CAM-10 — Dry Storage & Provisions Inventory Cellar) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 574.89 Td (Store & Cellar) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 574.89 Td (Staff Detection: Provisions Inspection & Stock Audit) Tj ET
+0.97 0.98 0.97 rg 0.88 0.88 0.88 RG 0.5 w 48 549.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 557.89 Td (CAM-11 — Valet Parking Lot & Arrival Driveway) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 557.89 Td (Exterior Parking) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 557.89 Td (Parking Bays Nominal \(Clear Surveillance View\)) Tj ET
+1 1 1 rg 0.88 0.88 0.88 RG 0.5 w 48 532.89 499.28 16 re B
+BT /F2 7.5 Tf 0.1 0.25 0.18 rg 56 540.89 Td (CAM-12 — Curbside Pickup & VIP Drive-thru Driveway) Tj ET
+BT /F1 7.5 Tf 0.3 0.3 0.3 rg 238 540.89 Td (Exterior Parking) Tj ET
+BT /F1 7.5 Tf 0.2 0.4 0.3 rg 328 540.89 Td (Staff Detection: Takeout Delivery Handoff to Guest Vehicle) Tj ET
+BT /F2 13 Tf 0.08 0.15 0.11 rg 48 501.89 Td (8. Functional Requirements: Floor Plan & 5M Dispatch \(FR-2, FR-3\)) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 495.89 m 547.28 495.89 l S
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 462.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 476.89 Td (FR-2.1) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 476.89 Td (Architectural Table Grid) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 223 476.89 Td (Render 12 tables with live occupancy, capacity \(2p, 4p, 6p\), and dynamic status coloring \(emerald, amber, forest\).) Tj ET
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 432.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 446.89 Td (FR-2.2) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 446.89 Td (Table Inspector Drawer) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 223 446.89 Td (Clicking any table displays real-time countdown progress, assigned waiter details, guest count, and service timeline.) Tj ET
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 402.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 416.89 Td (FR-3.1) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 416.89 Td (5-Minute Countdown Engine) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 223 416.89 Td (When a party is seated, initiate a 300-second timer with continuous decrement and visual pulsing alerts.) Tj ET
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 372.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 386.89 Td (FR-3.2) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 386.89 Td (Greedy Dispatch Selection) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 223 386.89 Td (On countdown zero, scan roster for active waiters and dispatch server with minimum table allocations.) Tj ET
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 342.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 356.89 Td (FR-3.3) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 356.89 Td (Simulation Accelerator) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 223 356.89 Td (Provide 1x \(real-time\), 10x \(5m in 30s\), and 60x \(5m in 5s\) speed multipliers for rapid stakeholder demonstration.) Tj ET
+
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 10 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> >>
+endobj
+12 0 obj
+<< /Length 5742 >>
+stream
+0.07 0.14 0.11 rg 48 805.89 499.28 18 re f
+BT /F2 8 Tf 0.7 0.9 0.8 rg 58 809.89 Td (DINESIGHT AI — ENTERPRISE RESTAURANT OPERATIONS) Tj ET
+BT /F1 8 Tf 1 1 1 rg 407.28 809.89 Td (IEEE 830 STANDARD SRS • v2.0) Tj ET
+0.8 0.85 0.8 RG 1 w 48 799.89 m 547.28 799.89 l S
+0.85 0.85 0.85 RG 0.5 w 48 36 m 547.28 36 l S
+BT /F1 8 Tf 0.5 0.5 0.5 rg 48 24 Td (Confidential • DineSight AI Architectural Specification • The Grand Bistro Operations) Tj ET
+BT /F2 8 Tf 0.2 0.4 0.3 rg 492.28 24 Td (Page 5 of 6) Tj ET
+BT /F2 14 Tf 0.08 0.15 0.11 rg 48 771.89 Td (9. Functional Requirements: Live Orders & Guest Billing \(FR-4\)) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 765.89 m 547.28 765.89 l S
+0.98 0.99 0.98 rg 0.85 0.9 0.85 RG 0.5 w 48 732.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 746.89 Td (FR-4.1) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 746.89 Td (Table Dining Carts) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 746.89 Td (Each active table maintains an independent ordered-items cart with item names, prices, quantities, and round courses.) Tj ET
+0.98 0.99 0.98 rg 0.85 0.9 0.85 RG 0.5 w 48 702.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 716.89 Td (FR-4.2) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 716.89 Td (Course Additions Modal) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 716.89 Td (Servers can append appetizers, entrees, desserts, and cocktails directly to table tickets using AddItemModal.) Tj ET
+0.98 0.99 0.98 rg 0.85 0.9 0.85 RG 0.5 w 48 672.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 686.89 Td (FR-4.3) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 686.89 Td (Financial Calculation Engine) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 686.89 Td (Subtotal automatically compounds with 8.25% Sales Tax, 10% Service Gratuity, and optional Tip \(15%, 18%, 20%, or custom\).) Tj ET
+0.98 0.99 0.98 rg 0.85 0.9 0.85 RG 0.5 w 48 642.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 656.89 Td (FR-4.4) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 656.89 Td (Printable Invoice & Guest Check) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 656.89 Td (Generate formal invoice GB-YYYY-XXXXXX formatted as an authentic receipt with window.print\(\) print-styling.) Tj ET
+0.98 0.99 0.98 rg 0.85 0.9 0.85 RG 0.5 w 48 612.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.35 0.2 rg 56 626.89 Td (FR-4.5) Tj ET
+BT /F2 8.5 Tf 0.15 0.2 0.25 rg 103 626.89 Td (Settlement & Ticket Reopening) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 626.89 Td (Settle bills to mark status as Paid & Settled. Provide Mark Unpaid \(Reopen\) and Reset Orders Demo for testing.) Tj ET
+BT /F2 13 Tf 0.08 0.15 0.11 rg 48 581.89 Td (10. Functional Requirements: Kitchen 86'd & Menu Stock \(FR-5\)) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 575.89 m 547.28 575.89 l S
+0.99 0.98 0.96 rg 0.9 0.85 0.8 RG 0.5 w 48 542.89 499.28 26 re B
+BT /F2 8.5 Tf 0.4 0.25 0.1 rg 56 556.89 Td (FR-5.1) Tj ET
+BT /F2 8.5 Tf 0.2 0.15 0.1 rg 103 556.89 Td (Instant 86'd Toggle) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 556.89 Td (Single-click toggle flips item availability between In Stock and 86'd / Sold Out across kitchen and floor displays.) Tj ET
+0.99 0.98 0.96 rg 0.9 0.85 0.8 RG 0.5 w 48 512.89 499.28 26 re B
+BT /F2 8.5 Tf 0.4 0.25 0.1 rg 56 526.89 Td (FR-5.2) Tj ET
+BT /F2 8.5 Tf 0.2 0.15 0.1 rg 103 526.89 Td (Kitchen Station Sorting) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 526.89 Td (Filter menu items by kitchen station: Grill Station, Sauté Station, Cold Pantry, Pastry Station, or Cocktail Bar.) Tj ET
+0.99 0.98 0.96 rg 0.9 0.85 0.8 RG 0.5 w 48 482.89 499.28 26 re B
+BT /F2 8.5 Tf 0.4 0.25 0.1 rg 56 496.89 Td (FR-5.3) Tj ET
+BT /F2 8.5 Tf 0.2 0.15 0.1 rg 103 496.89 Td (Portion Depletion Meter) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 496.89 Td (Track estimated remaining portions with visual progress gauges and automated Low Stock warning badges.) Tj ET
+0.99 0.98 0.96 rg 0.9 0.85 0.8 RG 0.5 w 48 452.89 499.28 26 re B
+BT /F2 8.5 Tf 0.4 0.25 0.1 rg 56 466.89 Td (FR-5.4) Tj ET
+BT /F2 8.5 Tf 0.2 0.15 0.1 rg 103 466.89 Td (Dietary & Allergen Flags) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 466.89 Td (Tag dishes with allergen specifications \(Gluten-Free, Dairy-Free, Vegetarian, Nut-Free\) for customer safety.) Tj ET
+BT /F2 13 Tf 0.08 0.15 0.11 rg 48 421.89 Td (11. Functional Requirements: Staff Dossier & Reassignments \(FR-6\)) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 415.89 m 547.28 415.89 l S
+0.96 0.98 0.99 rg 0.85 0.9 0.95 RG 0.5 w 48 382.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.25 0.4 rg 56 396.89 Td (FR-6.1) Tj ET
+BT /F2 8.5 Tf 0.1 0.15 0.25 rg 103 396.89 Td (Comprehensive Staff Dossier) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 396.89 Td (Display tenure \(e.g. 3 Yrs 8 Mos\), joined date, lifetime tables served, and today's tip earnings.) Tj ET
+0.96 0.98 0.99 rg 0.85 0.9 0.95 RG 0.5 w 48 352.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.25 0.4 rg 56 366.89 Td (FR-6.2) Tj ET
+BT /F2 8.5 Tf 0.1 0.15 0.25 rg 103 366.89 Td (Personal & Emergency Records) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 366.89 Td (Emergency contacts, telephone, verified address, Blood Group \(e.g. O+\), DOB, and National Insurance ID.) Tj ET
+0.96 0.98 0.99 rg 0.85 0.9 0.95 RG 0.5 w 48 322.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.25 0.4 rg 56 336.89 Td (FR-6.3) Tj ET
+BT /F2 8.5 Tf 0.1 0.15 0.25 rg 103 336.89 Td (Certifications & Languages) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 336.89 Td (Track WSET wine sommelier awards, HACCP food hygiene certificates, Michelin silver service, and spoken languages.) Tj ET
+0.96 0.98 0.99 rg 0.85 0.9 0.95 RG 0.5 w 48 292.89 499.28 26 re B
+BT /F2 8.5 Tf 0.1 0.25 0.4 rg 56 306.89 Td (FR-6.4) Tj ET
+BT /F2 8.5 Tf 0.1 0.15 0.25 rg 103 306.89 Td (Portaled Table Reassignment) Tj ET
+BT /F1 8 Tf 0.3 0.3 0.3 rg 233 306.89 Td (ReassignTablesModal with full-screen backdrop, scroll lock, 12-table selection, and live guest capacity meter.) Tj ET
+
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 12 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> >>
+endobj
+14 0 obj
+<< /Length 4779 >>
+stream
+0.07 0.14 0.11 rg 48 805.89 499.28 18 re f
+BT /F2 8 Tf 0.7 0.9 0.8 rg 58 809.89 Td (DINESIGHT AI — ENTERPRISE RESTAURANT OPERATIONS) Tj ET
+BT /F1 8 Tf 1 1 1 rg 407.28 809.89 Td (IEEE 830 STANDARD SRS • v2.0) Tj ET
+0.8 0.85 0.8 RG 1 w 48 799.89 m 547.28 799.89 l S
+0.85 0.85 0.85 RG 0.5 w 48 36 m 547.28 36 l S
+BT /F1 8 Tf 0.5 0.5 0.5 rg 48 24 Td (Confidential • DineSight AI Architectural Specification • The Grand Bistro Operations) Tj ET
+BT /F2 8 Tf 0.2 0.4 0.3 rg 492.28 24 Td (Page 6 of 6) Tj ET
+BT /F2 14 Tf 0.08 0.15 0.11 rg 48 771.89 Td (12. Non-Functional Requirements & System Qualities \(NFR\)) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 765.89 m 547.28 765.89 l S
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 723.89 499.28 32 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 741.89 Td (Performance & SLA) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 178 741.89 Td (OSD millisecond clock update rate must exceed 30Hz; UI state transitions must complete within 220ms without layout jitter or scaling artifacts.) Tj ET
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 687.89 499.28 32 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 705.89 Td (Reliability & Uptime) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 178 705.89 Td (System must sustain 99.95% continuous operational uptime during peak commercial dinner service \(12:00 PM – 11:00 PM\).) Tj ET
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 651.89 499.28 32 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 669.89 Td (Client Persistence) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 178 669.89 Td (Table orders and 86'd stock toggles must persist safely in client localStorage under dinesight_table_orders_v1 across page reloads.) Tj ET
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 615.89 499.28 32 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 633.89 Td (Food Safety & Hygiene) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 178 633.89 Td (Incident logs and dispatch escalations must satisfy HACCP Level 3 standards and municipal health code traceability requirements.) Tj ET
+0.98 0.98 0.98 rg 0.88 0.88 0.88 RG 0.5 w 48 579.89 499.28 32 re B
+BT /F2 8.5 Tf 0.1 0.3 0.2 rg 56 597.89 Td (Accessibility & Responsive UI) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 178 597.89 Td (Full fluid responsiveness across desktop monitoring stations \(1920x1080\), POS terminals \(1024x768\), and manager tablets \(iPad Pro\).) Tj ET
+BT /F2 13 Tf 0.08 0.15 0.11 rg 48 548.89 Td (13. Verification, Quality Assurance & Test Criteria) Tj ET
+0.11 0.38 0.24 RG 1.5 w 48 542.89 m 547.28 542.89 l S
+0.97 0.98 0.97 rg 0.88 0.92 0.88 RG 0.5 w 48 511.89 499.28 22 re B
+BT /F2 8 Tf 0.1 0.35 0.2 rg 56 523.89 Td (TC-01) Tj ET
+BT /F2 8 Tf 0.15 0.2 0.25 rg 98 523.89 Td (5m Timer Countdown) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 208 523.89 Td (Accurate decrement across 1x, 10x, and 60x simulation speeds without drift.) Tj ET
+0.97 0.98 0.97 rg 0.88 0.92 0.88 RG 0.5 w 48 486.89 499.28 22 re B
+BT /F2 8 Tf 0.1 0.35 0.2 rg 56 498.89 Td (TC-02) Tj ET
+BT /F2 8 Tf 0.15 0.2 0.25 rg 98 498.89 Td (Greedy Dispatch) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 208 498.89 Td (Server with minimum active table load receives assignment on timer expiration.) Tj ET
+0.97 0.98 0.97 rg 0.88 0.92 0.88 RG 0.5 w 48 461.89 499.28 22 re B
+BT /F2 8 Tf 0.1 0.35 0.2 rg 56 473.89 Td (TC-03) Tj ET
+BT /F2 8 Tf 0.15 0.2 0.25 rg 98 473.89 Td (Billing Calculation) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 208 473.89 Td (Subtotal + 8.25% Tax + 10% Service + Tip precisely totals matching receipt invoice.) Tj ET
+0.97 0.98 0.97 rg 0.88 0.92 0.88 RG 0.5 w 48 436.89 499.28 22 re B
+BT /F2 8 Tf 0.1 0.35 0.2 rg 56 448.89 Td (TC-04) Tj ET
+BT /F2 8 Tf 0.15 0.2 0.25 rg 98 448.89 Td (86'd Menu Toggle) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 208 448.89 Td (Unavailable dishes immediately disable in AddItemModal with Sold Out badge.) Tj ET
+0.97 0.98 0.97 rg 0.88 0.92 0.88 RG 0.5 w 48 411.89 499.28 22 re B
+BT /F2 8 Tf 0.1 0.35 0.2 rg 56 423.89 Td (TC-05) Tj ET
+BT /F2 8 Tf 0.15 0.2 0.25 rg 98 423.89 Td (Modal Body Locking) Tj ET
+BT /F1 8 Tf 0.25 0.25 0.25 rg 208 423.89 Td (Opening modal locks body scroll \(overflow: hidden\) and portals to z-[100].) Tj ET
+0.96 0.98 0.97 rg 0.75 0.85 0.8 RG 1 w 48 70 499.28 90 re B
+BT /F2 9.5 Tf 0.1 0.3 0.2 rg 60 145 Td (ARCHITECTURAL APPROVAL & PRODUCTION SIGN-OFF) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 60 126 Td (Lead Systems Architect: Arthur Pendleton, FOH Director                     Date: November 07, 2026) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 60 110 Td (Executive Head Chef: Chef Jean-Luc Fontaine, Kitchen Operations         Status: APPROVED & DEPLOYED) Tj ET
+BT /F1 8.5 Tf 0.1 0.1 0.1 rg 60 94 Td (Verification Protocol: Automated TypeScript 7.0 Verification & Vite v8.3.6 Production Build \(0 Errors\)) Tj ET
+BT /F3 8 Tf 0.2 0.4 0.3 rg 60 78 Td (GitHub Repository: https://github.com/CodewithShahriar/DineSight-Ai \(Branch: main\)) Tj ET
+
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 14 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> >>
+endobj
+xref
+0 16
+0000000000 65535 f 
+0000000148 00000 n 
+0000000218 00000 n 
+0000000293 00000 n 
+0000000361 00000 n 
+0000004662 00000 n 
+0000004814 00000 n 
+0000010541 00000 n 
+0000010693 00000 n 
+0000015307 00000 n 
+0000015459 00000 n 
+0000022415 00000 n 
+0000022569 00000 n 
+0000028364 00000 n 
+0000028518 00000 n 
+0000033350 00000 n 
+trailer
+<< /Size 16 /Root 1 0 R >>
+startxref
+33504
+%%EOF
