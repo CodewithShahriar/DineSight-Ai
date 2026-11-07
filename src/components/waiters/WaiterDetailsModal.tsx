@@ -587,3 +587,4 @@ export const WaiterDetailsModal: React.FC<WaiterDetailsModalProps> = ({
     document.body
   )
 }
+

@@ -23,6 +23,7 @@ import { Badge } from '../components/shared/Badge'
 import { Card, CardHeader, CardTitle, CardDescription } from '../components/shared/Card'
 import { WaiterCard } from '../components/waiters/WaiterCard'
 import { WaiterDetailsModal } from '../components/waiters/WaiterDetailsModal'
+import { ReassignTablesModal } from '../components/waiters/ReassignTablesModal'
 import { useRestaurantData } from '../hooks/useRestaurantData'
 import { Waiter, SimulationSpeed, WaiterStatus } from '../types'
 import { getStatusColor } from '../utils'
@@ -35,6 +36,7 @@ export const WaiterManagement: React.FC = () => {
     acceptAssignment,
     startService,
     updateWaiterStatus,
+    reassignWaiterTables,
     simulationSpeed,
     setSimulationSpeed,
   } = useRestaurantData()
@@ -43,20 +45,10 @@ export const WaiterManagement: React.FC = () => {
   const [filterStatus, setFilterStatus] = useState<string>('all')
   const [selectedWaiter, setSelectedWaiter] = useState<Waiter | null>(null)
   const [selectedWaiterForDetails, setSelectedWaiterForDetails] = useState<Waiter | null>(null)
-  const [assignedTablesDraft, setAssignedTablesDraft] = useState<number[]>([])
   const [selectedTableToSeat, setSelectedTableToSeat] = useState<string>('T-01')
 
   const handleSelectWaiter = (w: Waiter) => {
     setSelectedWaiter(w)
-    setAssignedTablesDraft([...w.assignedTables])
-  }
-
-  const toggleTableDraft = (tableNum: number) => {
-    if (assignedTablesDraft.includes(tableNum)) {
-      setAssignedTablesDraft(assignedTablesDraft.filter((t) => t !== tableNum))
-    } else {
-      setAssignedTablesDraft([...assignedTablesDraft, tableNum].sort((a, b) => a - b))
-    }
   }
 
   const filteredWaiters = waiters.filter((w) => {
@@ -318,91 +310,13 @@ export const WaiterManagement: React.FC = () => {
       />
 
       {/* Reassignment Modal */}
-      {selectedWaiter && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-xs animate-in fade-in">
-          <div className="bg-white rounded-2xl border border-warm-200 shadow-floating max-w-lg w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6 space-y-4 animate-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-warm-100">
-              <div className="flex items-center space-x-3">
-                <img
-                  src={selectedWaiter.avatar}
-                  alt={selectedWaiter.name}
-                  className="w-11 h-11 rounded-full object-cover border border-warm-200"
-                />
-                <div>
-                  <div className="flex items-center space-x-2">
-                    <h3 className="text-sm font-bold text-charcoal-900">
-                      {selectedWaiter.name}
-                    </h3>
-                    <span className="font-mono text-[10px] font-bold px-1.5 py-0.2 rounded bg-charcoal-800 text-white">
-                      {selectedWaiter.employeeId}
-                    </span>
-                  </div>
-                  <p className="text-xs text-charcoal-500">
-                    {selectedWaiter.role} • {selectedWaiter.zone}
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={() => setSelectedWaiter(null)}
-                className="p-1 rounded-lg text-charcoal-400 hover:text-charcoal-700 hover:bg-warm-100"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div>
-              <p className="text-xs text-charcoal-600 mb-2">
-                Toggle tables to reallocate floor coverage. Tables with active service will update their assigned server.
-              </p>
-
-              <div className="grid grid-cols-4 gap-2 pt-2">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => {
-                  const isAssigned = assignedTablesDraft.includes(num)
-                  return (
-                    <button
-                      key={num}
-                      onClick={() => toggleTableDraft(num)}
-                      className={`p-3 rounded-xl border text-center transition-all ${
-                        isAssigned
-                          ? 'bg-forest-50 border-forest-500 text-forest-900 font-bold shadow-xs'
-                          : 'bg-warm-50/70 border-warm-200 text-charcoal-600 hover:bg-warm-100'
-                      }`}
-                    >
-                      <div className="text-xs font-mono">T-{String(num).padStart(2, '0')}</div>
-                      <div className="text-[10px] mt-0.5">
-                        {isAssigned ? 'Assigned' : 'Available'}
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-warm-100 flex items-center justify-end space-x-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setSelectedWaiter(null)}
-              >
-                Cancel
-              </Button>
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => {
-                  selectedWaiter.assignedTables = assignedTablesDraft
-                  selectedWaiter.assignedTableIds = assignedTablesDraft.map(
-                    (n) => `T-${String(n).padStart(2, '0')}`
-                  )
-                  setSelectedWaiter(null)
-                }}
-              >
-                Save Shift Reassignment
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ReassignTablesModal
+        waiter={selectedWaiter}
+        isOpen={!!selectedWaiter}
+        tables={tables}
+        onClose={() => setSelectedWaiter(null)}
+        onSave={reassignWaiterTables}
+      />
     </div>
   )
 }

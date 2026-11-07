@@ -239,23 +239,24 @@ export const WaiterCard: React.FC<WaiterCardProps> = ({
         </div>
       </div>
 
-      {/* Card Action footer */}
-      <div className="pt-3 border-t border-warm-100 flex items-center space-x-2">
+      {/* Card Action footer — Stacked with matching full-width button size */}
+      <div className="pt-3 border-t border-warm-100 flex flex-col space-y-2">
         <button
+          type="button"
           onClick={() => onViewDetails?.(waiter)}
-          className="flex-1 py-2 px-2.5 rounded-xl bg-forest-50 hover:bg-forest-100 text-forest-800 border border-forest-200/90 font-bold text-xs transition-colors flex items-center justify-center space-x-1.5 shadow-2xs cursor-pointer"
+          className="w-full py-2.5 px-3 rounded-xl bg-forest-50 hover:bg-forest-100 text-forest-900 border border-forest-300 font-bold text-xs transition-colors flex items-center justify-center space-x-2 shadow-2xs cursor-pointer"
         >
-          <IdCard className="w-3.5 h-3.5 text-forest-700" />
+          <IdCard className="w-4 h-4 text-forest-700" />
           <span>Full Profile & Dossier</span>
         </button>
 
         <button
+          type="button"
           onClick={() => onSelect?.(waiter)}
-          className="py-2 px-3 rounded-xl border border-warm-300 hover:bg-warm-100 text-charcoal-700 font-semibold text-xs transition-colors flex items-center justify-center space-x-1 shadow-2xs cursor-pointer"
-          title="Reassign dining sections & tables"
+          className="w-full py-2.5 px-3 rounded-xl bg-white hover:bg-warm-100 text-charcoal-800 border border-warm-300 font-bold text-xs transition-colors flex items-center justify-center space-x-2 shadow-2xs cursor-pointer"
         >
-          <LayoutGrid className="w-3.5 h-3.5 text-charcoal-600" />
-          <span className="hidden sm:inline">Reassign</span>
+          <LayoutGrid className="w-4 h-4 text-charcoal-600" />
+          <span>Reassign Sections & View Load</span>
         </button>
       </div>
     </Card>

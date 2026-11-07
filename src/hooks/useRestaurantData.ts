@@ -460,6 +460,68 @@ export function useRestaurantData() {
     setLastActivityMessage(`Waiter availability updated to ${newStatus.toUpperCase()}.`)
   }, [])
 
+  // Reassign table allocations for a waiter with synchronized table & waiter state
+  const reassignWaiterTables = useCallback(
+    (waiterId: string, assignedTableNumbers: number[]) => {
+      const assignedTableIds = assignedTableNumbers.map(
+        (n) => `T-${String(n).padStart(2, '0')}`
+      )
+
+      setWaiters((prev) => {
+        const targetWaiter = prev.find((w) => w.id === waiterId)
+        const targetName = targetWaiter ? targetWaiter.name : 'Server'
+
+        // Synchronize tables as well
+        setTables((prevTables) =>
+          prevTables.map((tbl) => {
+            const num = parseInt(tbl.id.replace('T-', ''), 10)
+            if (assignedTableNumbers.includes(num)) {
+              return {
+                ...tbl,
+                assignedWaiterId: waiterId,
+                assignedWaiterName: targetName,
+              }
+            } else if (tbl.assignedWaiterId === waiterId) {
+              return {
+                ...tbl,
+                assignedWaiterId: '',
+                assignedWaiterName: 'Unassigned',
+              }
+            }
+            return tbl
+          })
+        )
+
+        return prev.map((w) => {
+          if (w.id === waiterId) {
+            return {
+              ...w,
+              assignedTables: assignedTableNumbers,
+              assignedTableIds,
+            }
+          }
+          // Remove tables that were moved to target waiter
+          const filteredNums = w.assignedTables.filter(
+            (tNum) => !assignedTableNumbers.includes(tNum)
+          )
+          const filteredIds = (w.assignedTableIds || []).filter(
+            (tId) => !assignedTableIds.includes(tId)
+          )
+          return {
+            ...w,
+            assignedTables: filteredNums,
+            assignedTableIds: filteredIds,
+          }
+        })
+      })
+
+      setLastActivityMessage(
+        `Floor coverage updated: ${assignedTableNumbers.length} tables allocated.`
+      )
+    },
+    []
+  )
+
   const acknowledgeAlert = useCallback((eventId: string) => {
     setEvents((prev) =>
       prev.map((evt) => (evt.id === eventId ? { ...evt, status: 'in_progress' } : evt))
@@ -554,6 +616,7 @@ export function useRestaurantData() {
     acceptAssignment,
     startService,
     updateWaiterStatus,
+    reassignWaiterTables,
     lastActivityMessage,
     totalTables,
     availableTables,
