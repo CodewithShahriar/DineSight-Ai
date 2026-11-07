@@ -48,7 +48,7 @@ const navItems = [
     icon: Receipt,
   },
   {
-    name: 'Kitchen 86\'d & Menu Stock',
+    name: 'Kitchen 86\'d',
     path: '/menu-stock',
     icon: ChefHat,
   },
@@ -91,9 +91,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
       )}
 
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 flex flex-col w-64 bg-charcoal-900 border-r border-charcoal-800 text-charcoal-200 transition-transform duration-300 ease-in-out lg:translate-x-0 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed top-0 bottom-0 left-0 z-50 flex flex-col w-64 bg-charcoal-900 border-r border-charcoal-800 text-charcoal-200 transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         {/* Brand / Logo Header */}
         <div className="flex items-center justify-between h-16 px-5 border-b border-charcoal-800">
@@ -132,10 +131,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={onCloseMobile}
                 end={item.path === '/'}
                 className={({ isActive }) =>
-                  `group relative flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors duration-150 ${
-                    isActive
-                      ? 'bg-forest-900/90 text-white shadow-xs border-forest-700/60 font-semibold'
-                      : 'text-charcoal-400 border-transparent hover:text-charcoal-100 hover:bg-charcoal-800/60'
+                  `group relative flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors duration-150 ${isActive
+                    ? 'bg-forest-900/90 text-white shadow-xs border-forest-700/60 font-semibold'
+                    : 'text-charcoal-400 border-transparent hover:text-charcoal-100 hover:bg-charcoal-800/60'
                   }`
                 }
               >
@@ -143,18 +141,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   <>
                     {/* Active accent pill on the left border */}
                     <span
-                      className={`absolute left-0 top-2 bottom-2 w-1 rounded-r-md transition-opacity duration-200 ${
-                        isActive ? 'bg-emerald-400 opacity-100' : 'opacity-0'
-                      }`}
+                      className={`absolute left-0 top-2 bottom-2 w-1 rounded-r-md transition-opacity duration-200 ${isActive ? 'bg-emerald-400 opacity-100' : 'opacity-0'
+                        }`}
                     />
 
                     <div className="flex items-center space-x-3">
                       <Icon
-                        className={`w-4 h-4 transition-colors duration-150 ${
-                          isActive
+                        className={`w-4 h-4 transition-colors duration-150 ${isActive
                             ? 'text-emerald-400'
                             : 'text-charcoal-400 group-hover:text-charcoal-200'
-                        }`}
+                          }`}
                       />
                       <span>{item.name}</span>
                     </div>
@@ -174,11 +170,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       )}
 
                       <ChevronRight
-                        className={`w-3.5 h-3.5 text-emerald-400 transition-all duration-200 ${
-                          isActive
+                        className={`w-3.5 h-3.5 text-emerald-400 transition-all duration-200 ${isActive
                             ? 'opacity-100 translate-x-0'
                             : 'opacity-0 -translate-x-1 pointer-events-none'
-                        }`}
+                          }`}
                       />
                     </div>
                   </>

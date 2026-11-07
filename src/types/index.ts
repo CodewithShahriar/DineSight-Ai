@@ -79,6 +79,30 @@ export interface RestaurantTable {
 
 export type WaiterStatus = 'active' | 'busy' | 'on_break' | 'off_duty'
 
+export interface WaiterPersonalDetails {
+  email: string
+  joinedDate: string // e.g. 'March 15, 2023'
+  tenure: string // e.g. '3 Years, 8 Months'
+  emergencyContact: {
+    name: string
+    relation: string
+    phone: string
+  }
+  bloodGroup: string // e.g. 'O+ Positive'
+  dateOfBirth?: string // e.g. 'June 14, 1994 (30 yrs)'
+  address: string
+  workPermitStatus: string // e.g. 'Verified • Full Right to Work'
+  contractType: string // e.g. 'Full-Time Permanent (40h/wk)'
+  taxId: string // e.g. 'GB-NI-892401-A'
+  languages: string[]
+  certifications: string[]
+  tipsEarnedToday: number
+  lifetimeTablesServed: number
+  satisfactionRate: number // e.g. 99.2 (%)
+  supervisorNotes?: string
+  badges?: string[]
+}
+
 export interface Waiter {
   id: string
   employeeId: string // e.g. 'EMP-101'
@@ -97,6 +121,7 @@ export interface Waiter {
   shift: string
   complianceRate: number
   phone: string
+  details?: WaiterPersonalDetails
 }
 
 export type SimulationSpeed = 1 | 10 | 60

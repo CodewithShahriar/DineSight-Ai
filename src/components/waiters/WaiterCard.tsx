@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Play,
   UserCheck,
+  IdCard,
 } from 'lucide-react'
 import { Waiter, WaiterStatus } from '../../types'
 import { Card } from '../shared/Card'
@@ -20,6 +21,7 @@ import { Button } from '../shared/Button'
 interface WaiterCardProps {
   waiter: Waiter
   onSelect?: (waiter: Waiter) => void
+  onViewDetails?: (waiter: Waiter) => void
   onUpdateStatus?: (waiterId: string, status: WaiterStatus) => void
   onAcceptPending?: (tableId: string) => void
   onStartService?: (tableId: string) => void
@@ -28,6 +30,7 @@ interface WaiterCardProps {
 export const WaiterCard: React.FC<WaiterCardProps> = ({
   waiter,
   onSelect,
+  onViewDetails,
   onUpdateStatus,
   onAcceptPending,
   onStartService,
@@ -40,11 +43,15 @@ export const WaiterCard: React.FC<WaiterCardProps> = ({
         {/* Header: Employee ID, Name, Role, Availability Status */}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-3.5 border-b border-warm-100">
           <div className="flex items-center space-x-3 min-w-0">
-            <div className="relative shrink-0">
+            <div
+              className="relative shrink-0 cursor-pointer group"
+              onClick={() => onViewDetails?.(waiter)}
+              title="Click to view full personal dossier & history"
+            >
               <img
                 src={waiter.avatar}
                 alt={waiter.name}
-                className="w-12 h-12 sm:w-13 sm:h-13 rounded-full object-cover border-2 border-warm-200 shadow-xs"
+                className="w-12 h-12 sm:w-13 sm:h-13 rounded-full object-cover border-2 border-warm-200 shadow-xs group-hover:border-forest-500 transition-colors"
               />
               <span
                 className={`absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full border-2 border-white ${
@@ -62,10 +69,21 @@ export const WaiterCard: React.FC<WaiterCardProps> = ({
 
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-1.5">
-                <h4 className="text-sm font-bold text-charcoal-900 truncate">{waiter.name}</h4>
+                <h4
+                  onClick={() => onViewDetails?.(waiter)}
+                  className="text-sm font-bold text-charcoal-900 truncate hover:text-forest-700 cursor-pointer transition-colors"
+                  title="Click to view full profile dossier"
+                >
+                  {waiter.name}
+                </h4>
                 <span className="font-mono text-[10px] font-bold px-1.5 py-0.2 rounded bg-charcoal-800 text-white shrink-0">
                   {waiter.employeeId}
                 </span>
+                {waiter.details?.tenure && (
+                  <span className="text-[10px] font-semibold px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 shrink-0">
+                    {waiter.details.tenure}
+                  </span>
+                )}
               </div>
               <p className="text-xs text-charcoal-500 font-medium mt-0.5 truncate">{waiter.role}</p>
               <div className="flex items-center space-x-1 mt-0.5 text-[11px] text-charcoal-400">
@@ -222,15 +240,23 @@ export const WaiterCard: React.FC<WaiterCardProps> = ({
       </div>
 
       {/* Card Action footer */}
-      <div className="pt-3 border-t border-warm-100 flex items-center justify-between">
-        <Button
-          size="sm"
-          variant="outline"
-          className="text-xs w-full"
-          onClick={() => onSelect?.(waiter)}
+      <div className="pt-3 border-t border-warm-100 flex items-center space-x-2">
+        <button
+          onClick={() => onViewDetails?.(waiter)}
+          className="flex-1 py-2 px-2.5 rounded-xl bg-forest-50 hover:bg-forest-100 text-forest-800 border border-forest-200/90 font-bold text-xs transition-colors flex items-center justify-center space-x-1.5 shadow-2xs cursor-pointer"
         >
-          Reassign Sections & View Load
-        </Button>
+          <IdCard className="w-3.5 h-3.5 text-forest-700" />
+          <span>Full Profile & Dossier</span>
+        </button>
+
+        <button
+          onClick={() => onSelect?.(waiter)}
+          className="py-2 px-3 rounded-xl border border-warm-300 hover:bg-warm-100 text-charcoal-700 font-semibold text-xs transition-colors flex items-center justify-center space-x-1 shadow-2xs cursor-pointer"
+          title="Reassign dining sections & tables"
+        >
+          <LayoutGrid className="w-3.5 h-3.5 text-charcoal-600" />
+          <span className="hidden sm:inline">Reassign</span>
+        </button>
       </div>
     </Card>
   )

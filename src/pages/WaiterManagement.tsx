@@ -22,6 +22,7 @@ import { Button } from '../components/shared/Button'
 import { Badge } from '../components/shared/Badge'
 import { Card, CardHeader, CardTitle, CardDescription } from '../components/shared/Card'
 import { WaiterCard } from '../components/waiters/WaiterCard'
+import { WaiterDetailsModal } from '../components/waiters/WaiterDetailsModal'
 import { useRestaurantData } from '../hooks/useRestaurantData'
 import { Waiter, SimulationSpeed, WaiterStatus } from '../types'
 import { getStatusColor } from '../utils'
@@ -41,6 +42,7 @@ export const WaiterManagement: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [filterStatus, setFilterStatus] = useState<string>('all')
   const [selectedWaiter, setSelectedWaiter] = useState<Waiter | null>(null)
+  const [selectedWaiterForDetails, setSelectedWaiterForDetails] = useState<Waiter | null>(null)
   const [assignedTablesDraft, setAssignedTablesDraft] = useState<number[]>([])
   const [selectedTableToSeat, setSelectedTableToSeat] = useState<string>('T-01')
 
@@ -295,12 +297,25 @@ export const WaiterManagement: React.FC = () => {
             key={waiter.id}
             waiter={waiter}
             onSelect={handleSelectWaiter}
+            onViewDetails={(w) => setSelectedWaiterForDetails(w)}
             onUpdateStatus={updateWaiterStatus}
             onAcceptPending={acceptAssignment}
             onStartService={startService}
           />
         ))}
       </div>
+
+      {/* Comprehensive Waiter Profile & Dossier Modal */}
+      <WaiterDetailsModal
+        waiter={selectedWaiterForDetails}
+        isOpen={!!selectedWaiterForDetails}
+        onClose={() => setSelectedWaiterForDetails(null)}
+        onUpdateStatus={updateWaiterStatus}
+        onOpenReassign={(w) => {
+          setSelectedWaiterForDetails(null)
+          handleSelectWaiter(w)
+        }}
+      />
 
       {/* Reassignment Modal */}
       {selectedWaiter && (
